@@ -24,8 +24,8 @@ export default function Nav() {
           strokeLinecap="round"
         />
       </svg>
-      <div>
-        <img src={art1} alt="Profile picture" />
+      <div className="w-[50px] h-[50px]">
+        <img src={art1} alt="Profile picture" className="rounded-full" />
       </div>
       <h1 className="text-lg font-bold">
         <a href="/">Hua.</a>
