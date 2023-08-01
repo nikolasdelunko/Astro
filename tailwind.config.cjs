@@ -25,7 +25,7 @@ module.exports = {
         stickerPage2cardMob:
           "url('/src/Components/Theme/Img/mobile/Frame7.png')",
         Frame6: "url('/src/Components/Theme/Img/Frame6.png')",
-        samurai: "url('/src/Components/Theme/samurai.png')",
+        samurai: "url('/src/Components/Theme/Img/samurai.png')",
         headImage: "url('/src/Components/Theme/Img/background2.png')",
         variant1: "url('/src/Components/Theme/Img/variant1.png')",
         variant2: "url('/src/Components/Theme/Img/Variant2.png')",
