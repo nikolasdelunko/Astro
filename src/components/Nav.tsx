@@ -30,7 +30,9 @@ export default function Nav() {
       <h1 className="text-lg font-bold">
         <a href="/">Hua.</a>
       </h1>
-      <div className="space-y-1 cursor-pointer">
+      <div className="space-y-1 cursor-pointer xl:hidden" onClick={()=>{
+				setToggle(!toggle)
+			}}>
         <span className="block h-0.5 w-8 bg-black"></span>
         <span className="block h-0.5 w-6 bg-black"></span>
         <span className="block h-0.5 w-4 bg-black"></span>
