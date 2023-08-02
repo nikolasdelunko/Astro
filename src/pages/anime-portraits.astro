@@ -8,6 +8,9 @@ import Before from "../components/Theme/icons/Before";
 import After from "../components/Theme/icons/After";
 // import Bgellips from "../components/Theme/Icons/Bgellips"
 import PhotoCard from "../components/Anime-portraits/PhotoCard"
+import HowToConvert from "../components/Anime-portraits/HowToConvert"
+import WorkGalery from "../components/Anime-portraits/WorkGalery"
+import Testimonial from "../components/Anime-portraits/Testimonial"
 ---
 
 <div class="bg-main-color m-0 relative">
@@ -64,14 +67,14 @@ import PhotoCard from "../components/Anime-portraits/PhotoCard"
 					/>
 				</div>
 				<div class="z-[2] absolute top-[17em] right-[14em] max-[420px]:top-[7em] max-[420px]:right-[12em]">
-					<!-- <div>
+					<div class="xl:hidden">
 						<PhotoCard
 							width={"74px"}
 							height={"109px"}
 							image={"/images/before1.jpg\r"}
 						/>
-					</div> -->
-					<div>
+					</div>
+					<div class="xl:visable">
 						<PhotoCard
 							width={"153px"}
 							height={"224px"}
@@ -138,6 +141,14 @@ import PhotoCard from "../components/Anime-portraits/PhotoCard"
 		</div>
 	</div>
 </div>
-
+<div class="max-[420px]:px-[10%]">
+	<HowToConvert />
+</div>
+<div class="overflow-hidden max-[420px]:px-[10%]">
+	<WorkGalery />
+</div>
+<div>
+	<Testimonial />
+</div>
 
 <a href="/">go to Main</a>
