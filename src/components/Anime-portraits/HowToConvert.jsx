@@ -1,6 +1,6 @@
 import React from "react";
 import ConvertStep from "./Components/ConvertStep";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import useResize from "../../utils/customHooks/use-resize";
 
 const data = [
@@ -14,8 +14,8 @@ const data = [
 ];
 
 export default function HowToConvert() {
-  const openedCard = useSelector((state) => state.helpers.openCard);
-  const mob = useResize();
+  // const openedCard = useSelector((state) => state.helpers.openCard);
+  // const mob = useResize();
 
   //! need delete double click
 
@@ -33,10 +33,10 @@ export default function HowToConvert() {
       </div>
       <div
         className="flex gap-[32px] mx-[64px] max-[420px]:mx-[-15px] justify-center max-[420px]:gap-[12px] overflow-hidden"
-        style={{
-          paddingRight: `${openedCard === 4 && mob ? "100px" : "0px"}`,
-          paddingLeft: `${openedCard === 1 && mob <= 420 ? "100px" : "0px"}`,
-        }}
+        // style={{
+        //   paddingRight: `${openedCard === 4 && mob ? "100px" : "0px"}`,
+        //   paddingLeft: `${openedCard === 1 && mob <= 420 ? "100px" : "0px"}`,
+        // }}
       >
         {data.map((el) => (
           <ConvertStep

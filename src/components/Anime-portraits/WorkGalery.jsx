@@ -1,5 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+// import Swiper from "swiper";
+// import { SwiperSlide } from "swiper/modules";
 import "swiper/css";
 import "../Testimonials/styles.css";
 import PhotoCard from "./Components/PhotoCard";
@@ -31,10 +33,10 @@ export default function WorkGalery() {
         </div>
       </div>
       <Swiper
-        className="max-[420px]:pb-[176px]"
+        className="max-[420px]:pb-[176px] mySwiper"
         watchSlidesProgress={true}
         slidesPerView={5}
-        className="mySwiper"
+        // className=""
         breakpoints={{
           "@0.00": {
             slidesPerView: 2,

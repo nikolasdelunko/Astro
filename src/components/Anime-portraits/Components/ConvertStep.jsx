@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setOpenCard } from "../../../store/helpers/helpersSlice";
+// import { useDispatch } from "react-redux";
+// import { setOpenCard } from "../../../store/helpers/helpersSlice";
 
 export default function ({ step, value }) {
   const [open, setOpen] = useState(false);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const openCurentCard = () => {
     setOpen(true);
-    dispatch(setOpenCard(step));
+    // dispatch(setOpenCard(step));
   };
 
   const closeCurrentCard = () => {
     setOpen(false);
-    dispatch(setOpenCard(null));
+    // dispatch(setOpenCard(null));
   };
   if (open) {
     return (

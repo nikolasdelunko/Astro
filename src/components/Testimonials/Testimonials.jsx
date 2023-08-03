@@ -34,10 +34,10 @@ export default function Testimonials() {
         </h2>
       </div>
       <Swiper
-        className="max-[420px]:pb-[176px]"
+        className="max-[420px]:pb-[176px] mySwiper"
         watchSlidesProgress={true}
         slidesPerView={1}
-        className="mySwiper"
+        // className="" //!
         breakpoints={{
           100: { slidesPerView: 1, spaceBetween: 5 },
           1400: { slidesPerView: 2, spaceBetween: 20 },

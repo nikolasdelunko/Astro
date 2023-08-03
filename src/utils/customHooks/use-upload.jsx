@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { snackActions } from "./useSnackBarUtils";
 import { setListPhoto } from "../../store/stickers/stickersSlice";
-import { uploadStickers } from "../../utils/Api/uploadApi";
-import { GetSticker } from "../../utils/Api/stickerApi";
+import { uploadStickers } from "../Api/uploadApi";
+import { GetSticker } from "../Api/stickerApi";
 
 const useUpload = () => {
   const [drag, setDrag] = useState(false);

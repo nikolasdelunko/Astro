@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ArrowNext from "../Theme/Icons/ArrowNext";
-import ArrowPrev from "../Theme/Icons/ArrowPrev";
+import ArrowNext from "../Theme/icons/ArrowNext";
+import ArrowPrev from "../Theme/icons/ArrowPrev";
 import Card from "../Testimonials/Card";
 
 const data = [
