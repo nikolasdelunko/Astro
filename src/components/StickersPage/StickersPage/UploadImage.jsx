@@ -1,19 +1,22 @@
 import React, { useEffect } from "react";
-import { link } from "../../utils/Api/url";
-import Regenerate from "../Theme/Icons/Regenerate";
-import UploadImageArrowRight from "../Theme/Icons/UploadImageArrowRight";
-import UploadImageArrowLeft from "../Theme/Icons/UploadImageArrowLeft";
-import InfoUploadImage from "../Theme/Icons/InfoUploadImage";
-import useUpload from "../../utils/customHooks/use-upload";
+import { link } from "../../../utils/Api/url";
+import Regenerate from "../../Theme/icons/Regenerate";
+import UploadImageArrowRight from "../../Theme/icons/UploadImageArrowRight";
+import UploadImageArrowLeft from "../../Theme/icons/UploadImageArrowLeft";
+import InfoUploadImage from "../../Theme/icons/InfoUploadImage";
+import useUpload from "../../../utils/customHooks/use-upload";
 import { useDispatch, useSelector } from "react-redux";
-import { setModalSticker } from "../../store/helpers/helpersSlice";
-import { DeletePhoto } from "../../utils/Api/stickerApi";
+// import { setModalSticker } from "../../store/helpers/helpersSlice";
+import { DeletePhoto } from "../../../utils/Api/stickerApi";
 
 export default function UploadedImage({ photo }) {
   const page = "1/1";
-  const listPhoto = useSelector((state) => state.stickers.listPhoto);
-  const pay = useSelector((state) => state.stickers.pay);
-  const dispatch = useDispatch();
+  // const listPhoto = useSelector((state) => state.stickers.listPhoto);
+  // const pay = useSelector((state) => state.stickers.pay);
+	const listPhoto = []
+	const pay = false
+  // const dispatch = useDispatch();
+	//! dispatch
 
   const {
     dropHandler,
@@ -123,7 +126,7 @@ export default function UploadedImage({ photo }) {
             <button
               className="btn px-[16px] py-[10px] mt-[34px] text-[14px]"
               onClick={() => {
-                dispatch(setModalSticker(true));
+                // dispatch(setModalSticker(true));
               }}
             >
               Download

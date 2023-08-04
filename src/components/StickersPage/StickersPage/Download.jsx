@@ -20,12 +20,16 @@ export default function Download() {
         <div className="flex items-center justify-center gap-[16px]">
           <div className="cursor-pointer">
             {/* <NavLink to={"/stickers-page-upload"}> */}
-            <img src={"/Img/download-appstore.png"} />
+            <a href="/stickers-page-upload">
+              <img src={"/Img/download-appstore.png"} />
+            </a>
             {/* </NavLink> */}
           </div>
           <div className="cursor-pointer">
             {/* <NavLink to={"/stickers-page-upload"}> */}
-            <img src={"/Img/download-gplay.png"} />
+            <a href="/stickers-page-upload">
+              <img src={"/Img/download-gplay.png"} />
+            </a>
             {/* </NavLink> */}
           </div>
         </div>

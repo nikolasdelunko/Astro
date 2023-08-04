@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
-import DropDownUploadImg from "../../Theme/Icons/DropDownUploadImg";
-import { link } from "../../../utils/Api/url";
-import Regenerate from "../../Theme/Icons/Regenerate";
-import UploadImageArrowRight from "../../Theme/Icons/UploadImageArrowRight";
-import UploadImageArrowLeft from "../../Theme/Icons/UploadImageArrowLeft";
-import InfoUploadImage from "../../Theme/Icons/InfoUploadImage";
-import useUpload from "../../../utils/customHooks/use-upload";
+import DropDownUploadImg from "../../../Theme/icons/DropDownUploadImg";
+import { link } from "../../../../utils/Api/url";
+import Regenerate from "../../../Theme/icons/Regenerate";
+import UploadImageArrowRight from "../../../Theme/icons/UploadImageArrowRight";
+import UploadImageArrowLeft from "../../../Theme/icons/UploadImageArrowLeft";
+import InfoUploadImage from "../../../Theme/icons/InfoUploadImage";
+import useUpload from "../../../../utils/customHooks/use-upload";
 // import { useDispatch } from "react-redux";
 // import { setModalSticker } from "../../../store/helpers/helpersSlice";
-import DownloadIco from "../../Theme/Icons/DownloadIco";
+import DownloadIco from "../../../Theme/icons/DownloadIco";
 
 export default function UploadImageMob({ photo }) {
   const filePiker = useRef(null);

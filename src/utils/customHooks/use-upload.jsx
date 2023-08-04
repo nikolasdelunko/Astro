@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { snackActions } from "./useSnackBarUtils";
-import { setListPhoto } from "../../store/stickers/stickersSlice";
+// import { setListPhoto } from "../../store/stickers/stickersSlice";
 import { uploadStickers } from "../Api/uploadApi";
 import { GetSticker } from "../Api/stickerApi";
 
 const useUpload = () => {
   const [drag, setDrag] = useState(false);
   const [listStickers, setListStickers] = useState();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  //! dispatch
 
   const uploadImage = async () => {
     const resStickers = await GetSticker();
@@ -30,7 +31,7 @@ const useUpload = () => {
         }
         const response = await uploadStickers(formData);
         const fileUrls = response.data;
-        dispatch(setListPhoto({ thumbnail: fileUrls }));
+        // dispatch(setListPhoto({ thumbnail: fileUrls }));
         if (response.status === 200) {
           snackActions.success("You have successfully uploaded the image");
           uploadImage();

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import UploadIco from "../Theme/Icons/Upload";
-import useResize from "../../utils/customHooks/use-resize";
-import useUpload from "../../utils/customHooks/use-upload";
+import UploadIco from "../../Theme/Icons/Upload";
+import useResize from "../../../utils/customHooks/use-resize";
+import useUpload from "../../../utils/customHooks/use-upload";
 
 export default function UploadImage() {
   const filePiker = useRef(null);
