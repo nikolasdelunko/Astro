@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import UploadIco from "../../Theme/Icons/Upload";
+import UploadIco from "../../Theme/icons/Upload";
 import useResize from "../../../utils/customHooks/use-resize";
 import useUpload from "../../../utils/customHooks/use-upload";
 
