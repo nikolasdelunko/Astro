@@ -1,11 +1,11 @@
 import React from "react";
 import "../../Theme/Img/mobile/ExampleSticker.png";
-import { setModalStickerMobile } from "../../../store/helpers/helpersSlice";
-import { useDispatch } from "react-redux";
+// import { setModalStickerMobile } from "../../../store/helpers/helpersSlice";
+// import { useDispatch } from "react-redux";
 
 export default function HeaderMob() {
-  const dispatch = useDispatch();
-
+  // const dispatch = useDispatch();
+//! dispatch
   //!  need to change real data
   return (
     <div className="pt-[116px] px-[5%] pb-[300px] h-[1200px]">

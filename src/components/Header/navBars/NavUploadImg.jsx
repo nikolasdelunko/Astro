@@ -1,6 +1,6 @@
 import React from "react";
-import StickerPal from "../../Theme/Icons/StickerPalLogo";
-import Logo from "../../Theme/Icons/Logo";
+import StickerPal from "../../Theme/icons/StickerPalLogo";
+import Logo from "../../Theme/icons/Logo";
 import { useSelector } from "react-redux";
 
 export default function NavUploadImg() {

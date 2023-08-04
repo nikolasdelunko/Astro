@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+//! NavLink
 
 export default function HowItsWorks() {
   return (
@@ -22,7 +23,7 @@ export default function HowItsWorks() {
       <div className="flex justify-between px-[10%]">
         <div>
           <img
-            src={require("../Theme/Img/Step11.png")}
+            src={"/Img/Step11.png"}
             alt="HowItsWork leftSide"
           />
         </div>
@@ -36,9 +37,9 @@ export default function HowItsWorks() {
             <span className="text-[#EBB268]">$4.99</span> for each style you
             choose.
           </p>
-          <NavLink to={"/stickers-page-upload"}>
+          {/* <NavLink to={"/stickers-page-upload"}> */}
             <button className="btn flex justify-start">Create Sticker</button>
-          </NavLink>
+          {/* </NavLink> */}
         </div>
       </div>
       <div className="flex justify-between px-[10%] pb-[119px]">
@@ -51,15 +52,15 @@ export default function HowItsWorks() {
             the picture that fits your idea from your local file or drag & drop
             into the surface.
           </p>
-          <NavLink to={"/stickers-page-upload"}>
+          {/* <NavLink to={"/stickers-page-upload"}> */}
             <button className="btn flex items-center justify-center">
               Create Sticker
             </button>
-          </NavLink>
+          {/* </NavLink> */}
         </div>
         <div>
           <img
-            src={require("../Theme/Img/Step21.png")}
+            src={"/Img/Step21.png"}
             alt="HowItsWork RightSide"
           />
         </div>
@@ -67,7 +68,7 @@ export default function HowItsWorks() {
       <div className="flex justify-between px-[10%] pb-[132px]">
         <div>
           <img
-            src={require("../Theme/Img/Step31.png")}
+            src={"/Img/Step31.png"}
             alt="HowItsWork leftSide"
           />
         </div>
@@ -80,9 +81,9 @@ export default function HowItsWorks() {
             your image with various scenarios of different facial expressions
             such as (laughing, crying, giving flower, blowing kisses, etc)
           </p>
-          <NavLink to={"/stickers-page-upload"}>
+          {/* <NavLink to={"/stickers-page-upload"}> */}
             <button className="btn flex justify-start">Create Sticker</button>
-          </NavLink>
+          {/* </NavLink> */}
         </div>
       </div>
     </div>

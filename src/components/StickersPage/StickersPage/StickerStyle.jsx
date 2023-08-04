@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+//! NavLink
 
 export default function StickerStyle() {
   return (
@@ -27,12 +28,12 @@ export default function StickerStyle() {
           <div className="bg-gradient-to-b from-[rgba(0, 0, 0, 0.42)] via-transparent to-transparent rounded-tl-8 rounded-tr-8 h-[371px] w-[100%] relative">
             <img
               className="rounded-tl-[8px] rounded-tr-[8px]"
-              src={require("../Theme/Img/after1.png")}
+              src={"/Img/after1.png"}
               alt="DownloadImage"
             />
             <img
               className="absolute bottom-[16px] left-[16px]"
-              src={require("../Theme/Img/before1.png")}
+              src={"/Img/before1.png"}
               alt="DownloadImage"
             />
           </div>
@@ -43,23 +44,23 @@ export default function StickerStyle() {
             <p className="font-textBtn text-[16px] text-[#767676]">
               Convert your photo to cartoon style sticker
             </p>
-            <NavLink to={"/stickers-page-upload"}>
+            {/* <NavLink to={"/stickers-page-upload"}> */}
               <button className="btn flex items-center justify-center w-[100%] mt-[24px] mb-[16px]">
                 Create Sticker
               </button>
-            </NavLink>
+            {/* </NavLink> */}
           </div>
         </div>
         <div className="box-border w-[419px]  bg-gray-200 rounded-lg">
           <div className="bg-gradient-to-b from-[rgba(0, 0, 0, 0.42)] via-transparent to-transparent rounded-tl-8 rounded-tr-8 h-[371px] w-[100%] relative">
             <img
               className="rounded-tl-[8px] rounded-tr-[8px]"
-              src={require("../Theme/Img/download1.png")}
+              src={"/Img/download1.png"}
               alt="DownloadImage"
             />
             <img
               className="absolute bottom-[16px] left-[16px]"
-              src={require("../Theme/Img/before12.png")}
+              src={"/Img/before12.png"}
               alt="DownloadImage"
             />
           </div>
@@ -70,11 +71,11 @@ export default function StickerStyle() {
             <p className="font-textBtn text-[16px] text-[#767676]">
               Convert your photo to cartoon style sticker
             </p>
-            <NavLink to={"/stickers-page-upload"}>
+            {/* <NavLink to={"/stickers-page-upload"}> */}
               <button className="btn flex items-center justify-center w-[100%] mt-[24px] mb-[16px]">
                 Create Sticker
               </button>
-            </NavLink>
+            {/* </NavLink> */}
           </div>
         </div>
       </div>

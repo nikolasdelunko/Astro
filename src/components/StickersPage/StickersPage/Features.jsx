@@ -1,10 +1,10 @@
 import React from "react";
-import PhotoStory from "../Theme/Icons/PhotoStory";
-import MdiArt from "../Theme/Icons/MdiArt";
-import StarSticker from "../Theme/Icons/StarSticker";
-import CreativityStickers from "../Theme/Icons/CreativityStickers";
-import PrivacyStickers from "../Theme/Icons/PrivacyStickers";
-import UniqStickers from "../Theme/Icons/UniqStickers";
+import PhotoStory from "../../Theme/icons/PhotoStory";
+import MdiArt from "../../Theme/icons/MdiArt";
+import StarSticker from "../../Theme/icons/StarSticker";
+import CreativityStickers from "../../Theme/icons/CreativityStickers";
+import PrivacyStickers from "../../Theme/icons/PrivacyStickers";
+import UniqStickers from "../../Theme/icons/UniqStickers";
 
 export default function Features() {
   return (

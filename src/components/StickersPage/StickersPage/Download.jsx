@@ -1,5 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+
+//! NavLink
 
 //! HERE NEED INSERT LINK TO APPSTORE & GOOGLE PLAY
 
@@ -17,14 +19,14 @@ export default function Download() {
         </div>
         <div className="flex items-center justify-center gap-[16px]">
           <div className="cursor-pointer">
-            <NavLink to={"/stickers-page-upload"}>
-              <img src={require("../Theme/Img/download-appstore.png")} />
-            </NavLink>
+            {/* <NavLink to={"/stickers-page-upload"}> */}
+            <img src={"/Img/download-appstore.png"} />
+            {/* </NavLink> */}
           </div>
           <div className="cursor-pointer">
-            <NavLink to={"/stickers-page-upload"}>
-              <img src={require("../Theme/Img/download-gplay.png")} />
-            </NavLink>
+            {/* <NavLink to={"/stickers-page-upload"}> */}
+            <img src={"/Img/download-gplay.png"} />
+            {/* </NavLink> */}
           </div>
         </div>
       </div>

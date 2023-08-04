@@ -7,19 +7,23 @@ import StickerStyle from "./StickersPage/StickerStyle";
 import Download from "./StickersPage/Download";
 // import { useDispatch, useSelector } from "react-redux";
 // import { setPage } from "../../store/helpers/helpersSlice";
-import useResize from "../../utils/customHooks/use-resize";
+// import useResize from "../../utils/customHooks/use-resize";
 import ModalMobSticker from "../Modal/ModalMobSticker";
 import CaricatureStyle from "./StickersPage/Mob/CaricatureStyle";
 import ChibiStyle from "./StickersPage/Mob/ChibiStyle";
 import PayPageMob from "./StickersPage/Mob/PayPageMob";
-import UseSeo from "../../utils/customHooks/use-seo";
+// import UseSeo from "../../utils/customHooks/use-seo";
 
 export default function StickersPage() {
   // const dispatch = useDispatch();
-  const mob = useResize();
-  const modalStickerMobile = useSelector(
-    (state) => state.helpers.modalStickerMobile
-  );
+  // const mob = useResize();
+	const mob = false
+  // const modalStickerMobile = useSelector(
+  //   (state) => state.helpers.modalStickerMobile
+  // );
+  const modalStickerMobile = 0;
+
+  //! dispatch
 
   useEffect(() => {
     dispatch(setPage("StickerPal"));
@@ -27,13 +31,13 @@ export default function StickersPage() {
 
   return (
     <>
-      <UseSeo
+      {/* <UseSeo
         title={"Your Own Personalized Stickers"}
         description={
           "Get Creative and Make Your Own Personalized Stickers with Our Stunning Sticker Maker"
         }
         keywords={"printed portrait, Convert Photo, Anime Art"}
-      />
+      /> */}
       <div className="relative max-[420px]:bg-[#EEECEA]">
         {mob ? <HeaderMob /> : <Header />}
         {!mob && <Features />}

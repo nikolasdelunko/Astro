@@ -1,6 +1,6 @@
 import React from "react";
-import Payment from "../../Checkout/Stripe/index";
-import NavUploadImgMob from "../../Header/navBars/NavUploadImgMob";
+import Payment from "../../../Checkout/Stripe/index";
+import NavUploadImgMob from "../../../Header/navBars/NavUploadImgMob";
 
 export default function PayPageMob() {
   const data = { total: 49 };
