@@ -1,0 +1,34 @@
+.bullet {
+  display: block;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  background: #6f6f6f;
+  border: 1px solid #2d061b;
+  border-radius: 50%;
+}
+.activeBullet {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background: #2d061b;
+  border: 1px solid #2d061b;
+}
+
+.pagination {
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  margin-top: 16px;
+}
+@media screen and (max-width: 768px) {
+  .pagination {
+    cursor: pointer;
+    display: flex;
+    gap: 6px;
+    /* margin-left: 28%; */
+    margin-top: 16px;
+  }
+}

@@ -1,5 +1,70 @@
+---
+import HowItsWorks from "../components/HowItsWorks/HowItsWorks"
+import Question from "../components/Question/Question"
+import ShowCase from "../components/Showcase/ShowCase"
+import Testimonials from "../components/Testimonials/Testimonials"
+import Parallax from "../components/Parallax/Parallax"
+// import ParallaxMob from "../Components/Parallax/ParallaxMob"
+// import UseSeo from "../utils/customHooks/use-seo"
+---
 
-<div class="bg-main-color">
+
+
+<!-- <UseSeo
+	title={"create custom stories "}
+	description={
+		"Become The Hero Of Your Own Story with our AI-powered storybook creator"
+	}
+	keywords={"printed portrait, Convert Photo, Anime Art"}
+/> -->
+<div class="relative">
+	<div class="h-[900px] max-[420px]:bg-mobileBg max-[420px]:h-[915.45px] relative bg-[#2D061B] max-[420px]:bg-cover">
+		<div>
+			<Parallax />
+		</div>
+		<!-- <div>
+			<ParallaxMob />
+		</div> -->
+	</div>
+<div class="bg-samurai flex justify-center flex-col pb-[80px] bg-cover  relative  overflow-hidden">
+	<div class="w-[100%] h-[1px] border-[1px]  border-regular top-0 z-0 opacity-[0.4]" />
+<div class="flex justify-between  pr-[67px] mt-[104px] mb-[64px] max-[420px]:px-[10%] ">
+	<div class="ml-[10%] max-[420px]:ml-[8%]  max-[420px]:absolute  max-[420px]:z-0  max-[420px]:left-[10px] max-[420px]:w-[60px]">
+		<img src={"/Samurai1.png"} alt="samurai" />
+	</div>
+	<div class="max-w-[720px] max-[420px]:z-[2]">
+		<h2 class="font-mainText text-regular text-[64px] leading-[77px] mb-[24px] max-[420px]:ml-[50px] max-[420px]:text-[24px]">
+			About
+		</h2>
+		<p class="font-textSec text-[20px] pb-[20px] text-white max-[420px]:text-[12px]">
+			CrazyPrints is an innovative storybook creator that uses AI technology
+			to create personalized, one-of-a-kind books for children and adults
+			alike. Our mission is to help people become the hero of their own
+			story by creating books that are tailored to their interests and
+			preferences.
+		</p>
+		<p class="font-textSec text-[20px] pb-[20px] text-white max-[420px]:text-[12px]">
+			Our team of developers and illustrators have worked tirelessly to
+			perfect our AI algorithms, which generate unique stories and
+			illustrations that are completely personalized to each user. Our
+			high-quality printing ensures that every book we create is a keepsake
+			that can be treasured for years to come.
+		</p>
+		<p class="font-textSec text-[20px] text-white max-[420px]:text-[12px] ">
+			At CrazyPrints, we believe that every person has a unique story to
+			tell, and we are dedicated to helping them tell it in the most
+			beautiful and personalized way possible. We are constantly updating
+			and improving our technology to bring you the best possible
+			experience.
+		</p>
+		<p class="font-textSec text-[20px] text-white max-[420px]:text-[12px] max-[420px]:pt-[20px]">
+			So why wait? Get started on your own personalized storybook today and
+			become the hero of your own story with CrazyPrints!
+		</p>
+	</div>
+</div>
+</div>
+<div class="bg-main-color relative">
 	<div class="w-[43%] ml-[30%] h-[1px] border-[1px] origin-top-left rotate-[-45deg]  border-regular top-0 z-0 opacity-[0.4] invisible  max-[420px]:visible " />
 		<div class="w-[100%] h-[0px] border-[1px]  border-regular top-0 z-0 opacity-[0.4]" />
 			<div class="pt-[100px] max-[420px]:pt-[48px] flex flex-col justify-center items-center w-[95%] max-[420px]:px-[10%]">
@@ -99,5 +164,28 @@
 	</div>
 </div>
 </div>
+<div class="relative">
+	<div class="bg-Frame6 flex  bg-cover xl:h-[1700px] ">
+		<HowItsWorks />
+	</div>
+</div>
+<div class="bg-bg-main relative  overflow-hidden">
+	<span class="absolute top-0 bg-regular w-[100%] h-[1px] opacity-[0.4]" />
+	<div class="w-[582px] h-[582px] border-[1px]  border-regular rounded-full absolute top-[-8em] right-[-12em] z-0 opacity-[0.4]" />
+	<div class="w-[582px] h-[582px] border-[1px]  border-regular rounded-full absolute bottom-[-8em] left-[-12em] z-0 opacity-[0.4]" />
+	<Question />
+	<span class="absolute bottom-0 bg-regular w-[100%] h-[1px] opacity-[0.4]" />
+</div>
+<div class="bg-testimonials bg-cover overflow-hidden pb-[234px] max-[420px]:pb-[466px] max-[420px]:bg-testimonialBgMb max-[420px]:bg-[#2D061B]">
+	<ShowCase />
+	<Testimonials />
+</div>
+</div>
 
 <a href="/">go to Main</a>
+
+<script>
+
+
+	console.log('Welcome, browser console!');
+</script>

@@ -33,10 +33,10 @@ export default function WorkGalery() {
         </div>
       </div>
       <Swiper
-        className="max-[420px]:pb-[176px] mySwiper"
+        class="max-[420px]:pb-[176px]"
         watchSlidesProgress={true}
         slidesPerView={5}
-        // className=""
+        className="mySwiper"
         breakpoints={{
           "@0.00": {
             slidesPerView: 2,
