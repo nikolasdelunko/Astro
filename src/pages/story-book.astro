@@ -4,6 +4,7 @@ import Question from "../components/Question/Question"
 import ShowCase from "../components/Showcase/ShowCase"
 import Testimonials from "../components/Testimonials/Testimonials"
 import Parallax from "../components/Parallax/Parallax"
+import Header from "../components/Header/Header"
 // import ParallaxMob from "../Components/Parallax/ParallaxMob"
 // import UseSeo from "../utils/customHooks/use-seo"
 ---
@@ -20,6 +21,7 @@ import Parallax from "../components/Parallax/Parallax"
 <div class="relative">
 	<div class="h-[900px] max-[420px]:bg-mobileBg max-[420px]:h-[915.45px] relative bg-[#2D061B] max-[420px]:bg-cover">
 		<div>
+			<Header client:load/>
 			<Parallax client:load/>
 		</div>
 		<!-- <div>

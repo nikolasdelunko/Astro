@@ -1,19 +1,22 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { openBurger } from "../../../store/helpers/helpersSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { openBurger } from "../../../store/helpers/helpersSlice";
 import Hamburger from "hamburger-react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 export default function NavMain() {
-  const dispatch = useDispatch();
-  const burger = useSelector((state) => state.helpers.burger);
+  // const dispatch = useDispatch();
+  // const burger = useSelector((state) => state.helpers.burger);
+	// ! dispatch
+	const burger = false
+	
 
   return (
     <div className="flex items-center justify-between px-[64px] max-[420px]:px-[5%] pt-[20px] w-[100%] absolute h-[81px]">
       <div className="items-center flex">
         <div className="cursor-pointer">
           <a href="/">
-            <img src={require("../../Theme/Img/logo.png")} alt="Logo" />
+            <img src={"/Img/logo.png"} alt="Logo" />
           </a>
         </div>
         <div className="lg:flex hidden">
@@ -37,9 +40,9 @@ export default function NavMain() {
               </a>
             </li>
             <li className="cursor-pointer">
-              <NavLink to={"/blog"}>
+              <a href="/blog">
                 <p className="font-main text-white text-lg">Blog</p>
-              </NavLink>
+              </a>
             </li>
             <li className="cursor-pointer">
               <a href="/" className="font-main text-white text-lg">
@@ -50,17 +53,17 @@ export default function NavMain() {
         </div>
       </div>
       <div className="items-center lg:flex hidden">
-        <NavLink to={"/create"}>
+        <a href="/create">
           <button className="btn flex items-center justify-center ml-[32px] ">
             Start to Create a Book
           </button>
-        </NavLink>
+        </a>
       </div>
       <div className="items-center lg:hidden flex">
         <Hamburger
           toggled={burger}
           toggle={() => {
-            dispatch(openBurger(!burger));
+            // dispatch(openBurger(!burger));
           }}
           direction="right"
           color="#ffffff"

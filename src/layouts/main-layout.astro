@@ -5,6 +5,7 @@ import Nav from "../components/Nav"
 // import { SnackbarProvider } from "notistack"
 // import { SnackbarUtilsConfigurator } from "../utils/customHooks/useSnackBarUtils"
 // import { HelmetProvider } from "react-helmet-async"
+import Header from "../components/Header/Header"
 ---
 
 <html lang="en">
@@ -20,6 +21,9 @@ import Nav from "../components/Nav"
 </html>
   <body>
 <main class="m-0 relative">
+	<header>
+		<Header client:load/>
+	</header>
 						<Nav />
 						<slot />
   <footer>
