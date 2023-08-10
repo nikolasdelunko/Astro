@@ -1,7 +1,6 @@
 import React from "react";
 // import { useDispatch } from "react-redux";
 // import { openModal } from "../../store/helpers/helpersSlice";
-import { NavLink } from "react-router-dom";
 
 export default function HeaderRescription() {
   // const dispatch = useDispatch();
@@ -26,7 +25,7 @@ export default function HeaderRescription() {
         >
           Learn More
         </button>
-        <NavLink to={"/create"}>
+        <a href="/create">
           <button
             className="btn flex items-center justify-center max-[420px]:px-[32px] max-[420px]:text-[16px]"
             // onClick={() => {
@@ -35,7 +34,7 @@ export default function HeaderRescription() {
           >
             Start to Create a Book
           </button>
-        </NavLink>
+        </a>
       </div>
     </div>
   );

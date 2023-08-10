@@ -1,7 +1,7 @@
 import React from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Spring, animated } from "@react-spring/web";
-// import HeaderRescription from "../Header/HeaderRescription";
+import HeaderRescription from "../Header/HeaderRescription";
 
 export default function ParallaxSection() {
   return (
@@ -161,7 +161,7 @@ export default function ParallaxSection() {
             >
               {(style) => (
                 <animated.div style={style}>
-                  {/* <HeaderRescription /> */}
+                  <HeaderRescription />
                 </animated.div>
               )}
             </Spring>
