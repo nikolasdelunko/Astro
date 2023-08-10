@@ -50,9 +50,9 @@ export default function ParallaxSection() {
             >
               {(style) => (
                 <animated.div style={style}>
-                  <div className="w-[100%] relative ">
+                  <div className="w-[100%] relative">
                     <img
-                      src={require("../Theme/Img/Parallax/bg1.png")}
+                      src={"/Img/Parallax/bg1.png"}
                       alt="trees1"
                       style={{
                         width: "100%",
@@ -87,7 +87,7 @@ export default function ParallaxSection() {
                 <animated.div style={style}>
                   <div className="w-[100%] relative  items-center">
                     <img
-                      src={require("../Theme/Img/Parallax/samurai1.png")}
+                      src={"/Img/Parallax/samurai1.png"}
                       alt="trees1"
                       style={{
                         display: "flex",
@@ -126,7 +126,7 @@ export default function ParallaxSection() {
                 <animated.div style={style}>
                   <div className="w-[100%] relative">
                     <img
-                      src={require("../Theme/Img/Parallax/trees1.png")}
+                      src={"/Img/Parallax/trees1.png"}
                       alt="trees1"
                       style={{
                         width: "100%",

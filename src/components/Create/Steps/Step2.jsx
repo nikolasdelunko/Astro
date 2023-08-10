@@ -236,7 +236,8 @@ export default function Step2() {
                 disabled={!isValid && !dirty}
                 type="submit"
                 onClick={() => {
-                  handleSubmit();
+									console.log("Submit")
+                  // handleSubmit();
                   // dispatch(setStep(step + 1));
                 }}
               >

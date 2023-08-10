@@ -20,7 +20,7 @@ import Parallax from "../components/Parallax/Parallax"
 <div class="relative">
 	<div class="h-[900px] max-[420px]:bg-mobileBg max-[420px]:h-[915.45px] relative bg-[#2D061B] max-[420px]:bg-cover">
 		<div>
-			<Parallax />
+			<Parallax client:load/>
 		</div>
 		<!-- <div>
 			<ParallaxMob />
@@ -166,19 +166,19 @@ import Parallax from "../components/Parallax/Parallax"
 </div>
 <div class="relative">
 	<div class="bg-Frame6 flex  bg-cover xl:h-[1700px] ">
-		<HowItsWorks />
+		<HowItsWorks client:load/>
 	</div>
 </div>
 <div class="bg-bg-main relative  overflow-hidden">
 	<span class="absolute top-0 bg-regular w-[100%] h-[1px] opacity-[0.4]" />
 	<div class="w-[582px] h-[582px] border-[1px]  border-regular rounded-full absolute top-[-8em] right-[-12em] z-0 opacity-[0.4]" />
 	<div class="w-[582px] h-[582px] border-[1px]  border-regular rounded-full absolute bottom-[-8em] left-[-12em] z-0 opacity-[0.4]" />
-	<Question />
+	<Question client:load/>
 	<span class="absolute bottom-0 bg-regular w-[100%] h-[1px] opacity-[0.4]" />
 </div>
 <div class="bg-testimonials bg-cover overflow-hidden pb-[234px] max-[420px]:pb-[466px] max-[420px]:bg-testimonialBgMb max-[420px]:bg-[#2D061B]">
-	<ShowCase />
-	<Testimonials />
+	<ShowCase client:load/>
+	<Testimonials client:load/>
 </div>
 </div>
 
