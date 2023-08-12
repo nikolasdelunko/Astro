@@ -1,75 +1,66 @@
 import React from "react";
-import "../../Theme/Img/mobile/ExampleSticker.png";
+// import "../../Theme/Img/mobile/ExampleSticker.png";
 // import { setModalStickerMobile } from "../../../store/helpers/helpersSlice";
 // import { useDispatch } from "react-redux";
 
 export default function HeaderMob() {
   // const dispatch = useDispatch();
-//! dispatch
+  //! dispatch
   //!  need to change real data
   return (
-    <div className="pt-[116px] px-[5%] pb-[300px] h-[1200px]">
+    <div className="h-[1200px] px-[5%] pb-[300px] pt-[116px]">
       <div className="pb-[24px]">
-        <h1 className="text-textBtn font-bold text-[31px] text-[#2D061B]">
+        <h1 className="text-textBtn text-[31px] font-bold text-[#2D061B]">
           Create Your Own Sticker
         </h1>
-        <p className="text-textBtn  font-medium text-[12px] leading-6 text-[#767676]">
+        <p className="text-textBtn  text-[12px] font-medium leading-6 text-[#767676]">
           Design your own sticker with a stunning and trendy style
         </p>
       </div>
       <div className="flex flex-col">
-        <h1 className="text-textBtn font-[600] text-[17px] text-[#2D061B] mb-[8px]">
+        <h1 className="text-textBtn mb-[8px] text-[17px] font-[600] text-[#2D061B]">
           Sticker Style
         </h1>
         <div className="flex flex-col justify-center">
           <div
-            className="bg-stickerPage1cardMob w-[343px] h-[129px] cursor-pointer mb-[16px] relative"
+            className="relative mb-[16px] h-[129px] w-[343px] cursor-pointer bg-stickerPage1cardMob"
             onClick={() => {
-              dispatch(setModalStickerMobile(1.1));
+              // dispatch(setModalStickerMobile(1.1));
             }}
           >
             <img
-              src={require("../../Theme/Img/mobile/card1Mob.png")}
+              src={"/Img/mobile/card1Mob.png"}
               alt="card1Mob"
-              className="absolute right-0 bottom-0"
+              className="absolute bottom-0 right-0"
             />
           </div>
           <div
-            className="bg-stickerPage2cardMob w-[343px] h-[129px] cursor-pointer mb-[16px] relative"
+            className="relative mb-[16px] h-[129px] w-[343px] cursor-pointer bg-stickerPage2cardMob"
             onClick={() => {
-              dispatch(setModalStickerMobile(1.2));
+              // dispatch(setModalStickerMobile(1.2));
             }}
           >
             <img
-              src={require("../../Theme/Img/mobile/card2Mob.png")}
+              src={"/Img/mobile/card2Mob.png"}
               alt="card1Mob"
-              className="absolute left-[5px] bottom-0"
+              className="absolute bottom-0 left-[5px]"
             />
           </div>
         </div>
       </div>
       <div className="pt-[35px]">
         <div className="flex items-center justify-between">
-          <h2 className="text-textBtn font-[600] text-[17px] text-[#2D061B] mb-[8px]">
+          <h2 className="text-textBtn mb-[8px] text-[17px] font-[600] text-[#2D061B]">
             My Sticker
           </h2>
-          <p className="text-textBtn  font-medium text-[12px] leading-6 text-[#EBB268]">
+          <p className="text-textBtn  text-[12px] font-medium leading-6 text-[#EBB268]">
             View all
           </p>
         </div>
         <div className="flex gap-[17px] pt-[8px]">
-          <img
-            src={require("../../Theme/Img/mobile/ExampleSticker.png")}
-            alt={"stickerExample"}
-          />
-          <img
-            src={require("../../Theme/Img/mobile/ExampleSticker.png")}
-            alt={"stickerExample"}
-          />
-          <img
-            src={require("../../Theme/Img/mobile/ExampleSticker.png")}
-            alt={"stickerExample"}
-          />
+          <img src={"/Img/mobile/ExampleSticker.png"} alt={"stickerExample"} />
+          <img src={"/Img/mobile/ExampleSticker.png"} alt={"stickerExample"} />
+          <img src={"/Img/mobile/ExampleSticker.png"} alt={"stickerExample"} />
         </div>
       </div>
     </div>

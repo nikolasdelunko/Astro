@@ -5,6 +5,7 @@ const { title } = Astro.props
 // import { SnackbarUtilsConfigurator } from "../utils/customHooks/useSnackBarUtils"
 // import { HelmetProvider } from "react-helmet-async"
 import Header from "../components/Header/Header"
+import Footer from "../components/Footer/Footer"
 ---
 
 <html lang="en">
@@ -25,7 +26,7 @@ import Header from "../components/Header/Header"
 	</header>
 						<slot />
   <footer>
-    <div></div>
+    <div><Footer page={"main"} /></div>
   </footer>
 </main>
 </body>

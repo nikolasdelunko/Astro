@@ -48,12 +48,6 @@ export default function Header() {
   //       <NavCheckout />
   //     </div>
   //   );
-  // } else if (page === "StickerPal") {
-  //   return (
-  //     <div className="top-0 absolute w-[100%] z-50">
-  //       <NavSticker />
-  //     </div>
-  //   );
   // } else if (
   //   (page === "UploadImage" || page === "successfullyPaySticker") &&
   //   !mob

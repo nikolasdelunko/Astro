@@ -2,7 +2,7 @@ import React from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { openBurger } from "../../../store/helpers/helpersSlice";
 import Hamburger from "hamburger-react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import StickerPal from "../../Theme/icons/StickerPalLogo";
 import Logo from "../../Theme/icons/Logo";
 
@@ -46,11 +46,11 @@ export default function NavSicker() {
         </div>
       </div>
       <div className="items-center lg:flex hidden">
-        <NavLink to={"/stickers-page-upload"}>
+        <a href="/stickers-page-upload">
           <button className="btn flex items-center justify-center ml-[32px] ">
             Get started now
           </button>
-        </NavLink>
+        </a>
       </div>
       <div className="items-center lg:hidden flex">
         <Hamburger

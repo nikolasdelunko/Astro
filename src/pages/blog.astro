@@ -1,7 +1,13 @@
 ---
 import Blog from "../components/Blog/Blog"
+import NavCreate from "../components/Header/navBars/NavCreate";
+import Footer from "../components/Footer/Footer";
 ---
 
 <div>
+	<div><NavCreate page={"blog"} client:load/></div>
 	<Blog  client:load/>
+	<div>
+		<Footer page={"blog"} />
+	</div>
 </div>

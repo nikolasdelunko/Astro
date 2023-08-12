@@ -1,8 +1,12 @@
 ---
 import StartCreate from "../components/Create/StartCreate"
+import NavCreate from "../components/Header/navBars/NavCreate";
 ---
 
 <div>
+	<div>
+		<NavCreate page={"create"} client:load/>
+	</div>
 	<StartCreate client:load/>
 
 </div>

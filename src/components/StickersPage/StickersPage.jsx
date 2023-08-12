@@ -17,7 +17,7 @@ import PayPageMob from "./StickersPage/Mob/PayPageMob";
 export default function StickersPage() {
   // const dispatch = useDispatch();
   // const mob = useResize();
-	const mob = false
+  const mob = false;
   // const modalStickerMobile = useSelector(
   //   (state) => state.helpers.modalStickerMobile
   // );
@@ -25,9 +25,9 @@ export default function StickersPage() {
 
   //! dispatch
 
-  useEffect(() => {
-    dispatch(setPage("StickerPal"));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(setPage("StickerPal"));
+  // }, []);
 
   return (
     <>

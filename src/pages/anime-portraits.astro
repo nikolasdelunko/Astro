@@ -12,6 +12,7 @@ import HowToConvert from "../components/Anime-portraits/HowToConvert"
 import WorkGalery from "../components/Anime-portraits/WorkGalery"
 import Testimonial from "../components/Anime-portraits/Testimonial"
 import NavLanding from "../components/Header/navBars/animePortraits"
+import Footer from "../components/Footer/Footer"
 ---
 
 
@@ -145,13 +146,16 @@ import NavLanding from "../components/Header/navBars/animePortraits"
 			</div>
 		</div>
 	</div>
-</div>
-<div class="max-[420px]:px-[10%] bg-main-color">
-	<HowToConvert client:load/>
-</div>
-<div class="overflow-hidden max-[420px]:px-[10%] bg-main-color">
-	<WorkGalery client:load/>
-</div>
-<div class="bg-main-color">
-	<Testimonial client:load/>
+	<div class="max-[420px]:px-[10%] bg-main-color">
+		<HowToConvert client:load/>
+	</div>
+	<div class="overflow-hidden max-[420px]:px-[10%] bg-main-color">
+		<WorkGalery client:load/>
+	</div>
+	<div class="bg-main-color">
+		<Testimonial client:load/>
+	</div>
+		<div>
+			<Footer page={"main"} />
+		</div>
 </div>

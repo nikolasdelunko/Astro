@@ -1,0 +1,17 @@
+---
+import StickersPage from "../components/StickersPage/StickersPage"
+import NavSticker from "../components/Header/navBars/NavSticker"
+import Footer from "../components/Footer/Footer"
+---
+
+<div class="relative">
+	<div class="top-0 absolute w-[100%] z-50">
+	   <NavSticker client:load/>
+	</div>
+	<div>
+			<StickersPage client:load/>
+	</div>
+	<div>
+		<Footer page={"StickerPal"} />
+	</div>
+</div>
