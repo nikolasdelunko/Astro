@@ -1,6 +1,5 @@
 ---
 const { title } = Astro.props
-import Nav from "../components/Nav"
 // import { BrowserRouter } from "react-router-dom"
 // import { SnackbarProvider } from "notistack"
 // import { SnackbarUtilsConfigurator } from "../utils/customHooks/useSnackBarUtils"
@@ -24,7 +23,6 @@ import Header from "../components/Header/Header"
 	<header>
 		<Header client:load/>
 	</header>
-						<Nav />
 						<slot />
   <footer>
     <div></div>

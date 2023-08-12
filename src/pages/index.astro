@@ -1,24 +1,186 @@
 ---
 import MainLayout from "../layouts/main-layout.astro"
+import HowItsWorks from "../components/HowItsWorks/HowItsWorks"
+import Question from "../components/Question/Question"
+import ShowCase from "../components/Showcase/ShowCase"
+import Testimonials from "../components/Testimonials/Testimonials"
+import Parallax from "../components/Parallax/Parallax"
+import Header from "../components/Header/Header"
+// import ParallaxMob from "../Components/Parallax/ParallaxMob"
+// import UseSeo from "../utils/customHooks/use-seo"
 ---
 
 <MainLayout title="didjital sms">
-	<div class="flex flex-col"> 
- <h2>Hello</h2>
- 	<div class="px-[12px] py-[12px] bg-[yellow] my-[25px] cursor-pointer w-[120px]">
- 		<a href="/story-book">Go to story book</a>
+<!-- <UseSeo
+	title={"create custom stories "}
+	description={
+		"Become The Hero Of Your Own Story with our AI-powered storybook creator"
+	}
+	keywords={"printed portrait, Convert Photo, Anime Art"}
+/> -->
+<div class="relative">
+	<div class="h-[900px] max-[420px]:bg-mobileBg max-[420px]:h-[915.45px] relative bg-[#2D061B] max-[420px]:bg-cover">
+		<div>
+			<Header client:load/>
+			<Parallax client:load/>
+		</div>
+		<!-- <div>
+			<ParallaxMob />
+		</div> -->
 	</div>
-	<div class="px-[12px] py-[12px] bg-[yellow] my-[25px] cursor-pointer  w-[120px]">
- 		<a href="/sticker-pal">go to sticker pal</a>
+<div class="bg-samurai flex justify-center flex-col pb-[80px] bg-cover  relative  overflow-hidden">
+	<div class="w-[100%] h-[1px] border-[1px]  border-regular top-0 z-0 opacity-[0.4]" />
+<div class="flex justify-between  pr-[67px] mt-[104px] mb-[64px] max-[420px]:px-[10%] ">
+	<div class="ml-[10%] max-[420px]:ml-[8%]  max-[420px]:absolute  max-[420px]:z-0  max-[420px]:left-[10px] max-[420px]:w-[60px]">
+		<img src={"/Samurai1.png"} alt="samurai" />
 	</div>
-	<div class="px-[12px] py-[12px] bg-[yellow] my-[25px] cursor-pointer  w-[120px]">
-		<a href="/anime-portraits">go to Anime Portaits</a>
- </div>
- <div class="px-[12px] py-[12px] bg-[yellow] my-[25px] cursor-pointer  w-[120px]">
-	<a href="/blog">go to blog</a>
+	<div class="max-w-[720px] max-[420px]:z-[2]">
+		<h2 class="font-mainText text-regular text-[64px] leading-[77px] mb-[24px] max-[420px]:ml-[50px] max-[420px]:text-[24px]">
+			About
+		</h2>
+		<p class="font-textSec text-[20px] pb-[20px] text-white max-[420px]:text-[12px]">
+			CrazyPrints is an innovative storybook creator that uses AI technology
+			to create personalized, one-of-a-kind books for children and adults
+			alike. Our mission is to help people become the hero of their own
+			story by creating books that are tailored to their interests and
+			preferences.
+		</p>
+		<p class="font-textSec text-[20px] pb-[20px] text-white max-[420px]:text-[12px]">
+			Our team of developers and illustrators have worked tirelessly to
+			perfect our AI algorithms, which generate unique stories and
+			illustrations that are completely personalized to each user. Our
+			high-quality printing ensures that every book we create is a keepsake
+			that can be treasured for years to come.
+		</p>
+		<p class="font-textSec text-[20px] text-white max-[420px]:text-[12px] ">
+			At CrazyPrints, we believe that every person has a unique story to
+			tell, and we are dedicated to helping them tell it in the most
+			beautiful and personalized way possible. We are constantly updating
+			and improving our technology to bring you the best possible
+			experience.
+		</p>
+		<p class="font-textSec text-[20px] text-white max-[420px]:text-[12px] max-[420px]:pt-[20px]">
+			So why wait? Get started on your own personalized storybook today and
+			become the hero of your own story with CrazyPrints!
+		</p>
+	</div>
 </div>
-<div class="px-[12px] py-[12px] bg-[yellow] my-[25px] cursor-pointer  w-[120px]">
-	<a href="/create">go to create story</a>
+</div>
+<div class="bg-main-color relative">
+	<div class="w-[43%] ml-[30%] h-[1px] border-[1px] origin-top-left rotate-[-45deg]  border-regular top-0 z-0 opacity-[0.4] invisible  max-[420px]:visible " />
+		<div class="w-[100%] h-[0px] border-[1px]  border-regular top-0 z-0 opacity-[0.4]" />
+			<div class="pt-[100px] max-[420px]:pt-[48px] flex flex-col justify-center items-center w-[95%] max-[420px]:px-[10%]">
+				<div class="flex flex-col justify-center items-center  max-[420px]:items-start max-w-[883px]">
+					<h2 class="font-mainText text-regular text-[48px] leading-[77px] mb-[24px] max-[420px]:mb-[16px] max-[420px]:text-[24px] max-[420px]:leading-[32px]">
+						Benefits
+					</h2>
+					<p class="font-textSec text-[20px]  text-white text-center max-[420px]:text-start max-[420px]:text-[12px] max-[420px]:leading-[16px]">
+						At CrazyPrints, we offer many benefits to our customers that set us
+						apart from traditional storybook creators. Here are just a few of the
+						many advantages of using our AI-powered storybook creator:
+					</p>
+				</div>
+				<div class="flex m-[64px] max-[420px]:mb-[0px] xl:flex-row flex-col items-center">
+		<div class="flex items-center flex-col">
+			<div class="flex flex-col items-start mb-[40px] w-[425px] max-[420px]:h-[170px] max-[420px]:max-w-[326px] max-[420px]:ml-[5%] max-[420px]:py-[32px] py-[44px] px-[32px] gap-[16px] h-[236px] rounded-[30px] border-regular border-[3px]">
+				<h2 class="font-mainText text-regular text-[32px]  max-[420px]:text-[20px]">
+					Personalization:
+				</h2>
+				<p class="font-textSec text-white text-[16px] max-[420px]:text-[12px]">
+					Our AI algorithms generate unique stories and illustrations that
+					are tailored to your interests and preferences, ensuring that your
+					book is one-of-a-kind and truly special.
+				</p>
+			</div>
+			<div class="flex flex-col items-start mb-[40px] w-[425px] max-[420px]:h-[170px] max-[420px]:max-w-[326px] max-[420px]:ml-[5%] h-[236px] max-[420px]:py-[32px] py-[44px] px-[32px] gap-[16px] rounded-[30px] border-regular border-[3px]">
+				<h2 class="font-mainText text-regular text-[32px]  max-[420px]:text-[20px]">
+					High-Quality Printing:
+				</h2>
+				<p class="font-textSec text-white text-[16px] max-[420px]:text-[12px]">
+					We use only the best materials and printing techniques to ensure
+					that your book is a beautiful and durable keepsake that will last
+					for years to come.
+				</p>
+			</div>
+			<div class="flex flex-col items-start mb-[40px] w-[425px] max-[420px]:h-[170px] max-[420px]:max-w-[326px] max-[420px]:ml-[5%] h-[236px] max-[420px]:py-[32px] py-[44px] px-[32px] gap-[16px] rounded-[30px] border-regular border-[3px]">
+				<h2 class="font-mainText text-regular text-[32px]  max-[420px]:text-[20px]">
+					Customer Service:
+				</h2>
+				<p class="font-textSec text-white text-[16px] max-[420px]:text-[12px]">
+					Our team is dedicated to providing excellent customer service and
+					is always happy to help with any questions or concerns you may
+					have.
+				</p>
+			</div>
+		</div>
+		<div class="items-center flex-col xl:flex  hidden gap-[64px]">
+			<img
+				class="max-w-[302px] max-h-[447px] mx-[50px]"
+				src={"/image-5.png"}
+				alt="Benefits"
+			/>
+			<img
+				class="max-w-[none] mx-[50px]"
+				src={"/image-6.png"}
+				alt="Benefits"
+			/>
+		</div>
+		<div class="flex items-center flex-col">
+			<div class="flex flex-col items-start mb-[40px] w-[425px] max-[420px]:h-[170px] max-[420px]:max-w-[326px] max-[420px]:ml-[5%] h-[236px] max-[420px]:py-[32px] py-[44px] px-[32px] gap-[16px] rounded-[30px] border-regular border-[3px]">
+				<h2 class="font-mainText text-regular text-[32px]  max-[420px]:text-[20px]">
+					Variety:
+				</h2>
+				<p class="font-textSec text-white text-[16px] max-[420px]:text-[12px]">
+					With CrazyPrints, you can choose from a wide variety of genres and
+					themes, so you'll never run out of new and exciting stories to
+					create.
+				</p>
+			</div>
+			<div class="flex flex-col items-start mb-[40px] w-[425px] max-[420px]:h-[170px] max-[420px]:max-w-[326px] max-[420px]:ml-[5%] h-[236px] max-[420px]:py-[32px] py-[44px] px-[32px] gap-[16px] rounded-[30px] border-regular border-[3px]">
+				<h2 class="font-mainText text-regular text-[32px]  max-[420px]:text-[20px]">
+					Convenience:
+				</h2>
+				<p class="font-textSec text-white text-[16px] max-[420px]:text-[12px]">
+					Creating your own personalized storybook with CrazyPrints is easy
+					and convenient. You can create your book online and receive it at
+					your doorstep.
+				</p>
+			</div>
+			<div class="flex flex-col items-start mb-[40px] w-[425px] max-[420px]:h-[170px] max-[420px]:max-w-[326px] max-[420px]:ml-[5%] h-[236px] max-[420px]:py-[32px] py-[44px] px-[32px] gap-[16px] rounded-[30px] border-regular border-[3px]">
+				<h2 class="font-mainText text-regular text-[32px]  max-[420px]:text-[20px]">
+					Affordable:
+				</h2>
+				<p class="font-textSec text-white text-[16px] max-[420px]:text-[12px]">
+					We strive to make our service affordable for everyone, so you can
+					create a personalized storybook without breaking the bank.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="flex flex-col justify-center items-center  max-w-[883px] max-[420px]:w-[100%]">
+		<p class="font-textSec text-[18px] text-white text-center mb-[188px] max-[420px]:mb-[0px]  py-[44px] max-[420px]:px-[0px] px-[32px] max-[420px]:text-[12px]">
+			All these benefits make CrazyPrints the perfect choice for anyone
+			looking to create a truly special and unique storybook that can be
+			treasured for years to come.
+		</p>
+	</div>
+</div>
+</div>
+<div class="relative">
+	<div class="bg-Frame6 flex  bg-cover xl:h-[1700px] ">
+		<HowItsWorks client:load/>
+	</div>
+</div>
+<div class="bg-bg-main relative  overflow-hidden">
+	<span class="absolute top-0 bg-regular w-[100%] h-[1px] opacity-[0.4]" />
+	<div class="w-[582px] h-[582px] border-[1px]  border-regular rounded-full absolute top-[-8em] right-[-12em] z-0 opacity-[0.4]" />
+	<div class="w-[582px] h-[582px] border-[1px]  border-regular rounded-full absolute bottom-[-8em] left-[-12em] z-0 opacity-[0.4]" />
+	<Question client:load/>
+	<span class="absolute bottom-0 bg-regular w-[100%] h-[1px] opacity-[0.4]" />
+</div>
+<div class="bg-testimonials bg-cover overflow-hidden pb-[234px] max-[420px]:pb-[466px] max-[420px]:bg-testimonialBgMb max-[420px]:bg-[#2D061B]">
+	<ShowCase client:load/>
+	<Testimonials client:load/>
 </div>
 </div>
 </MainLayout>
