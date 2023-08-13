@@ -1,18 +1,10 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { openBurger } from "../../../store/helpers/helpersSlice";
+import { openBurger,  burger} from "../../../store/helpersStore";
 import Hamburger from "hamburger-react";
-// import { NavLink } from "react-router-dom";
 import StickerPal from "../../Theme/icons/StickerPalLogo";
 import Logo from "../../Theme/icons/Logo";
 
 export default function NavSicker() {
-  // const dispatch = useDispatch();
-  // const burger = useSelector((state) => state.helpers.burger);
-	const burger = false
-  // const page = useSelector((state) => state.helpers.page);
-	//! dispatch 
-
 
   //bg-black bg-opacity-70 backdrop-blur-2xl h-[82px]
   return (
@@ -54,9 +46,9 @@ export default function NavSicker() {
       </div>
       <div className="items-center lg:hidden flex">
         <Hamburger
-          toggled={burger}
+          toggled={burger.value}
           toggle={() => {
-            // dispatch(openBurger(!burger));
+            openBurger(!burger.value)
           }}
           direction="right"
           color="#ffffff"

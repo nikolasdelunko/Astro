@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-// import { setPage } from "../../store/helpers/helpersSlice";
 import Card from "./Components/Card";
 import PaginationTest from "./Components/PaginationTest";
 import Loader from "../Loader/Loader";
 import blogAPI from "../../utils/Api/blogAPI";
 // import UseSeo from "../../utils/customHooks/use-seo";
+import {setPage} from "../../store/helpersStore"
 
 export default function Blog() {
-  // const dispatch = useDispatch();
   const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  //! Dispatch
-
-  useEffect(() => {
-    // dispatch(setPage("blog"));
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +23,7 @@ export default function Blog() {
     };
 
     fetchData();
+		setPage("blog")
   }, [currentPage]);
 
   const handlePageChange = (page) => {

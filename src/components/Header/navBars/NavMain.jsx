@@ -1,14 +1,9 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { openBurger } from "../../../store/helpers/helpersSlice";
 import Hamburger from "hamburger-react";
 import { openBurger, burger } from "../../../store/helpersStore";
 // import { NavLink } from "react-router-dom";
 
 export default function NavMain() {
-  // const dispatch = useDispatch();
-  // const burger = useSelector((state) => state.helpers.burger);
-  // ! dispatch
 
   return (
     <div className="absolute flex h-[81px] w-[100%] items-center justify-between px-[64px] pt-[20px] max-[420px]:px-[5%]">
@@ -62,7 +57,6 @@ export default function NavMain() {
         <Hamburger
           toggled={burger.value}
           toggle={() => {
-            // dispatch(openBurger(!burger));
             openBurger(!burger.value);
           }}
           direction="right"
