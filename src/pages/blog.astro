@@ -4,9 +4,11 @@ import NavCreate from "../components/Header/navBars/NavCreate";
 import Footer from "../components/Footer/Footer";
 ---
 
-<div>
+<div class="relative">
 	<div><NavCreate page={"blog"} client:load/></div>
+	<div>
 	<Blog  client:load/>
+	</div>
 	<div>
 		<Footer page={"blog"} />
 	</div>

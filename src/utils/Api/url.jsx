@@ -1,5 +1,5 @@
-export const link = "http://localhost:3009";
-// export const link = "https://crazy-prints.onrender.com";
+// export const link = "http://localhost:3009";
+export const link = "https://crazy-prints.onrender.com";
 
 export const url = "http://localhost:3000";
 export const stickerPageLink =

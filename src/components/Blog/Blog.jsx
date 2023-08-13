@@ -5,7 +5,7 @@ import Card from "./Components/Card";
 import PaginationTest from "./Components/PaginationTest";
 import Loader from "../Loader/Loader";
 import blogAPI from "../../utils/Api/blogAPI";
-import UseSeo from "../../utils/customHooks/use-seo";
+// import UseSeo from "../../utils/customHooks/use-seo";
 
 export default function Blog() {
   // const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function Blog() {
     return post.content.split(" ").slice(0, 20).join(" ") + "...";
   });
 
-  if (items === null) {
+  if (items.length === 0) {
     return <Loader />;
   } else {
     return (
@@ -53,9 +53,9 @@ export default function Blog() {
           keywords={"printed portrait, Convert Photo, Anime Art"}
         /> */}
         <div className="">
-          <div className="bg-blogBg bg-cover h-[274px] flex justify-center text-center items-center">
+          <div className="flex h-[274px] items-center justify-center bg-blogBg bg-cover text-center">
             <div className="text-center">
-              <h1 className="font-mainText text-regular text-[32px] leading-[36px]">
+              <h1 className="font-mainText text-[32px] leading-[36px] text-regular">
                 The Crazy Prints blog
               </h1>
               <p className="font-textSec text-[18px] leading-[26px] text-white">
@@ -65,7 +65,7 @@ export default function Blog() {
             </div>
           </div>
           <div>
-            <div className="flex flex-wrap gap-[32px] px-[5%] pt-[100px] pb-[201px] items-center justify-center">
+            <div className="flex flex-wrap items-center justify-center gap-[32px] px-[5%] pb-[201px] pt-[100px]">
               {items.map((item, i) => (
                 <Card
                   post={item}

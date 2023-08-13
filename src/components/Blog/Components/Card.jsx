@@ -17,7 +17,7 @@ export default function Card({ post, i, excerptList }) {
         backgroundImage: `url(${link}${post?.thumbnail})`,
       }}
     >
-      <NavLink to={`/post/${post?._id}`}>
+      <a href={`/post/${post?._id}`}>
         <div
           className="w-[373px] h-[460px] bg-gradient-to-r from-cardElFrom to-cardElTo flex items-end flex-col justify-between text-left rounded-[15px] cursor-pointer"
           style={{
@@ -44,7 +44,7 @@ export default function Card({ post, i, excerptList }) {
             </p>
           </div>
         </div>
-      </NavLink>
+      </a>
     </div>
   );
 }
