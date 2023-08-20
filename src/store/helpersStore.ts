@@ -24,11 +24,11 @@ export function openModal(Modal: boolean) {
 }
 
 export function setConfirmOpen(ModalConfirm: boolean) {
-  modalConfirm.update((state) => ({ ...state, open: ModalConfirm }));
+  modalConfirm.set({ ...modalConfirm.get(), open: ModalConfirm });
 }
 
 export function setConfirmText(ModalConfirm: string) {
-  modalConfirm.update((state) => ({ ...state, text: ModalConfirm }));
+  modalConfirm.set({ ...modalConfirm.get(), text: ModalConfirm });
 }
 
 export function openBurger(Burger: boolean) {
@@ -44,6 +44,6 @@ export function setModalStickerMobile(ModalStickerMobile: boolean) {
   modalStickerMobile.set(ModalStickerMobile);
 }
 
-export function setPage(payload: string) {
-  page.set(payload)
+export function setPage(Page: string) {
+  page.set(Page);
 }
