@@ -1,5 +1,5 @@
 import React from "react";
-import { openBurger } from "../../../store/helpersStore";
+import { openBurger, burger } from "../../../store/helpersStore";
 import Hamburger from "hamburger-react";
 
 export default function NavMain() {
