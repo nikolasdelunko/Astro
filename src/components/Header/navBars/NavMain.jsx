@@ -4,7 +4,6 @@ import { openBurger, burger } from "../../../store/helpersStore";
 // import { NavLink } from "react-router-dom";
 
 export default function NavMain() {
-
   return (
     <div className="absolute flex h-[81px] w-[100%] items-center justify-between px-[64px] pt-[20px] max-[420px]:px-[5%]">
       <div className="flex items-center">

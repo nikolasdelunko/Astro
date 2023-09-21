@@ -54,7 +54,7 @@ export default function NavMain() {
       </div>
       <div className="flex items-center lg:hidden">
         <Hamburger
-          toggled={!burger.value}
+          toggled={burger.value}
           toggle={() => {
            openBurger(!burger.value)
           }}
