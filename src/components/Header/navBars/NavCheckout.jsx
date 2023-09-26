@@ -6,11 +6,13 @@ import { addPay } from "../../../store/story/storySlice";
 import LogOutIco from "../Theme/Icons/LogOut";
 import useAuth from "../../../utils/customHooks/useAuth";
 import useConfirm from "../../../utils/customHooks/useConfirm";
+import { page } from "../../../store/helpersStore";
+
 
 export default function NavCreate() {
   const dispatch = useDispatch();
   const { logOut } = useAuth();
-  const page = useSelector((state) => state.helpers.page);
+  // const page = useSelector((state) => state.helpers.page);
   const step = useSelector((state) => state.checkout.step);
   const user = useSelector((state) => state.user.data);
   const navigate = useNavigate();

@@ -3,13 +3,14 @@ import React from "react";
 // import { openBurger } from "../../../store/helpers/helpersSlice";
 import Hamburger from "hamburger-react";
 // import { NavLink } from "react-router-dom";
+import { openBurger, burger } from "../../../store/helpersStore";
 
 export default function NavCreate({page}) {
   // const dispatch = useDispatch();
   //! dispatch
   // const burger = useSelector((state) => state.helpers.burger);
   // const page = useSelector((state) => state.helpers.page);
-  const burger = false;
+  // const burger = false;
 
   return (
     <div className="flex w-[100%] items-center justify-between bg-main-color px-[64px] pb-[33px] pt-[27px] max-[420px]:px-[5%]">
@@ -73,8 +74,9 @@ export default function NavCreate({page}) {
       )}
       <div className="flex items-center lg:hidden">
         <Hamburger
-          toggled={burger}
+          toggled={burger.value}
           toggle={() => {
+						openBurger(!burger.value)
             // dispatch(openBurger(!burger));
           }}
           direction="right"
