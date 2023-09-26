@@ -5,6 +5,7 @@ import Payment from "../Checkout/Stripe/index";
 import Cross from "../Theme/icons/Cross";
 import PolygonForModal from "../Theme/icons/PolygonForModal";
 import PolygonForModal2 from "../Theme/icons/PolygonForModal2";
+import {setModalSticker} from "../../store/helpersStore"
 
 export default function ModalPaySticker() {
   // const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function ModalPaySticker() {
     <div
       className="bg-modal top-0 left-0 w-[100%] h-[100%] block fixed z-50"
       onClick={(e) => {
+				setModalSticker(false)
         // dispatch(setModalSticker(false));
       }}
     >
@@ -45,6 +47,7 @@ export default function ModalPaySticker() {
                 <div
                   className="absolute w-[24px] h-[24px] bg-[#EBB268] rounded-[50%] right-[8px] top-[8px] cursor-pointer"
                   onClick={() => {
+										setModalSticker(false)
                     // dispatch(setModalSticker(false));
                   }}
                 >
