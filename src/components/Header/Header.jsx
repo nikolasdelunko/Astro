@@ -9,10 +9,12 @@ import NavMain from "./navBars/NavMain";
 // import NavUploadImgMob from "./navBars/NavUploadImgMob";
 import { Spring, animated } from "@react-spring/web";
 import useResize from "../../utils/customHooks/use-resize";
+import { page } from "../../store/helpersStore";
 
 export default function Header() {
-  // const page = useSelector((state) => state.helpers.page);
-	const page = "main"
+  // // const page = useSelector((state) => state.helpers.page);
+  // const page = "main"
+	
   const mob = useResize();
 
   if (page === "main") {
@@ -30,24 +32,25 @@ export default function Header() {
         )}
       </Spring>
     );
-  } 
-	// else if (page === "landing") {
-  //   return (
-  //     <div className="top-0 absolute w-[100%] z-[2]">
-  //       <NavLanding />
-  //     </div>
-  //   );
-  // } else if (
-  //   page === "checkout" ||
-  //   page === "payCard" ||
-  //   page === "successfullyPay" ||
-  //   page === "admin"
-  // ) {
-  //   return (
-  //     <div>
-  //       <NavCheckout />
-  //     </div>
-  //   );
+  }
+  else if (page === "landing") {
+    return (
+      <div className="top-0 absolute w-[100%] z-[2]">
+        <NavLanding />
+      </div>
+    );
+  } else if (
+    page === "checkout" ||
+    page === "payCard" ||
+    page === "successfullyPay" ||
+    page === "admin"
+  ) {
+    return (
+      <div>
+        <NavCheckout />
+      </div>
+    );
+		}
   // } else if (
   //   (page === "UploadImage" || page === "successfullyPaySticker") &&
   //   !mob

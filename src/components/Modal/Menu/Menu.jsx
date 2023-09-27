@@ -1,18 +1,19 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import Cross from "../../Theme/Icons/Cross";
+import Cross from "../../Theme/icons/Cross";
 import { openBurger } from "../../../store/helpers/helpersSlice";
+import { page } from "../../../store/helpersStore";
 
 export default function Menu() {
   const dispatch = useDispatch();
-  const page = useSelector((state) => state.helpers.page);
+  // const page = useSelector((state) => state.helpers.page);
   return (
     <div>
-      <ul className="flex items-center gap-8 m-[2%] flex-col pt-[81px]">
+      <ul className="m-[2%] flex flex-col items-center gap-8 pt-[81px]">
         {page === "landing" && (
           <div
-            className="absolute top-[10px] right-[10px] rounded-[100%] bg-regular"
+            className="absolute right-[10px] top-[10px] rounded-[100%] bg-regular"
             onClick={() => {
               dispatch(openBurger(false));
             }}
@@ -21,49 +22,49 @@ export default function Menu() {
           </div>
         )}
         {page == "create" ? (
-          <li className="cursor-pointer border-2 border-regular   w-[100%] flex rounded-[199px] justify-center items-center h-[50px]">
-            <a href="/create" className="font-main text-white text-lg  ">
+          <li className="flex h-[50px] w-[100%]   cursor-pointer items-center justify-center rounded-[199px] border-2 border-regular">
+            <a href="/create" className="font-main text-lg text-white  ">
               Storybooks
             </a>
           </li>
         ) : (
-          <li className="cursor-pointer bg-regular  w-[100%] flex rounded-[199px] justify-center items-center h-[50px]">
-            <a href="/" className="font-main text-text-color text-lg  ">
+          <li className="flex h-[50px]  w-[100%] cursor-pointer items-center justify-center rounded-[199px] bg-regular">
+            <a href="/" className="font-main text-lg text-text-color  ">
               Storybooks
             </a>
           </li>
         )}
-        <li className="cursor-pointer bg-regular w-[100%] flex rounded-[199px] justify-center items-center h-[50px] ">
+        <li className="flex h-[50px] w-[100%] cursor-pointer items-center justify-center rounded-[199px] bg-regular ">
           <a
             href="/anime-portraits"
-            className="font-main text-text-color text-lg  "
+            className="font-main text-lg text-text-color  "
           >
             Anime portrais
           </a>
         </li>
-        <li className="cursor-pointer bg-regular w-[100%] flex rounded-[199px] justify-center items-center h-[50px]">
+        <li className="flex h-[50px] w-[100%] cursor-pointer items-center justify-center rounded-[199px] bg-regular">
           <a
             href="/stickers-page"
-            className="font-main text-text-color text-lg  "
+            className="font-main text-lg text-text-color  "
           >
             AI Avatars
           </a>
         </li>
         {page == "blog" ? (
-          <li className="cursor-pointer border-2 border-regular   w-[100%] flex rounded-[199px] justify-center items-center h-[50px]">
+          <li className="flex h-[50px] w-[100%]   cursor-pointer items-center justify-center rounded-[199px] border-2 border-regular">
             <NavLink to={"/blog"}>
-              <p className="font-main text-text-color text-lg">Blog</p>
+              <p className="font-main text-lg text-text-color">Blog</p>
             </NavLink>
           </li>
         ) : (
-          <li className="cursor-pointer bg-regular  w-[100%] flex rounded-[199px] justify-center items-center h-[50px]">
+          <li className="flex h-[50px]  w-[100%] cursor-pointer items-center justify-center rounded-[199px] bg-regular">
             <NavLink to={"/blog"}>
-              <p className="font-main text-text-color text-lg">Blog</p>
+              <p className="font-main text-lg text-text-color">Blog</p>
             </NavLink>
           </li>
         )}
-        <li className="cursor-pointer bg-regular w-[100%] flex rounded-[199px] justify-center items-center h-[50px]">
-          <a href="/" className="font-main text-text-color text-lg">
+        <li className="flex h-[50px] w-[100%] cursor-pointer items-center justify-center rounded-[199px] bg-regular">
+          <a href="/" className="font-main text-lg text-text-color">
             Order tracking
           </a>
         </li>
