@@ -1,4 +1,4 @@
-import { createStore } from "nanostores";
+import { atom } from "nanostores";
 const userPay = localStorage.getItem("userPayStickers");
 
 const initialState = {
