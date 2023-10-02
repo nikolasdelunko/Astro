@@ -1,24 +1,24 @@
-import { createStore } from "nanostores";
+import { atom } from "nanostores";
 
-const initialState = {
+//! Need check in ! 
+
+interface CheckoutStoreState {
+  step: number;
+  userData: null;
+}
+
+const checkoutStore = atom<CheckoutStoreState>({
   step: 1,
   userData: null,
-};
+});
 
-const checkoutStore = createStore(initialState);
-
-export const useCheckout = checkoutStore.subscribe;
-
-export function setStep(payload) {
-  checkoutStore.update((state) => {
-    state.step = payload;
-  });
+export function setStep(Step: number) {
+  checkoutStore.set({ ...checkoutStore.get(), step: Step });
 }
 
-export function setUserData(payload) {
-  checkoutStore.update((state) => {
-    state.userData = payload;
-  });
+export function setUserData(Data: object) {
+  checkoutStore.set({ ...checkoutStore.get(), userData: Data });
 }
+
 
 export default checkoutStore;
