@@ -1,8 +1,28 @@
-import { createStore } from "nanostores";
+// import { createStore } from "nanostores";
+import { atom } from "nanostores";
 
 const userPay = localStorage.getItem("userPay");
 
-const initialState = {
+interface InitialState {
+  storyBook: {
+    genre: {0?: string, 2?: string},
+    theme: null,
+    favoriteCharacter: null,
+    timeOfSetting: null,
+    placeOfSetting: null,
+    amountCharacter: number,
+    pointOfView: null,
+    conflict: null,
+    plot: null,
+    designPrompt: null,
+    email: null,
+  },
+  toggle: number,
+  fill: Boolean,
+  pay: Boolean,
+};
+
+const initialState = atom<InitialState>({
   storyBook: {
     genre: {},
     theme: null,
@@ -19,11 +39,15 @@ const initialState = {
   toggle: 2,
   fill: false,
   pay: userPay === "true" ? true : false || false,
-};
+});
 
-const helpersStore = createStore(initialState);
+// const helpersStore = createStore(initialState);
 
 export const useHelpers = helpersStore.subscribe;
+
+// export function addGenre(Photo: <T>) {
+//   stickersStore.set({ ...stickersStore.get(), listPhoto: Photo });
+// }
 
 export function addGenre(payload) {
   helpersStore.update((state) => {
