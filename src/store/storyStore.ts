@@ -5,22 +5,22 @@ const userPay = localStorage.getItem("userPay");
 
 interface InitialState {
   storyBook: {
-    genre: {0?: string, 2?: string},
-    theme: string,
-    favoriteCharacter: string,
-    timeOfSetting: string,
-    placeOfSetting: string,
-    amountCharacter: number,
-    pointOfView: string,
-    conflict: string,
-    plot: string,
-    designPrompt: string,
-    email: string,
-  },
-  toggle: number,
-  fill: Boolean,
-  pay: Boolean,
-};
+    genre: { 0?: string; 2?: string };
+    theme: string;
+    favoriteCharacter: string;
+    timeOfSetting: string;
+    placeOfSetting: string;
+    amountCharacter: number;
+    pointOfView: string;
+    conflict: string;
+    plot: string;
+    designPrompt: string;
+    email: string;
+  };
+  toggle: number;
+  fill: Boolean;
+  pay: Boolean;
+}
 
 const initialState = atom<InitialState>({
   storyBook: {
@@ -45,9 +45,17 @@ const initialState = atom<InitialState>({
 
 export const useHelpers = helpersStore.subscribe;
 
-// export function addGenre(Photo: <T>) {
-//   stickersStore.set({ ...stickersStore.get(), listPhoto: Photo });
-// }
+
+// ! need finish 
+export function addGenre(payload: <T>) {
+  initialState.set({ ...initialState.get(), storyBook.genre = {
+		...storyBook.genre,
+		[toggle]: payload,
+	};
+	if (state.toggle === 1) {
+		state.storyBook.genre = {};
+	} });
+}
 
 export function addGenre(payload) {
   helpersStore.update((state) => {
