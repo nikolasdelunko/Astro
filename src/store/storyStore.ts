@@ -1,134 +1,119 @@
-// import { createStore } from "nanostores";
-import { atom } from "nanostores";
-
-const userPay = localStorage.getItem("userPay");
+import { atom, map, action } from "nanostores";
 
 interface InitialState {
-  storyBook: {
-    genre: { 0?: string; 2?: string };
-    theme: string;
-    favoriteCharacter: string;
-    timeOfSetting: string;
-    placeOfSetting: string;
-    amountCharacter: number;
-    pointOfView: string;
-    conflict: string;
-    plot: string;
-    designPrompt: string;
-    email: string;
-  };
   toggle: number;
   fill: Boolean;
   pay: Boolean;
 }
 
-const initialState = atom<InitialState>({
-  storyBook: {
-    genre: {},
-    theme: "",
-    favoriteCharacter: "",
-    timeOfSetting: "",
-    placeOfSetting: "",
-    amountCharacter: 0,
-    pointOfView: "",
-    conflict: "",
-    plot: "",
-    designPrompt: "",
-    email: "",
-  },
+
+interface storyGenre {
+  0?: string;
+  2?: string;
+}
+
+interface storyInfo2 {
+  favoriteCharacter: string;
+  timeOfSetting: string;
+  placeOfSetting: string;
+  amountCharacter: number;
+  pointOfView: string;
+  conflict: string;
+  plot: string;
+}
+export const storyGenre = atom<storyGenre>({});
+
+export const storyInfo2 = atom<storyInfo2>({
+  favoriteCharacter: "",
+  timeOfSetting: "",
+  placeOfSetting: "",
+  amountCharacter: 0,
+  pointOfView: "",
+  conflict: "",
+  plot: "",
+});
+
+export const designPrompt = atom<string>("");
+export const email = atom<string>("");
+export const storyBook = atom<string>("");
+
+const helpersStore = map<InitialState>({
   toggle: 2,
   fill: false,
-  pay: userPay === "true" ? true : false || false,
+  pay: false,
+  // pay: userPay === "true" ? true : false || false,
 });
 
 // const helpersStore = createStore(initialState);
 
-export const useHelpers = helpersStore.subscribe;
+// export const useHelpers = helpersStore.subscribe;
 
-
-// ! need finish 
-export function addGenre(payload: <T>) {
-  initialState.set({ ...initialState.get(), storyBook.genre = {
-		...storyBook.genre,
-		[toggle]: payload,
-	};
-	if (state.toggle === 1) {
-		state.storyBook.genre = {};
-	} });
+export function addThemeStory(ThemeOfStory: string) {
+  storyBook.set(ThemeOfStory);
 }
 
-export function addGenre(payload) {
-  helpersStore.update((state) => {
-    state.storyBook.genre = {
-      ...state.storyBook.genre,
-      [state.toggle]: payload,
-    };
-    if (state.toggle === 1) {
-      state.storyBook.genre = {};
-    }
+export function addStoryInfoStep2(payload: any) {
+  storyInfo2.set({
+    ...storyInfo2.get(),
+    favoriteCharacter: payload.FavoriteCharter,
+    timeOfSetting: payload.TimeOfSettings,
+    placeOfSetting: payload.PlaceOfSettings,
+    amountCharacter: payload.AmountCharacter,
+    pointOfView: payload.PointOfView,
+    conflict: payload.Conflict,
+    plot: payload.Plot,
   });
 }
 
-export function addThemeStory(payload) {
-  helpersStore.update((state) => {
-    state.storyBook.theme = payload.ThemeOfStory;
-  });
+export function addStoryInfoStep3(DesignPrompt: string) {
+  designPrompt.set(DesignPrompt);
 }
 
-export function addStoryInfoStep2(payload) {
-  helpersStore.update((state) => {
-    const data = payload;
-    state.storyBook.favoriteCharacter = data.FavoriteCharter;
-    state.storyBook.timeOfSetting = data.TimeOfSettings;
-    state.storyBook.placeOfSetting = data.PlaceOfSettings;
-    state.storyBook.amountCharacter = data.AmountCharacter;
-    state.storyBook.pointOfView = data.PointOfView;
-    state.storyBook.conflict = data.Conflict;
-    state.storyBook.plot = data.AutoPlot;
-  });
-}
-
-export function addStoryInfoStep3(payload) {
-  helpersStore.update((state) => {
-    const data = payload;
-    state.storyBook.designPrompt = data.CoverDesign;
-  });
-}
-
-export function toggle() {
-  helpersStore.update((state) => {
-    const selected = state.toggle;
-    if (selected > 1) {
-      state.toggle = 0;
-    } else {
-      state.toggle = selected + 1;
-    }
-  });
+export function addEmail(Email: string) {
+  email.set(Email);
 }
 
 export function clearToggle() {
-  helpersStore.update((state) => {
-    state.toggle = 2;
-  });
+  helpersStore.setKey("toggle", 2);
 }
 
-export function addEmail(payload) {
-  helpersStore.update((state) => {
-    state.storyBook.email = payload;
-  });
+export const toggle = action(helpersStore, "toggle", () => {
+  const selected = helpersStore.get();
+  if (selected.toggle > 1) {
+    helpersStore.setKey("toggle", 0);
+  } else {
+    return helpersStore.setKey("toggle", selected.toggle + 1);
+  }
+});
+
+export function addFill(options: boolean) {
+  helpersStore.setKey("fill", options);
 }
 
-export function addFill(payload) {
-  helpersStore.update((state) => {
-    state.fill = payload;
-  });
-}
+//! need Check what the user send
 
-export function addPay(payload) {
-  helpersStore.update((state) => {
-    state.pay = payload;
-    localStorage.setItem("userPay", payload);
-  });
-}
+const userPay = localStorage.getItem("userPay");
+
+export const addPay = action(
+  helpersStore,
+  "addPay",
+  (data, payload: string) => {
+    if (payload == "true") {
+      helpersStore.setKey("pay", true);
+      localStorage.setItem("userPay", payload);
+    } else {
+      helpersStore.setKey("pay", false);
+      localStorage.setItem("userPay", "false");
+    }
+  }
+);
+
+export const addGenre = action(storyGenre, "addGenre", (store, payload) => {
+  const selected = helpersStore.get();
+	storyGenre.set([selected.toggle] = payload);
+	if (selected.toggle === 1) {
+		storyGenre.set({});
+	}
+});
 
 export default helpersStore;
