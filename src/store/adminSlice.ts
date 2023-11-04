@@ -1,58 +1,47 @@
-import { createStore } from "nanostores";
+import { atom } from "nanostores";
 
-const initialState = {
-  edit: false,
-  post: null,
-  user: null,
-  users: null,
-  orders: null,
-};
-
-const adminStore = createStore(initialState);
-
-export const useAdmin = adminStore.subscribe;
-
-export function setEditAdmin(payload) {
-  adminStore.update((state) => {
-    state.edit = payload;
-  });
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  date: string;
 }
 
-export function addPost(payload) {
-  adminStore.update((state) => {
-    state.post = payload;
-  });
+export const post = atom<{}>({});
+export const admin = atom<boolean>(false);
+export const user = atom<User | {}>({});
+export const users = atom<{}>({});
+export const orders = atom<{}>({});
+
+export function setEditAdmin(EditAdmin: boolean) {
+  admin.set(EditAdmin);
 }
 
-export function addUsers(payload) {
-  adminStore.update((state) => {
-    const data = payload.map((el) => ({
-      id: el._id,
-      name: el.name,
-      email: el.email,
-      date: el.date,
-    }));
-    state.users = data;
-  });
+export function addPost(payload: {}) {
+  post.set(payload);
 }
 
-export function addUser(payload) {
-  adminStore.update((state) => {
-    state.user = payload;
-  });
+export function addUsers(payload: any) {
+  const data = {
+    id: payload._id,
+    name: payload.name,
+    email: payload.email,
+    date: payload.date,
+  };
+  users.set({ ...user.get(), data });
 }
 
-export function addOrders(payload) {
-  adminStore.update((state) => {
-    state.orders = payload;
-  });
+export function addUser(payload: User) {
+  user.set(payload);
+}
+
+export function addOrders(payload: {}) {
+	orders.set(payload)
 }
 
 export function clearData() {
-  adminStore.update((state) => {
-    state.post = null;
-    state.user = null;
-  });
+	post.set({})
+	user.set({})
 }
 
 export default adminStore;
