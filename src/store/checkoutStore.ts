@@ -4,7 +4,7 @@ import { atom } from "nanostores";
 
 interface CheckoutStoreState {
   step: number;
-  userData: null;
+  userData: object | null;
 }
 
 const checkoutStore = atom<CheckoutStoreState>({

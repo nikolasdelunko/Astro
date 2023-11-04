@@ -44,7 +44,7 @@ export function setModalStickerMobile(ModalStickerMobile: boolean) {
   modalStickerMobile.set(ModalStickerMobile);
 }
 
-export function setPage(Page: string) {
+export function setPage(Page: number | null) {
 	console.log("This page is", Page)
   page.set(Page);
 }
