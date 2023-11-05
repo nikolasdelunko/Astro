@@ -1,15 +1,12 @@
 import React, { useEffect } from "react";
 import LeftSide from "./LeftSide";
-import { useDispatch, useSelector } from "react-redux";
 import RightSide from "./RightSide";
-import { setPage } from "../../store/helpers/helpersSlice";
+import { setPage } from "../../store/helpersStore";
 
 export default function Checkout() {
-  const dispatch = useDispatch();
-  const step = useSelector((state) => state.checkout.step);
 
   useEffect(() => {
-    dispatch(setPage("checkout"));
+    setPage("checkout")
   }, []);
 
   return (

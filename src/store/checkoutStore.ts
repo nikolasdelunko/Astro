@@ -7,7 +7,7 @@ interface CheckoutStoreState {
   userData: object | null;
 }
 
-const checkoutStore = atom<CheckoutStoreState>({
+export const checkoutStore = atom<CheckoutStoreState>({
   step: 1,
   userData: null,
 });
@@ -21,4 +21,3 @@ export function setUserData(Data: object) {
 }
 
 
-export default checkoutStore;

@@ -1,6 +1,4 @@
 import React from "react";
-// import { useDispatch } from "react-redux";
-// import { setModalSticker } from "../../store/helpers/helpersSlice";
 import Payment from "../Checkout/Stripe/index";
 import Cross from "../Theme/icons/Cross";
 import PolygonForModal from "../Theme/icons/PolygonForModal";
@@ -8,7 +6,6 @@ import PolygonForModal2 from "../Theme/icons/PolygonForModal2";
 import {setModalSticker} from "../../store/helpersStore"
 
 export default function ModalPaySticker() {
-  // const dispatch = useDispatch();
   //! dispatch
   //! need to setup sum & currency  in stripe
   const data = { total: 49 };
@@ -18,7 +15,7 @@ export default function ModalPaySticker() {
       className="bg-modal top-0 left-0 w-[100%] h-[100%] block fixed z-50"
       onClick={(e) => {
 				setModalSticker(false)
-        // dispatch(setModalSticker(false));
+
       }}
     >
       <div
@@ -48,7 +45,6 @@ export default function ModalPaySticker() {
                   className="absolute w-[24px] h-[24px] bg-[#EBB268] rounded-[50%] right-[8px] top-[8px] cursor-pointer"
                   onClick={() => {
 										setModalSticker(false)
-                    // dispatch(setModalSticker(false));
                   }}
                 >
                   <Cross />

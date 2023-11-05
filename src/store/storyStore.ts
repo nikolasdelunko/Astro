@@ -97,13 +97,13 @@ const userPay = localStorage.getItem("userPay");
 export const addPay = action(
   helpersStore,
   "addPay",
-  (data, payload: string) => {
-    if (payload == "true") {
+  (data, payload: string | boolean) => {
+    if (payload === true || userPay == "true") {
       helpersStore.setKey("pay", true);
-      localStorage.setItem("userPay", payload);
+      localStorage.setItem("userPay", JSON.stringify(payload));
     } else {
       helpersStore.setKey("pay", false);
-      localStorage.setItem("userPay", "false");
+      localStorage.setItem("userPay", JSON.stringify(false));
     }
   }
 );

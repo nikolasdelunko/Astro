@@ -1,12 +1,9 @@
 import React from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { CHECKOUT_STEP1 } from "../Steps/Settings/Schemes";
-import { useDispatch, useSelector } from "react-redux";
-import { setStep, setUserData } from "../../store/checkout/checkoutSlice";
+import { setStep, setUserData, checkoutStore } from "../../store/checkoutStore";
 
 export default function LeftSide() {
-  const dispatch = useDispatch();
-  const step = useSelector((state) => state.checkout.step);
   return (
     <div>
       <Formik
@@ -23,15 +20,15 @@ export default function LeftSide() {
         }}
         validationSchema={CHECKOUT_STEP1}
         onSubmit={(values) => {
-          dispatch(setUserData(values));
+          setUserData(values);
         }}
       >
         {({ handleSubmit, isValid, dirty }) => (
           <Form>
-            <div className="max-w-[550px] left-0 flex gap-[32px] py-[32px] max-[420px]:flex-col">
+            <div className="left-0 flex max-w-[550px] gap-[32px] py-[32px] max-[420px]:flex-col">
               <div>
-                <div className="flex flex-col gap-[10px] start pb-[17px]">
-                  <h2 className="font-textSec text-text-color text-[12px]">
+                <div className="start flex flex-col gap-[10px] pb-[17px]">
+                  <h2 className="font-textSec text-[12px] text-text-color">
                     First Name
                   </h2>
                 </div>
@@ -42,7 +39,7 @@ export default function LeftSide() {
                   label="FirstName"
                   type="text"
                   placeholder="John"
-                  className="w-[260px] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                  className="h-[41px] w-[260px] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
                 />
                 <ErrorMessage
                   name="FirstName"
@@ -51,8 +48,8 @@ export default function LeftSide() {
                 />
               </div>
               <div>
-                <div className="flex flex-col gap-[10px] start pb-[17px]">
-                  <h2 className="font-textSec text-text-color text-[12px]">
+                <div className="start flex flex-col gap-[10px] pb-[17px]">
+                  <h2 className="font-textSec text-[12px] text-text-color">
                     Last Name
                   </h2>
                 </div>
@@ -63,7 +60,7 @@ export default function LeftSide() {
                   label="LastName"
                   type="text"
                   placeholder="Doe"
-                  className="w-[260px] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                  className="h-[41px] w-[260px] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
                 />
                 <ErrorMessage
                   name="LastName"
@@ -72,10 +69,10 @@ export default function LeftSide() {
                 />
               </div>
             </div>
-            <div className="max-w-[550px] left-0 flex gap-[32px] py-[32px] max-[420px]:flex-col">
+            <div className="left-0 flex max-w-[550px] gap-[32px] py-[32px] max-[420px]:flex-col">
               <div>
-                <div className="flex flex-col gap-[10px] start pb-[17px]">
-                  <h2 className="font-textSec text-text-color text-[12px]">
+                <div className="start flex flex-col gap-[10px] pb-[17px]">
+                  <h2 className="font-textSec text-[12px] text-text-color">
                     Email
                   </h2>
                 </div>
@@ -86,7 +83,7 @@ export default function LeftSide() {
                   label="Email"
                   type="text"
                   placeholder="Johndoe@example.com"
-                  className="w-[260px] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                  className="h-[41px] w-[260px] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
                 />
                 <ErrorMessage
                   name="Email"
@@ -95,13 +92,13 @@ export default function LeftSide() {
                 />
               </div>
               <div>
-                <div className="flex flex-col gap-[10px] start pb-[17px] relative">
-                  <h2 className="font-textSec text-text-color text-[12px]">
+                <div className="start relative flex flex-col gap-[10px] pb-[17px]">
+                  <h2 className="font-textSec text-[12px] text-text-color">
                     Phone Number
                   </h2>
                 </div>
-                <div className="absolute w-[41px] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-r-[1px]  rounded-[8px] text-center flex justify-center">
-                  <p className="text-[14px] text-[#C5C3C3]  absolute top-[10px] left-[5px]">
+                <div className="absolute flex h-[41px] w-[41px] justify-center rounded-[8px] rounded-r-[1px]  border-[1px] border-[#C5C3C3] pl-[16px] text-center">
+                  <p className="absolute left-[5px]  top-[10px] text-[14px] text-[#C5C3C3]">
                     +44
                   </p>
                 </div>
@@ -112,7 +109,7 @@ export default function LeftSide() {
                   label="PhoneNumber"
                   type="text"
                   placeholder="Phone Number"
-                  className="w-[260px] h-[41px] pl-[56px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                  className="h-[41px] w-[260px] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[56px]"
                 />
                 <ErrorMessage
                   name="PhoneNumber"
@@ -121,12 +118,12 @@ export default function LeftSide() {
                 />
               </div>
             </div>
-            <p className="text-mainText text-[#C5C3C3] text-[20px] pt-[32px] font-normal">
+            <p className="text-mainText pt-[32px] text-[20px] font-normal text-[#C5C3C3]">
               Shipping Details
             </p>
-            <div className="max-w-[550px] left-0 flex  flex-col py-[32px] max-[420px]:max-w-[260px]">
-              <div className="flex flex-col gap-[10px] start pb-[17px]">
-                <h2 className="font-textSec text-text-color text-[12px]">
+            <div className="left-0 flex max-w-[550px]  flex-col py-[32px] max-[420px]:max-w-[260px]">
+              <div className="start flex flex-col gap-[10px] pb-[17px]">
+                <h2 className="font-textSec text-[12px] text-text-color">
                   Detail Address
                 </h2>
               </div>
@@ -137,7 +134,7 @@ export default function LeftSide() {
                 label="DetailAddress"
                 type="text"
                 placeholder="Detail Address"
-                className="w-[100%] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                className="h-[41px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage
                 name="DetailAddress"
@@ -151,7 +148,7 @@ export default function LeftSide() {
                 label="DetailAddressOptional"
                 type="text"
                 placeholder="Detail Address Optional"
-                className="w-[100%] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px] mt-[12px]"
+                className="mt-[12px] h-[41px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage
                 name="DetailAddressOptional"
@@ -159,9 +156,9 @@ export default function LeftSide() {
                 className="text-[12px]"
               />
             </div>
-            <div className="max-w-[550px] left-0 flex  flex-col pb-[32px] max-[420px]:max-w-[260px]">
-              <div className="flex flex-col gap-[10px] start pb-[17px]">
-                <h2 className="font-textSec text-text-color text-[12px]">
+            <div className="left-0 flex max-w-[550px]  flex-col pb-[32px] max-[420px]:max-w-[260px]">
+              <div className="start flex flex-col gap-[10px] pb-[17px]">
+                <h2 className="font-textSec text-[12px] text-text-color">
                   City
                 </h2>
               </div>
@@ -172,7 +169,7 @@ export default function LeftSide() {
                 label="City"
                 type="text"
                 placeholder="Liverpool"
-                className="w-[100%] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                className="h-[41px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage
                 name="City"
@@ -180,10 +177,10 @@ export default function LeftSide() {
                 className="text-[12px]"
               />
             </div>
-            <div className="max-w-[550px] left-0 flex gap-[32px] max-[420px]:flex-col">
+            <div className="left-0 flex max-w-[550px] gap-[32px] max-[420px]:flex-col">
               <div>
-                <div className="flex flex-col gap-[10px] start pb-[17px]">
-                  <h2 className="font-textSec text-text-color text-[12px]">
+                <div className="start flex flex-col gap-[10px] pb-[17px]">
+                  <h2 className="font-textSec text-[12px] text-text-color">
                     County
                   </h2>
                 </div>
@@ -194,7 +191,7 @@ export default function LeftSide() {
                   label="County"
                   type="text"
                   placeholder="Merseyside"
-                  className="w-[260px] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                  className="h-[41px] w-[260px] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
                 />
                 <ErrorMessage
                   name="County"
@@ -203,8 +200,8 @@ export default function LeftSide() {
                 />
               </div>
               <div>
-                <div className="flex flex-col gap-[10px] start pb-[17px]">
-                  <h2 className="font-textSec text-text-color text-[12px]">
+                <div className="start flex flex-col gap-[10px] pb-[17px]">
+                  <h2 className="font-textSec text-[12px] text-text-color">
                     Postcode
                   </h2>
                 </div>
@@ -215,7 +212,7 @@ export default function LeftSide() {
                   label="Postcode"
                   type="text"
                   placeholder="Postcode"
-                  className="w-[260px] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                  className="h-[41px] w-[260px] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
                 />
                 <ErrorMessage
                   name="Postcode"
@@ -224,14 +221,14 @@ export default function LeftSide() {
                 />
               </div>
             </div>
-            <div className="absolute right-[10%] bottom-0 w-[35%] max-[420px]:w-[90%] max-[420px]:bottom-[-80px]">
+            <div className="absolute bottom-0 right-[10%] w-[35%] max-[420px]:bottom-[-80px] max-[420px]:w-[90%]">
               <button
-                className="btn flex items-center  w-[100%] justify-center"
+                className="btn flex w-[100%]  items-center justify-center"
                 disabled={!isValid && !dirty}
                 type="submit"
                 onClick={() => {
                   handleSubmit();
-                  dispatch(setStep(step + 1));
+                  setStep(checkoutStore.step + 1);
                 }}
               >
                 Continue to Payment

@@ -1,20 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setStep } from "../../../store/checkout/checkoutSlice";
-import { addPay } from "../../../store/story/storySlice";
+import { setStep, checkoutStore } from "../../../store/checkoutStore";
+import { addPay } from "../../../store/storyStore";
 import LogOutIco from "../Theme/Icons/LogOut";
 import useAuth from "../../../utils/customHooks/useAuth";
 import useConfirm from "../../../utils/customHooks/useConfirm";
 import { page } from "../../../store/helpersStore";
-
+import { data } from "../../../store/userStore";
 
 export default function NavCreate() {
-  const dispatch = useDispatch();
   const { logOut } = useAuth();
-  // const page = useSelector((state) => state.helpers.page);
-  const step = useSelector((state) => state.checkout.step);
-  const user = useSelector((state) => state.user.data);
   const navigate = useNavigate();
   const { confirm } = useConfirm();
 
@@ -28,29 +23,29 @@ export default function NavCreate() {
   };
 
   return (
-    <div className="flex justify-between items-center px-[64px] max-[420px]:px-[5%] pb-[33px] pt-[27px] w-[100%] bg-main-color">
+    <div className="flex w-[100%] items-center justify-between bg-main-color px-[64px] pb-[33px] pt-[27px] max-[420px]:px-[5%]">
       <div className="flex items-center">
         {page !== "successfullyPay" && (
           <div
             onClick={() => {
               if (page === "payCard") {
-                dispatch(setStep(step - 1));
+                setStep(checkoutStore.step - 1);
               } else {
                 goBack();
               }
             }}
           >
-            <p className="cursor-pointer text-textSec text-regular text-[16px] font-[600]">
+            <p className="text-textSec cursor-pointer text-[16px] font-[600] text-regular">
               Back
             </p>
           </div>
         )}
       </div>
-      <div className="items-center flex justify-center">
+      <div className="flex items-center justify-center">
         <div
           className="cursor-pointer"
           onClick={() => {
-            dispatch(addPay(false));
+            addPay(false);
           }}
         >
           <a href="/">
@@ -59,7 +54,7 @@ export default function NavCreate() {
         </div>
       </div>
       <div>
-        {page === "admin" && user && (
+        {page === "admin" && data && (
           <div className="cursor-pointer" onClick={exit}>
             <LogOutIco />
           </div>

@@ -17,7 +17,7 @@ export const mobile = atom<boolean>(false);
 export const page = atom<number | null>(null);
 export const step = atom<number>(0);
 export const touch = atom<boolean>(false);
-export const openCard = atom<boolean>(false);
+export const openCard = atom<boolean | number>(false);
 
 export function openModal(Modal: boolean) {
   modal.set(Modal);
@@ -25,6 +25,10 @@ export function openModal(Modal: boolean) {
 
 export function setConfirmOpen(ModalConfirm: boolean) {
   modalConfirm.set({ ...modalConfirm.get(), open: ModalConfirm });
+}
+
+export function setOpenCard(OpenCard: boolean |  number) {
+  openCard.set(OpenCard);
 }
 
 export function setConfirmText(ModalConfirm: string) {
