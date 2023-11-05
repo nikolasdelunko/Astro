@@ -1,17 +1,11 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setStep } from "../../store/helpers/helpersSlice";
+import { setStep, step } from "../../../store/helpersStore";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { STORY_BOOK_STEP2_SCHEMA } from "./Settings/Schemes";
 import QuestionIco from "../../Theme/icons/Question"
-// import { addStoryInfoStep2 } from "../../store/story/storySlice";
-// import CustomSelect from "./Settings/CustomElements/CustomSelect";
+import { addStoryInfoStep2 } from "../../../store/storyStore";
 
 export default function Step2() {
-  // const dispatch = useDispatch();
-  // const step = useSelector((state) => state.helpers.step);
-	const step = 0
-	//! dispatch 
 
   return (
     <div className="items-start pb-[166px] max-[420px]:w-[90%]">
@@ -27,7 +21,7 @@ export default function Step2() {
         }}
         validationSchema={STORY_BOOK_STEP2_SCHEMA}
         onSubmit={(values) => {
-          // dispatch(addStoryInfoStep2(values));
+         addStoryInfoStep2(values)
         }}
       >
         {({ handleSubmit, isValid, dirty }) => (
@@ -225,7 +219,7 @@ export default function Step2() {
             <div className="flex justify-between">
               <button
                 onClick={() => {
-                  // dispatch(setStep(step - 1));
+                  setStep(step - 1)
                 }}
                 className="text-regular text-[18px] text-textSec"
               >
@@ -237,8 +231,8 @@ export default function Step2() {
                 type="submit"
                 onClick={() => {
 									console.log("Submit")
-                  // handleSubmit();
-                  // dispatch(setStep(step + 1));
+                  handleSubmit();
+                  setStep(step + 1)
                 }}
               >
                 next

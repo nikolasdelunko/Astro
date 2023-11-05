@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import RightSide from "./RightSide";
-import { setPage } from "../../store/helpers/helpersSlice";
-import { useDispatch } from "react-redux";
+import { setPage } from "../../store/helpersStore";
 import Payment from "./Stripe/index";
 
 export default function PayCard() {
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(setPage("payCard"));
+    setPage("payCard");
   }, []);
 
   return (
@@ -20,15 +17,15 @@ export default function PayCard() {
           <li className="ml-[5px]">Checkout /</li>
         </ul>
       </div>
-      <h1 className="text-regular text-[48px] text-mainText font-normal pb-[48px]">
+      <h1 className="text-mainText pb-[48px] text-[48px] font-normal text-regular">
         Payment
       </h1>
-      <div className="flex justify-between relative max-[420px]:h-[800px]">
+      <div className="relative flex justify-between max-[420px]:h-[800px]">
         <div className=" w-[100%] max-[420px]:mx-[10%]">
           <Payment />
         </div>
-        <div className="h-[100%] w-[2px] bg-[#ECECEC] absolute left-[50%] max-[420px]:invisible"></div>
-        <div className="text-left w-[100%] ml-[64px] max-[420px]:absolute max-[420px]:invisible">
+        <div className="absolute left-[50%] h-[100%] w-[2px] bg-[#ECECEC] max-[420px]:invisible"></div>
+        <div className="ml-[64px] w-[100%] text-left max-[420px]:invisible max-[420px]:absolute">
           <RightSide />
         </div>
       </div>

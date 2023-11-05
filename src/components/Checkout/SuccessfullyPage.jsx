@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setPage } from "../../store/helpers/helpersSlice";
-import { addPay } from "../../store/story/storySlice";
+import { setPage } from "../../store/helpersStore";
+import { addPay } from "../../store/storyStore";
 import { NavLink } from "react-router-dom";
 import Success from "../Theme/icons/Success";
 
 export default function SuccessfullyPage() {
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(setPage("successfullyPay"));
+    setPage("successfullyPay");
     const handleBeforeUnload = (e) => {
-      dispatch(addPay(false));
+      addPay(false);
     };
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => {
@@ -20,16 +17,16 @@ export default function SuccessfullyPage() {
   }, []);
 
   return (
-    <div className="h-[1024px] flex items-center justify-center max-[420px]:h-screen max-[420px]:pb-[400px]">
-      <div className="flex flex-col justify-center items-center">
+    <div className="flex h-[1024px] items-center justify-center max-[420px]:h-screen max-[420px]:pb-[400px]">
+      <div className="flex flex-col items-center justify-center">
         <div className="pb-[40px]">
           <Success />
         </div>
-        <div className="items-center text-center pb-[32px]">
-          <h1 className="text-main-color text-textSec text-[32px] font-[400] pb-[16px]">
+        <div className="items-center pb-[32px] text-center">
+          <h1 className="text-textSec pb-[16px] text-[32px] font-[400] text-main-color">
             Payment Successfully
           </h1>
-          <p className="text-[#C5C3C3] text-textSec text-[16px] font-[400] pb-[6px]">
+          <p className="text-textSec pb-[6px] text-[16px] font-[400] text-[#C5C3C3]">
             Thank you for ordering and creating a book with Crazyprints, we will
             start processing your order. Keep checking the status of your order.
           </p>
@@ -39,8 +36,8 @@ export default function SuccessfullyPage() {
             <button
               className="btn-second flex items-center justify-center"
               onClick={() => {
-                dispatch(addPay(false));
-                // dispatch(openModal(true));
+                addPay(false);
+                // openModal(true)
               }}
             >
               Home
@@ -50,8 +47,8 @@ export default function SuccessfullyPage() {
             <button
               className="btn flex items-center justify-center "
               onClick={() => {
-                dispatch(addPay(false));
-                // dispatch(openModal(true));
+                addPay(false);
+                // openModal(true)
               }}
             >
               Order Tracking

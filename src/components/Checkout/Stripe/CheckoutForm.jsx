@@ -3,26 +3,23 @@ import {
   useElements,
   PaymentElement,
 } from "@stripe/react-stripe-js";
-// import { useSelector } from "react-redux";
 import { PatchOrderPay } from "../../../utils/Api/orderApi";
 import { postStickers } from "../../../utils/Api/stickerApi";
-// import { useDispatch } from "react-redux";
-// import { addPay } from "../../../store/story/storySlice";
-// import {
-//   setPaySticker,
-//   setClient,
-// } from "../../../store/stickers/stickersSlice";
+import { addPay, email } from "../../../store/storyStore";
+import {
+  setPaySticker,
+  setClient,
+  stickersStore,
+} from "../../../store/stickers";
+import { page } from "../../../store/helpersStore";
 import { url } from "../../../utils/Api/url";
 
 const CheckoutForm = ({ sum }) => {
   const stripe = useStripe();
   const elements = useElements();
-  // const email = useSelector((state) => state.story.storyBook);
-  // const page = useSelector((state) => state.helpers.page);
-  // const listPhoto = useSelector((state) => state.stickers.listPhoto);
-  // const dispatch = useDispatch();
 
-	//! dispatch
+
+  //! need check
 
   const handleSubmit = async (event) => {
     // We don't want to let default form submission happen here,
@@ -39,11 +36,11 @@ const CheckoutForm = ({ sum }) => {
       try {
         if (page === "payCard") {
           await PatchOrderPay(email);
-          // dispatch(addPay(true));
+          addPay(true);
         } else if (page === "UploadImage") {
-          const client = await postStickers(listPhoto);
-          // dispatch(setClient(client.data));
-          // dispatch(setPaySticker(true));
+          const client = await postStickers(stickersStore.listPhoto);
+          setClient(client.data);
+          setPaySticker(true);
         }
       } catch (err) {
         console.log(err);
@@ -72,7 +69,6 @@ const CheckoutForm = ({ sum }) => {
       console.log(result.error.message);
     } else {
       fetchPay();
-      // dispatch()
       // Your customer will be redirected to your `return_url`. For some payment
       // methods like iDEAL, your customer will be redirected to an intermediate
       // site first to authorize the payment, then redirected to the `return_url`.

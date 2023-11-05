@@ -1,10 +1,9 @@
 import React from "react";
 import Variants from "./Variants";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setStep } from "../../store/helpers/helpersSlice";
+import { setStep, step } from "../../../store/helpersStore";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { STORY_BOOK_STEP1_SCHEMA } from "./Settings/Schemes";
-// import { addThemeStory } from "../../store/story/storySlice";
+import { addThemeStory } from "../../../store/storyStore";
 
 const data = [
   "Action-Adventure",
@@ -20,11 +19,6 @@ const data = [
 ];
 
 export default function Step1() {
-  // const dispatch = useDispatch();
-  // const step = useSelector((state) => state.helpers.step);
-	//! dispatch
-const step = 0
-
   return (
     <div className="items-start pb-[166px] max-[420px]:w-[90%]">
       <Formik
@@ -33,17 +27,17 @@ const step = 0
         }}
         validationSchema={STORY_BOOK_STEP1_SCHEMA}
         onSubmit={(values) => {
-          // dispatch(addThemeStory(values));
+          addThemeStory(values);
         }}
       >
         {({ handleSubmit, isValid, dirty }) => (
           <Form>
             <div className="max-w-[550px] pb-[32px]">
-              <div className="flex gap-[13px] items-center start pb-[17px]">
-                <h2 className="font-textSec text-text-color text-[20px]">
+              <div className="start flex items-center gap-[13px] pb-[17px]">
+                <h2 className="font-textSec text-[20px] text-text-color">
                   Choose Genre
                 </h2>
-                <p className="font-textSec text-regular text-[12px]">
+                <p className="font-textSec text-[12px] text-regular">
                   (Select up to 2)
                 </p>
               </div>
@@ -53,12 +47,12 @@ const step = 0
                 ))}
               </div>
             </div>
-            <div className="max-w-[550px] pb-[32px] left-0">
-              <div className="flex flex-col gap-[10px] start pb-[17px]">
-                <h2 className="font-textSec text-text-color text-[20px]">
+            <div className="left-0 max-w-[550px] pb-[32px]">
+              <div className="start flex flex-col gap-[10px] pb-[17px]">
+                <h2 className="font-textSec text-[20px] text-text-color">
                   Theme of Story
                 </h2>
-                <p className="font-textSec text-text-color text-[12px]">
+                <p className="font-textSec text-[12px] text-text-color">
                   Example: Cyberpunk science fiction, revenge mystery, medieval
                   fantasy, futuristic, time travel
                 </p>
@@ -70,7 +64,7 @@ const step = 0
                 label="ThemeOfStory"
                 type="text"
                 placeholder="Theme of story"
-                className="w-[100%] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                className="h-[41px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage name="ThemeOfStory" component="div" />
             </div>
@@ -81,7 +75,7 @@ const step = 0
                 type="submit"
                 onClick={() => {
                   handleSubmit();
-                  // dispatch(setStep(step + 1));
+                  setStep(step + 1);
                 }}
               >
                 next

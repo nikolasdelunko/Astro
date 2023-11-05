@@ -1,13 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Cross from "../../Theme/icons/Cross";
-import { openBurger } from "../../../store/helpers/helpersSlice";
-import { page } from "../../../store/helpersStore";
+import { openBurger, page } from "../../../store/helpersStore";
 
 export default function Menu() {
-  const dispatch = useDispatch();
-  // const page = useSelector((state) => state.helpers.page);
   return (
     <div>
       <ul className="m-[2%] flex flex-col items-center gap-8 pt-[81px]">
@@ -15,7 +11,7 @@ export default function Menu() {
           <div
             className="absolute right-[10px] top-[10px] rounded-[100%] bg-regular"
             onClick={() => {
-              dispatch(openBurger(false));
+              openBurger(false)
             }}
           >
             <Cross />

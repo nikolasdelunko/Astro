@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setPage } from "../../store/helpers/helpersSlice";
+import { setPage } from "../../store/helpersStore";
 import { NavLink } from "react-router-dom";
 import Success from "../Theme/icons/Success";
-import { setPaySticker } from "../../store/stickers/stickersSlice";
+import { setPaySticker } from "../../store/stickers";
 
 export default function SuccessfullyPage() {
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setPage("successfullyPaySticker"));
+    setPage("successfullyPaySticker")
 		const handleBeforeUnload = (e) => {
-			dispatch(setPaySticker(false));
+			setPaySticker(false)
 			e.returnValue = 'Are you sure you want to leave the page? Your unsaved data may be lost.';
     };
 		window.addEventListener('beforeunload', handleBeforeUnload);
@@ -41,8 +39,8 @@ export default function SuccessfullyPage() {
             <button
               className="btn-second flex items-center justify-center"
               onClick={() => {
-                dispatch(setPaySticker(false));
-                // dispatch(openModal(true));
+                setPaySticker(false)
+                // openModal(true);
               }}
             >
               Home
@@ -51,8 +49,8 @@ export default function SuccessfullyPage() {
             <button
               className="btn flex items-center justify-center "
               onClick={() => {
-                dispatch(setPaySticker(false));
-                // dispatch(openModal(true));
+                setPaySticker(false)
+                // openModal(true);
               }}
             >
               Download stickers

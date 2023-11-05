@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setPage } from "../../store/helpers/helpersSlice";
+import { setPage, step } from "../../store/helpersStore";
 import Step1 from "./Steps/Step1";
 import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 
 export default function StartCreate() {
-  // const dispatch = useDispatch();
-  // const step = useSelector((state) => state.helpers.step);
 
-	const step = 1
-
-	//! dispatch
 
   useEffect(() => {
-    // dispatch(setPage("create"));
+   setPage("create")
   }, []);
 
 

@@ -5,7 +5,7 @@ interface ModalConfirmState {
   open: boolean;
 }
 
-export const modal = atom<boolean>(false);
+export const modal = atom<boolean | {}>(false);
 export const modalConfirm = atom<ModalConfirmState>({
   text: "",
   open: false,
@@ -19,7 +19,7 @@ export const step = atom<number>(0);
 export const touch = atom<boolean>(false);
 export const openCard = atom<boolean | number>(false);
 
-export function openModal(Modal: boolean) {
+export function openModal(Modal: boolean | {}) {
   modal.set(Modal);
 }
 
@@ -51,4 +51,8 @@ export function setModalStickerMobile(ModalStickerMobile: boolean) {
 export function setPage(Page: number | null) {
 	console.log("This page is", Page)
   page.set(Page);
+}
+
+export function setStep(Step: number) {
+	step.set(Step);
 }

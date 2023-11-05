@@ -1,17 +1,10 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setStep } from "../../store/helpers/helpersSlice";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { STORY_BOOK_STEP3_SCHEMA } from "./Settings/Schemes";
-// import { openModal } from "../../store/helpers/helpersSlice";
-// import { addStoryInfoStep3 } from "../../store/story/storySlice";
+import { setStep, step, openModal } from "../../../store/helpersStore";
+import { addStoryInfoStep3 } from "../../../store/storyStore";
 
 export default function Step2() {
-  // const dispatch = useDispatch();
-  // const step = useSelector((state) => state.helpers.step);
-	const step = 0 
-	//! dispatch
-
   return (
     <div className="items-start pb-[166px]">
       <Formik
@@ -21,17 +14,17 @@ export default function Step2() {
         validationSchema={STORY_BOOK_STEP3_SCHEMA}
         onSubmit={(values) => {
           console.log(values);
-          // dispatch(addStoryInfoStep3(values));
+          addStoryInfoStep3(values);
         }}
       >
         {({ handleSubmit, isValid, dirty }) => (
           <Form>
-            <div className="w-[550px] max-[420px]:w-[90%] pb-[32px] left-0 ">
-              <div className="flex flex-col start pb-[8px] pt-[32px]">
-                <h2 className="font-textSec text-text-color text-[20px] pb-[8px]">
+            <div className="left-0 w-[550px] pb-[32px] max-[420px]:w-[90%] ">
+              <div className="start flex flex-col pb-[8px] pt-[32px]">
+                <h2 className="pb-[8px] font-textSec text-[20px] text-text-color">
                   Book Cover Design Prompt
                 </h2>
-                <p className="font-textSec text-text-color text-[12px] pb-[16px]">
+                <p className="pb-[16px] font-textSec text-[12px] text-text-color">
                   Describe your imagination about the book cover design you want
                 </p>
               </div>
@@ -42,16 +35,16 @@ export default function Step2() {
                 label="CoverDesign"
                 type="text"
                 placeholder="Book cover design prompt. . ."
-                className="w-[100%] h-[120px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                className="h-[120px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage name="CoverDesign" component="div" />
             </div>
             <div className="flex justify-between">
               <button
                 onClick={() => {
-                  // dispatch(setStep(step - 1));
+                  setStep(step - 1);
                 }}
-                className="text-regular text-[18px] text-textSec"
+                className="text-textSec text-[18px] text-regular"
               >
                 Back
               </button>
@@ -61,12 +54,10 @@ export default function Step2() {
                 type="submit"
                 onClick={() => {
                   handleSubmit();
-                  // dispatch(
-                  //   openModal({
-                  //     open: true,
-                  //     step: 0,
-                  //   })
-                  // );
+                  openModal({
+                    open: true,
+                    step: 0,
+                  });
                 }}
               >
                 Create a Book
