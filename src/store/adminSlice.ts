@@ -44,4 +44,3 @@ export function clearData() {
 	user.set({})
 }
 
-export default adminStore;
