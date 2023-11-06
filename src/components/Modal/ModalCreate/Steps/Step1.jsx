@@ -1,9 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { openModal } from "../../../../store/helpers/helpersSlice";
+import { openModal } from "../../../../store/helpersStore";
 
 export default function Step1() {
-  const dispatch = useDispatch();
   return (
     <div>
       <div className="text-left m-[32px]">
@@ -17,7 +15,7 @@ export default function Step1() {
         <div className="flex gap-[16px] justify-end">
           <button
             onClick={() => {
-              dispatch(openModal(false));
+             openModal(false)
             }}
             className="btn-modal-second flex items-center"
           >
@@ -27,12 +25,10 @@ export default function Step1() {
             className="btn flex items-center"
             type="submit"
             onClick={() => {
-              dispatch(
                 openModal({
                   open: true,
                   step: 1,
                 })
-              );
             }}
           >
             Yes, Create

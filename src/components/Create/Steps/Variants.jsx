@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { toggle, addGenre } from "../../store/story/storySlice";
+import { toggle, addGenre, helpersStore } from "../../../store/storyStore";
 
 export default function Variants({ text }) {
-  // const dispatch = useDispatch();
   const [active, setActive] = useState(false);
-  // const selectedFirst = useSelector((state) => state.story.toggle);
-
-	//! dispatch
+  const selectedFirst = helpersStore.toggle;
 
   ///! tests
   useEffect(() => {
@@ -20,23 +16,23 @@ export default function Variants({ text }) {
     <div>
       {active ? (
         <div
-          className="cursor-pointer border-[1px] border-regular bg-regular rounded-[100px] px-[16px] py-[8px]"
+          className="cursor-pointer rounded-[100px] border-[1px] border-regular bg-regular px-[16px] py-[8px]"
           onClick={() => {
             setActive(!active);
           }}
         >
-          <p className="font-textSec text-white text-[12px]"> {text}</p>
+          <p className="font-textSec text-[12px] text-white"> {text}</p>
         </div>
       ) : (
         <div
-          className="cursor-pointer border-[1px] border-regular rounded-[100px] px-[16px] py-[8px]"
+          className="cursor-pointer rounded-[100px] border-[1px] border-regular px-[16px] py-[8px]"
           onClick={() => {
-            // dispatch(addGenre(text));
-            // dispatch(toggle());
+            addGenre(text);
+            toggle();
             setActive(!active);
           }}
         >
-          <p className="font-textSec text-text-color text-[12px]"> {text}</p>
+          <p className="font-textSec text-[12px] text-text-color"> {text}</p>
         </div>
       )}
     </div>

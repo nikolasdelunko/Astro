@@ -37,7 +37,7 @@ export const designPrompt = atom<string>("");
 export const email = atom<string>("");
 export const storyBook = atom<string>("");
 
-const helpersStore = map<InitialState>({
+export const helpersStore = map<InitialState>({
   toggle: 2,
   fill: false,
   pay: false,
