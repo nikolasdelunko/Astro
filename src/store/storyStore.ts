@@ -116,4 +116,3 @@ export const addGenre = action(storyGenre, "addGenre", (store, payload) => {
 	}
 });
 
-export default helpersStore;

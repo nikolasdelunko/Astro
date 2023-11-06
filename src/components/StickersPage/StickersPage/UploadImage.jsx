@@ -5,18 +5,15 @@ import UploadImageArrowRight from "../../Theme/icons/UploadImageArrowRight";
 import UploadImageArrowLeft from "../../Theme/icons/UploadImageArrowLeft";
 import InfoUploadImage from "../../Theme/icons/InfoUploadImage";
 import useUpload from "../../../utils/customHooks/use-upload";
-import { useDispatch, useSelector } from "react-redux";
-// import { setModalSticker } from "../../store/helpers/helpersSlice";
+import { setModalSticker } from "../../../store/helpersStore";
+import { stickersStore } from "../../../store/stickers";
 import { DeletePhoto } from "../../../utils/Api/stickerApi";
 
 export default function UploadedImage({ photo }) {
   const page = "1/1";
-  // const listPhoto = useSelector((state) => state.stickers.listPhoto);
-  // const pay = useSelector((state) => state.stickers.pay);
-	const listPhoto = []
-	const pay = false
-  // const dispatch = useDispatch();
-	//! dispatch
+  const listPhoto = stickersStore.listPhoto
+  const pay = stickersStore.pay
+
 
   const {
     dropHandler,
@@ -41,9 +38,9 @@ export default function UploadedImage({ photo }) {
 
   return (
     <div className="h-[1024px] w-[100%]  max-[420px]:bg-none">
-      <div className="flex flex-col justify-center items-center pt-[50px]">
+      <div className="flex flex-col items-center justify-center pt-[50px]">
         <div className="flex pb-[27px]">
-          <h1 className="font-textBtn text-[#000000] text-[24px] font-bold max-[420px]:text-[14px] max-[420px]:max-w-[268px] max-[420px]:text-center">
+          <h1 className="font-textBtn text-[24px] font-bold text-[#000000] max-[420px]:max-w-[268px] max-[420px]:text-center max-[420px]:text-[14px]">
             Upload Image to Create Stunning Sticker
           </h1>
         </div>
@@ -54,21 +51,21 @@ export default function UploadedImage({ photo }) {
           onDragOver={(e) => dragStartHandler(e)}
           onDrop={(e) => dropHandler(e)}
         >
-          <div className="my-[32px] mx-[32px] max-[420px]:mx-0 max-[420px]:my-0 bg-white border-2 border-dashed border-amber-300 shadow-md rounded-lg w-[838px] h-[438px] max-[420px]:max-w-[311px] max-[420px]:max-h-[189px] flex items-center justify-center">
+          <div className="mx-[32px] my-[32px] flex h-[438px] w-[838px] items-center justify-center rounded-lg border-2 border-dashed border-amber-300 bg-white shadow-md max-[420px]:mx-0 max-[420px]:my-0 max-[420px]:max-h-[189px] max-[420px]:max-w-[311px]">
             <div className="flex flex-col items-center justify-center">
               <div>
                 <img
                   src={`${link}${photo}`}
                   alt="Uploaded Image"
-                  className="w-[235px] h-[329px] rounded-[8px]"
+                  className="h-[329px] w-[235px] rounded-[8px]"
                 />
               </div>
               {drag && (
                 <div>
-                  <h1 className="font-textBtn text-[14px] font-bold text-center text-[#767676]">
+                  <h1 className="text-center font-textBtn text-[14px] font-bold text-[#767676]">
                     release the button to download
                   </h1>
-                  <p className="font-textBtn text-[14px] text-center text-[#767676]">
+                  <p className="text-center font-textBtn text-[14px] text-[#767676]">
                     jpg/png/jpeg. Max Size 5MB or 5000*500
                   </p>
                 </div>
@@ -78,29 +75,29 @@ export default function UploadedImage({ photo }) {
         </div>
       </div>
       <div className="flex justify-between px-[10%] pt-[62px]">
-        <div className="flex items-center relative">
-          <p className="text-[#433E3E] text-[18px] font-textSec pr-[35px]">
+        <div className="relative flex items-center">
+          <p className="pr-[35px] font-textSec text-[18px] text-[#433E3E]">
             15 Stickers for you
           </p>
           <div className="flex items-center">
-            <button className="btn px-[16px] py-[14px] mr-[7px]">
+            <button className="btn mr-[7px] px-[16px] py-[14px]">
               Download All
             </button>
             <button
-              className="btn-second px-[16px] py-[12px] text-[16px] text-[#EBB268] border-[1px] font-textBtn"
+              className="btn-second border-[1px] px-[16px] py-[12px] font-textBtn text-[16px] text-[#EBB268]"
               onClick={() => uploadImage()}
             >
               <Regenerate />
               Regenerate All
             </button>
           </div>
-          <div className="flex items-center absolute right-[1%] top-[100%]">
+          <div className="absolute right-[1%] top-[100%] flex items-center">
             <div className="pt-[5px]">
               <InfoUploadImage />
             </div>
-            <p className="text-[#A4A4A4] text-[12px] font-textBtn pt-[7px]">
+            <p className="pt-[7px] font-textBtn text-[12px] text-[#A4A4A4]">
               Regenerated up to
-              <span className="text-[#433E3E] px-[3px]">3</span>
+              <span className="px-[3px] text-[#433E3E]">3</span>
               times
             </p>
           </div>
@@ -115,18 +112,18 @@ export default function UploadedImage({ photo }) {
           </div>
         </div>
       </div>
-      <div className="pt-[62px] flex flex-wrap px-[10%] gap-[32px]">
+      <div className="flex flex-wrap gap-[32px] px-[10%] pt-[62px]">
         {listStickers?.map((stickers) => (
           <div className="flex flex-col items-center">
             <img
               src={stickers}
               alt="stickersImage"
-              className="w-[220px] h-[220px]"
+              className="h-[220px] w-[220px]"
             />
             <button
-              className="btn px-[16px] py-[10px] mt-[34px] text-[14px]"
+              className="btn mt-[34px] px-[16px] py-[10px] text-[14px]"
               onClick={() => {
-                // dispatch(setModalSticker(true));
+                setModalSticker(true)
               }}
             >
               Download

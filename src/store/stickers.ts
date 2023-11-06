@@ -7,7 +7,7 @@ interface StickersStoreState {
   client: string | [];
 }
 
-const stickersStore = atom<StickersStoreState>({
+export const stickersStore = atom<StickersStoreState>({
   listPhoto: null,
   pay: userPay === "true" ? true : false || false,
   client: localStorage.getItem("client") || [],

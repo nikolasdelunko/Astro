@@ -1,13 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { setModalStickerMobile } from "../../../store/helpers/helpersSlice";
-
-//! dispatch
+import { setModalStickerMobile } from "../../../../store/helpersStore";
 
 export default function CaricatureStyle() {
-  // const dispatch = useDispatch();
-
+ 
   return (
     <div className="w-[100%]">
       <div>
@@ -56,7 +52,7 @@ export default function CaricatureStyle() {
         <div
           className="pb-[45px] px-[5%]"
           onClick={() => {
-            // dispatch(setModalStickerMobile(false));
+            setModalStickerMobile(false)
           }}
         >
           <NavLink to={"/stickers-page-upload"}>

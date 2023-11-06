@@ -1,11 +1,7 @@
 import React from "react";
-// import "../../Theme/Img/mobile/ExampleSticker.png";
-// import { setModalStickerMobile } from "../../../store/helpers/helpersSlice";
-// import { useDispatch } from "react-redux";
+import { setModalStickerMobile } from "../../../../store/helpersStore";
 
 export default function HeaderMob() {
-  // const dispatch = useDispatch();
-  //! dispatch
   //!  need to change real data
   return (
     <div className="h-[1200px] px-[5%] pb-[300px] pt-[116px]">
@@ -25,7 +21,7 @@ export default function HeaderMob() {
           <div
             className="relative mb-[16px] h-[129px] w-[343px] cursor-pointer bg-stickerPage1cardMob"
             onClick={() => {
-              // dispatch(setModalStickerMobile(1.1));
+              setModalStickerMobile(1.1)
             }}
           >
             <img
@@ -37,7 +33,7 @@ export default function HeaderMob() {
           <div
             className="relative mb-[16px] h-[129px] w-[343px] cursor-pointer bg-stickerPage2cardMob"
             onClick={() => {
-              // dispatch(setModalStickerMobile(1.2));
+              setModalStickerMobile(1.2)
             }}
           >
             <img

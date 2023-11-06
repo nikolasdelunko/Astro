@@ -1,22 +1,19 @@
 import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setPage } from "../../store/helpers/helpersSlice";
+import { setPage } from "../../store/helpersStore";
+import { stickersStore } from "../../store/stickers";
 import UploadedImage from "../StickersPage/StickersPage/UploadImage";
 import BeeforeUploadImage from "../StickersPage/StickersPage/BeforeUploadImage";
-// import useResize from "../../utils/customHooks/use-resize";
+import useResize from "../../utils/customHooks/use-resize";
 import UploadImageMob from "../StickersPage/StickersPage/Mob/UploadImageMob";
 
 export default function UploadImage() {
-  // const photoCard = useSelector((state) => state.stickers.listPhoto);
-	const photoCard = null
-	const mob = false
-  // const dispatch = useDispatch();
-  // const mob = useResize();
-	//! dispatch
+  const photoCard = stickersStore.listPhoto;
+
+  const mob = useResize();
 
   useEffect(() => {
-    // dispatch(setPage("UploadImage"));
-		console.log("sms upload")
+    setPage("UploadImage");
+    console.log("sms upload");
   }, []);
 
   if (photoCard?.thumbnail.length) {

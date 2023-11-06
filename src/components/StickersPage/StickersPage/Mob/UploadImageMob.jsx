@@ -6,17 +6,13 @@ import UploadImageArrowRight from "../../../Theme/icons/UploadImageArrowRight";
 import UploadImageArrowLeft from "../../../Theme/icons/UploadImageArrowLeft";
 import InfoUploadImage from "../../../Theme/icons/InfoUploadImage";
 import useUpload from "../../../../utils/customHooks/use-upload";
-// import { useDispatch } from "react-redux";
-// import { setModalSticker } from "../../../store/helpers/helpersSlice";
+import { setModalSticker } from "../../../../store/helpersStore";
 import DownloadIco from "../../../Theme/icons/DownloadIco";
 
 export default function UploadImageMob({ photo }) {
   const filePiker = useRef(null);
   const { handleUpload, listStickers, uploadImage } = useUpload();
-  // const dispatch = useDispatch();
-
-	 //! dispatch
-
+ 
   const page = "1/1";
 
   const handleChange = (e) => {
@@ -120,7 +116,7 @@ export default function UploadImageMob({ photo }) {
             <button
               className="btn px-[16px] py-[10px] mt-[34px] text-[14px]"
               onClick={() => {
-                // dispatch(setModalSticker(true));
+                setModalSticker(true)
               }}
             >
               <DownloadIco />

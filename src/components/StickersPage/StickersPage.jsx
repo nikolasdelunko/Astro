@@ -5,9 +5,8 @@ import Features from "./StickersPage/Features";
 import Howitsworks from "./StickersPage/HowItsWorks";
 import StickerStyle from "./StickersPage/StickerStyle";
 import Download from "./StickersPage/Download";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setPage } from "../../store/helpers/helpersSlice";
-// import useResize from "../../utils/customHooks/use-resize";
+import { setPage, modalStickerMobile } from "../../store/helpersStore";
+import useResize from "../../utils/customHooks/use-resize";
 import ModalMobSticker from "../Modal/ModalMobSticker";
 import CaricatureStyle from "./StickersPage/Mob/CaricatureStyle";
 import ChibiStyle from "./StickersPage/Mob/ChibiStyle";
@@ -15,19 +14,11 @@ import PayPageMob from "./StickersPage/Mob/PayPageMob";
 // import UseSeo from "../../utils/customHooks/use-seo";
 
 export default function StickersPage() {
-  // const dispatch = useDispatch();
-  // const mob = useResize();
-  const mob = false;
-  // const modalStickerMobile = useSelector(
-  //   (state) => state.helpers.modalStickerMobile
-  // );
-  const modalStickerMobile = 0;
+  const mob = useResize();
 
-  //! dispatch
-
-  // useEffect(() => {
-  //   dispatch(setPage("StickerPal"));
-  // }, []);
+  useEffect(() => {
+    setPage("StickerPal");
+  }, []);
 
   return (
     <>
