@@ -1,15 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
 import {
+  modalConfirm,
   setConfirmOpen,
   setConfirmText,
-} from "../../store/helpers/helpersSlice";
+} from "../../store/helpersStore";
 
 let resolveCallback;
 
 function useConfirm() {
-  const dispatch = useDispatch();
-  const modalConfirm = useSelector((state) => state.helpers.modalConfirm);
-
   const onConfirm = () => {
     closeConfirm();
     resolveCallback(true);
@@ -21,18 +18,18 @@ function useConfirm() {
   };
 
   const confirm = async (text) => {
-    dispatch(setConfirmText(text));
-    dispatch(setConfirmOpen(true));
+    setConfirmText(text);
+    setConfirmOpen(true);
     return new Promise((resolve, reject) => {
       resolveCallback = resolve;
     });
   };
 
   const closeConfirm = () => {
-    dispatch(setConfirmOpen(false));
+    setConfirmOpen(false);
   };
 
-  return { confirm, onConfirm,  onCancel, modalConfirm};
+  return { confirm, onConfirm, onCancel, modalConfirm };
 }
 
 export default useConfirm;

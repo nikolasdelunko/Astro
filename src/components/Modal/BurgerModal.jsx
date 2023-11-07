@@ -1,10 +1,8 @@
 import React from "react";
-// import { useSelector } from "react-redux";
 import Menu from "./Menu/Menu";
 import { page } from "../../store/helpersStore";
 
 export default function BurgerModal() {
-  // const page = useSelector((state) => state.helpers.page);
   return (
     <>
       {page == "main" ? (

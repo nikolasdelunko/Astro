@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { setStep, checkoutStore } from "../../../store/checkoutStore";
 import { addPay } from "../../../store/storyStore";
-import LogOutIco from "../Theme/Icons/LogOut";
+import LogOutIco from "../../Theme/icons/LogOut";
 import useAuth from "../../../utils/customHooks/useAuth";
 import useConfirm from "../../../utils/customHooks/useConfirm";
 import { page } from "../../../store/helpersStore";

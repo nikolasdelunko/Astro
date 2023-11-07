@@ -3,7 +3,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import PayAPI from "../../../utils/Api/paymantApi";
-import { useSelector } from "react-redux";
+import { page } from "../../../store/helpersStore";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -13,7 +13,6 @@ const stripePromise = loadStripe("pk_test_YXhgLEwTTJdW2AfHsgJJNfAN");
 
 export default function Payment({ data = { total: 4999 } }) {
   const [clientSecret, setClientSecret] = useState("");
-  const page = useSelector((state) => state.helpers.page);
 
   const getSeecret = async () => {
     const response =

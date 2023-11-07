@@ -1,7 +1,7 @@
 import React from "react";
 import ConvertStep from "./Components/ConvertStep";
-// import { useSelector } from "react-redux";
-// import useResize from "../../utils/customHooks/use-resize";
+import { openCard } from "../../store/helpersStore";
+import useResize from "../../utils/customHooks/use-resize";
 
 const data = [
   { step: 1, value: "Upload a photo and pick a style for design" },
@@ -14,28 +14,27 @@ const data = [
 ];
 
 export default function HowToConvert() {
-  // const openedCard = useSelector((state) => state.helpers.openCard);
-  // const mob = useResize();
+  const mob = useResize();
 
   //! need delete double click
 
   return (
     <div className=" pb-[165px]">
       <div>
-        <div className="flex text-center items-center flex-col">
-          <h1 className="flex font-mainText pb-[24px] max-[420px]:pb-[22px] text-regular text-[32px] max-[420px]:mx-[10%] leading-[35px] max-[420px]:text-[24px] max-[420px]:leading-[32px]">
+        <div className="flex flex-col items-center text-center">
+          <h1 className="flex pb-[24px] font-mainText text-[32px] leading-[35px] text-regular max-[420px]:mx-[10%] max-[420px]:pb-[22px] max-[420px]:text-[24px] max-[420px]:leading-[32px]">
             How to Convert Photo to Anime Art
           </h1>
-          <h2 className="mb-[64px] max-w-[832px] max-[420px]:mb-[34px] max-[420px]:mx-[10%] font-main text-white text-[16px]  leading-[22px]  max-[420px]:text-[14px] max-[420px]:leading-[20px]">
+          <h2 className="mb-[64px] max-w-[832px] font-main text-[16px] leading-[22px] text-white max-[420px]:mx-[10%]  max-[420px]:mb-[34px]  max-[420px]:text-[14px] max-[420px]:leading-[20px]">
             We have made the process as simple and convenient as possible
           </h2>
         </div>
       </div>
       <div
-        className="flex gap-[32px] mx-[64px] max-[420px]:mx-[-15px] justify-center max-[420px]:gap-[12px] overflow-hidden"
+        className="mx-[64px] flex justify-center gap-[32px] overflow-hidden max-[420px]:mx-[-15px] max-[420px]:gap-[12px]"
         style={{
-          // paddingRight: `${openedCard === 4 && mob ? "100px" : "0px"}`,
-          // paddingLeft: `${openedCard === 1 && mob <= 420 ? "100px" : "0px"}`,
+          paddingRight: `${openCard === 4 && mob ? "100px" : "0px"}`,
+          paddingLeft: `${openCard === 1 && mob <= 420 ? "100px" : "0px"}`,
         }}
       >
         {data.map((el) => (
