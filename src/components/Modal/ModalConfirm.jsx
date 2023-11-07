@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import useConfirm from "../../utils/customHooks/useConfirm";
 import { modalConfirm } from "../../store/helpersStore";
 

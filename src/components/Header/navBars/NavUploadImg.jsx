@@ -7,6 +7,9 @@ import { listPhoto } from "../../../store/stickers";
 
 export default function NavUploadImg() {
   const uploaded = listPhoto ? listPhoto.length : 0;
+
+  console.log("NavUploadImage", listPhoto);
+
   return (
     <div className="flex w-[100%] items-center justify-between bg-main-color px-[64px] pb-[33px] pt-[27px] max-[420px]:px-[5%]">
       <div className="flex items-center">

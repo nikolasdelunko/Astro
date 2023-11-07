@@ -14,6 +14,8 @@ export default function Header() {
  
   const mob = useResize();
 
+	console.log("This is nav bar", page, mob)
+
   if (page === "main") {
     return (
       <Spring
