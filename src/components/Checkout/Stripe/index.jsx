@@ -16,7 +16,7 @@ export default function Payment({ data = { total: 4999 } }) {
 
   const getSeecret = async () => {
     const response =
-      page === "payCard"
+      page.get() === "payCard"
         ? await PayAPI.makePay(data)
         : await PayAPI.payStickers({ total: 499 });
 

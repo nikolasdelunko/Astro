@@ -75,7 +75,7 @@ export default function Step1() {
                 type="submit"
                 onClick={() => {
                   handleSubmit();
-                  setStep(step + 1);
+                  setStep(step.get() + 1);
                 }}
               >
                 next

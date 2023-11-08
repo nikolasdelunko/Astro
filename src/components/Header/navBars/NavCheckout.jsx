@@ -25,10 +25,10 @@ export default function NavCreate() {
   return (
     <div className="flex w-[100%] items-center justify-between bg-main-color px-[64px] pb-[33px] pt-[27px] max-[420px]:px-[5%]">
       <div className="flex items-center">
-        {page !== "successfullyPay" && (
+        {page.get() !== "successfullyPay" && (
           <div
             onClick={() => {
-              if (page === "payCard") {
+              if (page.get() === "payCard") {
                 setStep(checkoutStore.step - 1);
               } else {
                 goBack();
@@ -54,7 +54,7 @@ export default function NavCreate() {
         </div>
       </div>
       <div>
-        {page === "admin" && data && (
+        {page.get() === "admin" && data && (
           <div className="cursor-pointer" onClick={exit}>
             <LogOutIco />
           </div>

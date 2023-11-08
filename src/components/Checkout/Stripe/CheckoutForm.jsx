@@ -18,7 +18,6 @@ const CheckoutForm = ({ sum }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-
   //! need check
 
   const handleSubmit = async (event) => {
@@ -34,10 +33,10 @@ const CheckoutForm = ({ sum }) => {
 
     const fetchPay = async (data) => {
       try {
-        if (page === "payCard") {
+        if (page.get() === "payCard") {
           await PatchOrderPay(email);
           addPay(true);
-        } else if (page === "UploadImage") {
+        } else if (page.get() === "UploadImage") {
           const client = await postStickers(stickersStore.listPhoto);
           setClient(client.data);
           setPaySticker(true);
@@ -49,9 +48,9 @@ const CheckoutForm = ({ sum }) => {
 
     fetchPay();
     const redirect = () => {
-      if (page === "payCard") {
+      if (page.get() === "payCard") {
         return `${url}/payment-successfully`;
-      } else if (page === "UploadImage") {
+      } else if (page.get() === "UploadImage") {
         return `${url}/stickers-payment-successfully`;
       }
     };
@@ -82,7 +81,7 @@ const CheckoutForm = ({ sum }) => {
         className="btn mt-[48px] w-[100%] justify-center"
         disabled={!stripe}
       >
-        Purchase ( £{page === "payCard" ? "49.99" : "4.99"})
+        Purchase ( £{page.get() === "payCard" ? "49.99" : "4.99"})
       </button>
     </form>
   );

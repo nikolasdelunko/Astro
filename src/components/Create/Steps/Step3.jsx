@@ -42,7 +42,7 @@ export default function Step2() {
             <div className="flex justify-between">
               <button
                 onClick={() => {
-                  setStep(step - 1);
+                  setStep(step.get() - 1);
                 }}
                 className="text-textSec text-[18px] text-regular"
               >

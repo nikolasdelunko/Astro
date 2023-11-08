@@ -7,7 +7,7 @@ export default function Menu() {
   return (
     <div>
       <ul className="m-[2%] flex flex-col items-center gap-8 pt-[81px]">
-        {page === "landing" && (
+        {page.get() === "landing" && (
           <div
             className="absolute right-[10px] top-[10px] rounded-[100%] bg-regular"
             onClick={() => {
@@ -17,7 +17,7 @@ export default function Menu() {
             <Cross />
           </div>
         )}
-        {page == "create" ? (
+        {page.get() == "create" ? (
           <li className="flex h-[50px] w-[100%]   cursor-pointer items-center justify-center rounded-[199px] border-2 border-regular">
             <a href="/create" className="font-main text-lg text-white  ">
               Storybooks
@@ -46,7 +46,7 @@ export default function Menu() {
             AI Avatars
           </a>
         </li>
-        {page == "blog" ? (
+        {page.get() == "blog" ? (
           <li className="flex h-[50px] w-[100%]   cursor-pointer items-center justify-center rounded-[199px] border-2 border-regular">
             <NavLink to={"/blog"}>
               <p className="font-main text-lg text-text-color">Blog</p>

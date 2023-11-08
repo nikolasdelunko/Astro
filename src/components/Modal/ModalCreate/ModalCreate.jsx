@@ -17,9 +17,9 @@ export default function Modal() {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col items-center justify-center">
-          {modal === 0 && <Step1 />}
-          {modal === 1 && <Step2 />}
-          {modal === 2 && <Step3 />}
+          {modal.get() === 0 && <Step1 />}
+          {modal.get() === 1 && <Step2 />}
+          {modal.get() === 2 && <Step3 />}
         </div>
       </div>
     </div>
