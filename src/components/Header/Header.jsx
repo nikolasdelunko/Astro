@@ -11,12 +11,13 @@ import useResize from "../../utils/customHooks/use-resize";
 import { page } from "../../store/helpersStore";
 
 export default function Header() {
- 
   const mob = useResize();
 
-	console.log("This is nav bar", page, mob)
+  console.log("This is nav bar", page.get(), mob);
 
-  if (page === "main") {
+  // const page = "main"
+
+  if (page.get() === "main") {
     return (
       <Spring
         config={{ duration: 1000 }}
@@ -31,30 +32,30 @@ export default function Header() {
         )}
       </Spring>
     );
-  } else if (page === "landing") {
+  } else if (page.get() === "landing") {
     return (
       <div className="absolute top-0 z-[2] w-[100%]">
         <NavLanding />
       </div>
     );
   } else if (
-    page === "checkout" ||
-    page === "payCard" ||
-    page === "successfullyPay" ||
-    page === "admin"
+    page.get() === "checkout" ||
+    page.get() === "payCard" ||
+    page.get() === "successfullyPay" ||
+    page.get() === "admin"
   ) {
-    return (
+    return page.get()(
       <div>
         <NavCheckout />
       </div>
     );
   } else if (
-    (page === "UploadImage" || page === "successfullyPaySticker") &&
+    (page.get() === "UploadImage" || page.get() === "successfullyPaySticker") &&
     !mob
   ) {
     return <NavUploadImg />;
   } else if (
-    (page === "UploadImage" || page === "successfullyPaySticker") &&
+    (page.get() === "UploadImage" || page.get() === "successfullyPaySticker") &&
     mob
   ) {
     return <NavUploadImgMob />;

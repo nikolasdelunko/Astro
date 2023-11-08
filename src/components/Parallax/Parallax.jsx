@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Spring, animated } from "@react-spring/web";
 import HeaderRescription from "../Header/HeaderRescription";
+import { setPage } from "../../store/helpersStore";
 
 export default function ParallaxSection() {
+	
+  useEffect(() => {
+    setPage("main");
+  }, []);
+
   return (
     <div>
       <div
-        className="max-[420px]:invisible  visible overflow-hidden"
+        className="visible  overflow-hidden max-[420px]:invisible"
         style={{
           width: "100%",
           height: "100%",
@@ -50,7 +56,7 @@ export default function ParallaxSection() {
             >
               {(style) => (
                 <animated.div style={style}>
-                  <div className="w-[100%] relative">
+                  <div className="relative w-[100%]">
                     <img
                       src={"/Img/Parallax/bg1.png"}
                       alt="trees1"
@@ -85,7 +91,7 @@ export default function ParallaxSection() {
             >
               {(style) => (
                 <animated.div style={style}>
-                  <div className="w-[100%] relative  items-center">
+                  <div className="relative w-[100%]  items-center">
                     <img
                       src={"/Img/Parallax/samurai1.png"}
                       alt="trees1"
@@ -124,7 +130,7 @@ export default function ParallaxSection() {
             >
               {(style) => (
                 <animated.div style={style}>
-                  <div className="w-[100%] relative">
+                  <div className="relative w-[100%]">
                     <img
                       src={"/Img/Parallax/trees1.png"}
                       alt="trees1"
@@ -168,7 +174,7 @@ export default function ParallaxSection() {
           </ParallaxLayer>
           <ParallaxLayer offset={1}>
             <div
-              className="bg-[#2D061B]  h-[10px]"
+              className="h-[10px]  bg-[#2D061B]"
               style={{
                 overflow: "auto",
               }}

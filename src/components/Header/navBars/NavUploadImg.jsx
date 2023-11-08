@@ -1,14 +1,14 @@
 import React from "react";
 import StickerPal from "../../Theme/icons/StickerPalLogo";
 import Logo from "../../Theme/icons/Logo";
-import { listPhoto } from "../../../store/stickers";
+import { stickersStore } from "../../../store/stickers";
 
 //! dispatch
 
 export default function NavUploadImg() {
-  const uploaded = listPhoto ? listPhoto.length : 0;
+  const uploaded = stickersStore.listPhoto ? listPhoto.length : 0;
 
-  console.log("NavUploadImage", listPhoto);
+  console.log("NavUploadImage", stickersStore.listPhoto);
 
   return (
     <div className="flex w-[100%] items-center justify-between bg-main-color px-[64px] pb-[33px] pt-[27px] max-[420px]:px-[5%]">
