@@ -4,8 +4,8 @@ import { toggle, addGenre, helpersStore } from "../../../store/storyStore";
 export default function Variants({ text }) {
   const [active, setActive] = useState(false);
   const selectedFirst = helpersStore.get();
-	
-	console.log("Variants component", selectedFirst.toggle)
+
+  console.log("Variants component", selectedFirst.toggle);
 
   ///! tests
   useEffect(() => {

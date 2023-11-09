@@ -9,6 +9,11 @@ export default function StartCreate() {
     setPage("create");
   }, []);
 
+	//! need setup listeners
+	step.listen((profile, changed) => {
+		console.log(`${changed} new value ${profile[changed]}`)
+	})
+
   console.log("StartCreate", step.get());
   return (
     <div style={{ minHeight: "calc(100vh - 89px)", paddingBottom: "176px" }}>
