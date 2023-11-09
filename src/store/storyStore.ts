@@ -110,7 +110,8 @@ export const addPay = action(
 
 export const addGenre = action(storyGenre, "addGenre", (store, payload) => {
   const selected = helpersStore.get();
-	storyGenre.set([selected.toggle] = payload);
+	console.log("GENRE Fnc", storyGenre.get())
+	storyGenre.set({...storyGenre.get(), [selected.toggle] : payload});
 	if (selected.toggle === 1) {
 		storyGenre.set({});
 	}

@@ -5,13 +5,11 @@ import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 
 export default function StartCreate() {
-
-
   useEffect(() => {
-   setPage("create")
+    setPage("create");
   }, []);
 
-
+  console.log("StartCreate", step.get());
   return (
     <div style={{ minHeight: "calc(100vh - 89px)", paddingBottom: "176px" }}>
       <img
@@ -19,15 +17,15 @@ export default function StartCreate() {
         src={"/Img/createP.png"}
         alt="headImage"
       />
-      <div className="flex center justify-center mt-[32px] flex-col items-center pb-[166px]">
+      <div className="center mt-[32px] flex flex-col items-center justify-center pb-[166px]">
         <div className="pb-[48px]">
-          <h2 className="font-mainText text-text-color text-[24px]">
+          <h2 className="font-mainText text-[24px] text-text-color">
             Create Story Book
           </h2>
         </div>
-        {step === 0 && <Step1 />}
-        {step === 1 && <Step2 />}
-        {step === 2 && <Step3 />}
+        {step.get() === 0 && <Step1 />}
+        {step.get() === 1 && <Step2 />}
+        {step.get() === 2 && <Step3 />}
       </div>
     </div>
   );

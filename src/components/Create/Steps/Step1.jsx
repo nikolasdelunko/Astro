@@ -28,6 +28,7 @@ export default function Step1() {
         validationSchema={STORY_BOOK_STEP1_SCHEMA}
         onSubmit={(values) => {
           addThemeStory(values);
+					console.log("Step1", values)
         }}
       >
         {({ handleSubmit, isValid, dirty }) => (
@@ -75,6 +76,7 @@ export default function Step1() {
                 type="submit"
                 onClick={() => {
                   handleSubmit();
+									console.log(step.get() + 1)
                   setStep(step.get() + 1);
                 }}
               >
