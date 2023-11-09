@@ -14,6 +14,15 @@ import {
 import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
 
 export default function Step2() {
+  console.log(
+    "Step2",
+    ...storyInfo2,
+    ...storyGenre,
+    ...helpersStore,
+    designPrompt,
+    storyBook
+  );
+
   return (
     <div className="w-[100%]">
       <Formik
@@ -24,23 +33,23 @@ export default function Step2() {
         onSubmit={async (values) => {
           const updateData = {
             ...storyInfo2,
-						...storyGenre,
-						...helpersStore,
-						designPrompt,
-						storyBook,
+            ...storyGenre,
+            ...helpersStore,
+            designPrompt,
+            storyBook,
             email: values.email,
           };
           try {
-            await addEmail(values.email)
+            await addEmail(values.email);
             const exist = await CheckOrder({ email: values.email });
             // snackActions.info(exist.data.message);
             const result = await SentOtp(updateData);
             snackActions.success(result.data);
             if (result.status === 200) {
-                openModal({
-                  open: true,
-                  step: 2,
-                })
+              openModal({
+                open: true,
+                step: 2,
+              });
             } else return;
           } catch (err) {
             snackActions.error(err);

@@ -13,7 +13,7 @@ export default function Step2() {
         }}
         validationSchema={STORY_BOOK_STEP3_SCHEMA}
         onSubmit={(values) => {
-          console.log(values);
+          console.log("Step3", values);
           addStoryInfoStep3(values);
         }}
       >

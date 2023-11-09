@@ -15,6 +15,8 @@ export default function NavCreate() {
 
   const goBack = () => navigate(-1);
 
+	console.log("This is NavCheckout Component", checkoutStore.step)
+
   const exit = async () => {
     const a = await confirm(`do you really wont log out?`);
     if (a) {
@@ -54,7 +56,7 @@ export default function NavCreate() {
         </div>
       </div>
       <div>
-        {page.get() === "admin" && data && (
+        {page.get() === "admin" && data.get() && (
           <div className="cursor-pointer" onClick={exit}>
             <LogOutIco />
           </div>

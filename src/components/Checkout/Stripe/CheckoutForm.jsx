@@ -34,7 +34,7 @@ const CheckoutForm = ({ sum }) => {
     const fetchPay = async (data) => {
       try {
         if (page.get() === "payCard") {
-          await PatchOrderPay(email);
+          await PatchOrderPay(email.get());
           addPay(true);
         } else if (page.get() === "UploadImage") {
           const client = await postStickers(stickersStore.listPhoto);

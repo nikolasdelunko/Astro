@@ -20,6 +20,8 @@ export default function Step2() {
     storyBook,
     ...helpersStore,
   };
+
+  console.log("step3", data);
   const navigate = useNavigate();
 
   const fetchData = async () => {

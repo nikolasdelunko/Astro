@@ -14,6 +14,8 @@ export default function UploadedImage({ photo }) {
   const listPhoto = stickersStore.listPhoto
   const pay = stickersStore.pay
 
+	console.log("UploadImage", listPhoto, pay)
+
 
   const {
     dropHandler,

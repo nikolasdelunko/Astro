@@ -3,7 +3,7 @@ import Hamburger from "hamburger-react";
 import { openBurger, burger } from "../../../store/helpersStore";
 // import { NavLink } from "react-router-dom";
 
-console.log("BURGER",burger.get().value)
+console.log("BURGER", burger.value)
 
 export default function NavMain() {
   return (
@@ -26,7 +26,7 @@ export default function NavMain() {
                 href="/anime-portraits"
                 className="font-main text-lg text-white"
               >
-                Anime portrais
+                Anime portraits
               </a>
             </li>
             <li className="cursor-pointer">
