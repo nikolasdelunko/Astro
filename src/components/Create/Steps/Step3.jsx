@@ -1,10 +1,11 @@
 import React from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { STORY_BOOK_STEP3_SCHEMA } from "./Settings/Schemes";
-import { setStep, step, openModal } from "../../../store/helpersStore";
+import { setStep, $step, openModal } from "../../../store/helpersStore";
 import { addStoryInfoStep3 } from "../../../store/storyStore";
 
 export default function Step2() {
+	  const step = useStore($step);
   return (
     <div className="items-start pb-[166px]">
       <Formik
@@ -42,7 +43,7 @@ export default function Step2() {
             <div className="flex justify-between">
               <button
                 onClick={() => {
-                  setStep(step.get() - 1);
+                  setStep(step - 1);
                 }}
                 className="text-textSec text-[18px] text-regular"
               >

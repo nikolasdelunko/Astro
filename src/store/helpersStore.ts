@@ -15,7 +15,7 @@ export const modalStickerMobile = atom<boolean>(false);
 export const burger = atom<boolean>(false);
 export const mobile = atom<boolean>(false);
 export const page = atom<string | null>(null);
-export const step = atom<number>(0);
+export const $step = atom<number>(0);
 export const touch = atom<boolean>(false);
 export const openCard = atom<boolean | number>(false);
 
@@ -55,5 +55,5 @@ export function setPage(Page: string | null) {
 }
 
 export function setStep(Step: number) {
-	step.set(Step);
+	$step.set(Step);
 }

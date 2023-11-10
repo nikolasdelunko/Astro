@@ -1,6 +1,7 @@
 import React from "react";
 import Variants from "./Variants";
-import { setStep, step } from "../../../store/helpersStore";
+import { setStep, $step } from "../../../store/helpersStore";
+import { useStore } from '@nanostores/react'
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { STORY_BOOK_STEP1_SCHEMA } from "./Settings/Schemes";
 import { addThemeStory } from "../../../store/storyStore";
@@ -19,6 +20,7 @@ const data = [
 ];
 
 export default function Step1() {
+	const step = useStore($step)
   return (
     <div className="items-start pb-[166px] max-[420px]:w-[90%]">
       <Formik
@@ -76,8 +78,8 @@ export default function Step1() {
                 type="submit"
                 onClick={() => {
                   handleSubmit();
-                  console.log(step.get() + 1);
-                  setStep(step.get() + 1);
+                  console.log(step + 1);
+                  setStep(step + 1);
                 }}
               >
                 next

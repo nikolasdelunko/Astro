@@ -1,27 +1,20 @@
 import React, { useEffect } from "react";
 import { useStore } from '@nanostores/react'
-import { setPage, step } from "../../store/helpersStore";
+import { setPage, $step } from "../../store/helpersStore";
 import Step1 from "./Steps/Step1";
 import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 
 export default function StartCreate() {
+	const step = useStore($step)
 
-	const sTep = useStore(step)
   useEffect(() => {
     setPage("create");
-  }, [sTep]);
+  }, [step]);
 
-  //! need setup listeners
-  step.listen((step, changed) => {
-    console.log(
-      `${changed} new value ${[changed]}`,
-      "STEP:",
-      sTep
-    );
-  });
+ 
+  console.log("StartCreate", step);
 
-  console.log("StartCreate", step.get());
   return (
     <div style={{ minHeight: "calc(100vh - 89px)", paddingBottom: "176px" }}>
       <img
@@ -35,9 +28,9 @@ export default function StartCreate() {
             Create Story Book
           </h2>
         </div>
-        {step.get() === 0 && <Step1 />}
-        {step.get() === 1 && <Step2 />}
-        {step.get() === 2 && <Step3 />}
+        {step === 0 && <Step1 />}
+        {step === 1 && <Step2 />}
+        {step === 2 && <Step3 />}
       </div>
     </div>
   );
