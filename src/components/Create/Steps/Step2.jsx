@@ -23,6 +23,7 @@ export default function Step2() {
         validationSchema={STORY_BOOK_STEP2_SCHEMA}
         onSubmit={(values) => {
           addStoryInfoStep2(values);
+					console.log(values)
         }}
       >
         {({ handleSubmit, isValid, dirty }) => (

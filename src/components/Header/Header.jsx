@@ -7,17 +7,17 @@ import NavSticker from "./navBars/NavSticker";
 import NavUploadImg from "./navBars/NavUploadImg";
 import NavUploadImgMob from "./navBars/NavUploadImgMob";
 import { Spring, animated } from "@react-spring/web";
+import { useStore } from '@nanostores/react'
 import useResize from "../../utils/customHooks/use-resize";
-import { page } from "../../store/helpersStore";
+import { $page } from "../../store/helpersStore";
 
 export default function Header() {
   const mob = useResize();
-
-  console.log("This is nav bar", page.get(), mob);
+  const page = useStore($page);
 
   // const page = "main"
 
-  if (page.get() === "main") {
+  if (page === "main") {
     return (
       <Spring
         config={{ duration: 1000 }}
@@ -32,30 +32,30 @@ export default function Header() {
         )}
       </Spring>
     );
-  } else if (page.get() === "landing") {
+  } else if (page === "landing") {
     return (
       <div className="absolute top-0 z-[2] w-[100%]">
         <NavLanding />
       </div>
     );
   } else if (
-    page.get() === "checkout" ||
-    page.get() === "payCard" ||
-    page.get() === "successfullyPay" ||
-    page.get() === "admin"
+    page === "checkout" ||
+    page === "payCard" ||
+    page === "successfullyPay" ||
+    page === "admin"
   ) {
-    return page.get()(
+    return (
       <div>
         <NavCheckout />
       </div>
     );
   } else if (
-    (page.get() === "UploadImage" || page.get() === "successfullyPaySticker") &&
+    (page === "UploadImage" || page === "successfullyPaySticker") &&
     !mob
   ) {
     return <NavUploadImg />;
   } else if (
-    (page.get() === "UploadImage" || page.get() === "successfullyPaySticker") &&
+    (page === "UploadImage" || page === "successfullyPaySticker") &&
     mob
   ) {
     return <NavUploadImgMob />;

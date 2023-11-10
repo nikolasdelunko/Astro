@@ -2,7 +2,9 @@ import React from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { STORY_BOOK_STEP3_SCHEMA } from "./Settings/Schemes";
 import { setStep, $step, openModal } from "../../../store/helpersStore";
+import { useStore } from '@nanostores/react'
 import { addStoryInfoStep3 } from "../../../store/storyStore";
+
 
 export default function Step2() {
 	  const step = useStore($step);

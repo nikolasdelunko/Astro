@@ -5,13 +5,15 @@ import { addPay } from "../../../store/storyStore";
 import LogOutIco from "../../Theme/icons/LogOut";
 import useAuth from "../../../utils/customHooks/useAuth";
 import useConfirm from "../../../utils/customHooks/useConfirm";
-import { page } from "../../../store/helpersStore";
+import { $page } from "../../../store/helpersStore";
+import { useStore } from '@nanostores/react'
 import { data } from "../../../store/userStore";
 
 export default function NavCreate() {
   const { logOut } = useAuth();
   const navigate = useNavigate();
   const { confirm } = useConfirm();
+	const page = useStore($page);
 
   const goBack = () => navigate(-1);
 
@@ -27,10 +29,10 @@ export default function NavCreate() {
   return (
     <div className="flex w-[100%] items-center justify-between bg-main-color px-[64px] pb-[33px] pt-[27px] max-[420px]:px-[5%]">
       <div className="flex items-center">
-        {page.get() !== "successfullyPay" && (
+        {page !== "successfullyPay" && (
           <div
             onClick={() => {
-              if (page.get() === "payCard") {
+              if (page === "payCard") {
                 setStep(checkoutStore.step - 1);
               } else {
                 goBack();
@@ -56,7 +58,7 @@ export default function NavCreate() {
         </div>
       </div>
       <div>
-        {page.get() === "admin" && data.get() && (
+        {page === "admin" && data.get() && (
           <div className="cursor-pointer" onClick={exit}>
             <LogOutIco />
           </div>

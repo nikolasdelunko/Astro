@@ -37,7 +37,7 @@ export const designPrompt = atom<string>("");
 export const email = atom<string>("");
 export const storyBook = atom<string>("");
 
-export const helpersStore = map<InitialState>({
+export const $helpersStore = map<InitialState>({
   toggle: 2,
   fill: false,
   pay: false,
@@ -74,20 +74,20 @@ export function addEmail(Email: string) {
 }
 
 export function clearToggle() {
-  helpersStore.setKey("toggle", 2);
+  $helpersStore.setKey("toggle", 2);
 }
 
-export const toggle = action(helpersStore, "toggle", () => {
-  const selected = helpersStore.get();
+export const OnToggle = action($helpersStore, "toggle", () => {
+  const selected = $helpersStore.get();
   if (selected.toggle > 1) {
-    helpersStore.setKey("toggle", 0);
+    $helpersStore.setKey("toggle", 0);
   } else {
-    return helpersStore.setKey("toggle", selected.toggle + 1);
+    return $helpersStore.setKey("toggle", selected.toggle + 1);
   }
 });
 
 export function addFill(options: boolean) {
-  helpersStore.setKey("fill", options);
+  $helpersStore.setKey("fill", options);
 }
 
 //! need Check what the user send
@@ -95,21 +95,21 @@ export function addFill(options: boolean) {
 const userPay = localStorage.getItem("userPay");
 
 export const addPay = action(
-  helpersStore,
+  $helpersStore,
   "addPay",
   (data, payload: string | boolean) => {
     if (payload === true || userPay == "true") {
-      helpersStore.setKey("pay", true);
+      $helpersStore.setKey("pay", true);
       localStorage.setItem("userPay", JSON.stringify(payload));
     } else {
-      helpersStore.setKey("pay", false);
+      $helpersStore.setKey("pay", false);
       localStorage.setItem("userPay", JSON.stringify(false));
     }
   }
 );
 
 export const addGenre = action(storyGenre, "addGenre", (store, payload) => {
-  const selected = helpersStore.get();
+  const selected = $helpersStore.get();
 	storyGenre.set({...storyGenre.get(), [selected.toggle] : payload});
 	if (selected.toggle === 1) {
 		storyGenre.set({});
