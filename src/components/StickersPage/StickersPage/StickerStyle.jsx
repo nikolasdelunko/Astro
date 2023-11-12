@@ -1,6 +1,4 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
-//! NavLink
 
 export default function StickerStyle() {
   return (
@@ -71,12 +69,10 @@ export default function StickerStyle() {
             <p className="font-textBtn text-[16px] text-[#767676]">
               Convert your photo to cartoon style sticker
             </p>
-            <a href="">
-              {/* <NavLink to={"/stickers-page-upload"}> */}
+            <a href="/stickers-page-upload">
               <button className="btn mb-[16px] mt-[24px] flex w-[100%] items-center justify-center">
                 Create Sticker
               </button>
-              {/* </NavLink> */}
             </a>
           </div>
         </div>

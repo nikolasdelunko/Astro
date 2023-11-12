@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { setModalStickerMobile } from "../../../../store/helpersStore";
 
 export default function CaricatureStyle() {
@@ -54,11 +53,11 @@ export default function CaricatureStyle() {
             setModalStickerMobile(false);
           }}
         >
-          <NavLink to={"/stickers-page-upload"}>
+          <a href="/stickers-page-upload">
             <button className="btn w-[100%] items-center justify-center">
               Purchase Style
             </button>
-          </NavLink>
+          </a>
         </div>
       </div>
     </div>

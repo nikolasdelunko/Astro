@@ -1,9 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { setModalStickerMobile } from "../../../../store/helpersStore";
 
 export default function CaricatureStyle() {
- 
   return (
     <div className="w-[100%]">
       <div>
@@ -15,51 +13,51 @@ export default function CaricatureStyle() {
           }}
         />
       </div>
-      <div className="flex flex-col pt-[34px] pb-[54px]">
-        <div className="flex flex-col justify-center items-center pb-[24px]">
-          <h1 className="text-textBtn font-[600] text-[32px] text-[#2D061B] mb-[4px]">
+      <div className="flex flex-col pb-[54px] pt-[34px]">
+        <div className="flex flex-col items-center justify-center pb-[24px]">
+          <h1 className="text-textBtn mb-[4px] text-[32px] font-[600] text-[#2D061B]">
             $4,99
           </h1>
-          <p className="text-textBtn  font-medium text-[12px] leading-6 text-[#767676]">
+          <p className="text-textBtn  text-[12px] font-medium leading-6 text-[#767676]">
             Create your own sticker with a Caricature Style
           </p>
         </div>
-        <div className="flex flex-col items-start pb-[54px] justify-start px-[16px]">
-          <p className="text-textBtn  font-medium text-[12px] leading-6 text-[#767676]">
+        <div className="flex flex-col items-start justify-start px-[16px] pb-[54px]">
+          <p className="text-textBtn  text-[12px] font-medium leading-6 text-[#767676]">
             What you will get:
           </p>
-          <ul className="list-disc ml-[18px]">
-            <li className="text-textBtn  font-[400] text-[14px] leading-6 text-[#212121]">
+          <ul className="ml-[18px] list-disc">
+            <li className="text-textBtn  text-[14px] font-[400] leading-6 text-[#212121]">
               You will be able to upload images up to 3 times
             </li>
-            <li className="text-textBtn  font-[400] text-[14px] leading-6 text-[#212121]">
+            <li className="text-textBtn  text-[14px] font-[400] leading-6 text-[#212121]">
               You will get 3 times the regeneration response for each uploaded
               image.
             </li>
-            <li className="text-textBtn  font-[400] text-[14px] leading-6 text-[#212121]">
+            <li className="text-textBtn  text-[14px] font-[400] leading-6 text-[#212121]">
               Total you will get 30 stickers with 10 each in 1 generate process.
             </li>
-            <li className="text-textBtn  font-[400] text-[14px] leading-6 text-[#212121]">
+            <li className="text-textBtn  text-[14px] font-[400] leading-6 text-[#212121]">
               You can download all the stickers.
             </li>
           </ul>
-          <p className="pt-[16px] text-textBtn  font-medium text-[12px] leading-6 text-[#767676]">
+          <p className="text-textBtn pt-[16px]  text-[12px] font-medium leading-6 text-[#767676]">
             Discover the joy of self-expression with MyStickerPal, a
             one-of-a-kind sticker generator app crafted to bring your favorite
             moments and expressions to life in the most personal way.
           </p>
         </div>
         <div
-          className="pb-[45px] px-[5%]"
+          className="px-[5%] pb-[45px]"
           onClick={() => {
-            setModalStickerMobile(false)
+            setModalStickerMobile(false);
           }}
         >
-          <NavLink to={"/stickers-page-upload"}>
+          <a href="/stickers-page-upload">
             <button className="btn w-[100%] items-center justify-center">
               Purchase Style
             </button>
-          </NavLink>
+          </a>
         </div>
       </div>
     </div>
