@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addFill, email } from "../../../../store/storyStore";
+import { addFill, $email } from "../../../../store/storyStore";
 import { CheckOtp } from "../../../../utils/Api/orderApi";
 import { useNavigate } from "react-router-dom";
 import { openModal } from "../../../../store/helpersStore";
@@ -11,6 +11,10 @@ import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
 export default function Step2() {
   const [timeLeft, setTimeLeft] = useState(300);
   const [Otp, setOtp] = useState();
+	const storyGenre = useStore($storyGenre);
+  const storyInfo2 = useStore($storyInfo2);
+  const helpersStore = useStore($helpersStore);
+	const email = useStore($email);
 
   const data = {
     ...storyGenre,

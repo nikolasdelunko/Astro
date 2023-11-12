@@ -5,20 +5,27 @@ import { STORY_BOOK_MODAL_SCHEMA } from "../Settings/Schemes";
 import { SentOtp, CheckOrder } from "../../../../utils/Api/orderApi";
 import {
   addEmail,
-  storyInfo2,
-  storyGenre,
-  designPrompt,
-  storyBook,
-  helpersStore,
+  $storyInfo2,
+  $storyGenre,
+  $designPrompt,
+  $storyBook,
+  $helpersStore,
 } from "../../../../store/storyStore";
 import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
+import { useStore } from "@nanostores/react";
 
 export default function Step2() {
+  const storyGenre = useStore($storyGenre);
+  const storyInfo2 = useStore($storyInfo2);
+  const helpersStore = useStore($helpersStore);
+  const designPrompt = useStore($designPrompt);
+  const storyBook = useStore($storyBook);
+
   console.log(
     "Step2",
-    ...storyInfo2,
-    ...storyGenre,
-    ...helpersStore,
+    storyInfo2,
+    storyGenre,
+    helpersStore,
     designPrompt,
     storyBook
   );

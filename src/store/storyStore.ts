@@ -21,9 +21,9 @@ interface storyInfo2 {
   conflict: string;
   plot: string;
 }
-export const storyGenre = atom<storyGenre>({});
+export const $storyGenre = atom<storyGenre>({});
 
-export const storyInfo2 = atom<storyInfo2>({
+export const $storyInfo2 = atom<storyInfo2>({
   favoriteCharacter: "",
   timeOfSetting: "",
   placeOfSetting: "",
@@ -33,9 +33,9 @@ export const storyInfo2 = atom<storyInfo2>({
   plot: "",
 });
 
-export const designPrompt = atom<string>("");
+export const $designPrompt = atom<string>("");
 export const $email = atom<string>("");
-export const storyBook = atom<string>("");
+export const $storyBook = atom<string>("");
 
 export const $helpersStore = map<InitialState>({
   toggle: 2,
@@ -49,12 +49,12 @@ export const $helpersStore = map<InitialState>({
 // export const useHelpers = helpersStore.subscribe;
 
 export function addThemeStory(ThemeOfStory: string) {
-  storyBook.set(ThemeOfStory);
+  $storyBook.set(ThemeOfStory);
 }
 
 export function addStoryInfoStep2(payload: any) {
-  storyInfo2.set({
-    ...storyInfo2.get(),
+  $storyInfo2.set({
+    ...$storyInfo2.get(),
     favoriteCharacter: payload.FavoriteCharter,
     timeOfSetting: payload.TimeOfSettings,
     placeOfSetting: payload.PlaceOfSettings,
@@ -66,7 +66,7 @@ export function addStoryInfoStep2(payload: any) {
 }
 
 export function addStoryInfoStep3(DesignPrompt: string) {
-  designPrompt.set(DesignPrompt);
+  $designPrompt.set(DesignPrompt);
 }
 
 export function addEmail(Email: string) {
@@ -108,11 +108,11 @@ export const addPay = action(
   }
 );
 
-export const addGenre = action(storyGenre, "addGenre", (store, payload) => {
+export const addGenre = action($storyGenre, "addGenre", (store, payload) => {
   const selected = $helpersStore.get();
-	storyGenre.set({...storyGenre.get(), [selected.toggle] : payload});
+	$storyGenre.set({...$storyGenre.get(), [selected.toggle] : payload});
 	if (selected.toggle === 1) {
-		storyGenre.set({});
+		$storyGenre.set({});
 	}
 });
 
