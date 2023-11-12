@@ -3,13 +3,10 @@ import StartCreate from "../components/Create/StartCreate"
 import NavCreate from "../components/Header/navBars/NavCreate";
 import ModalCreate from "../components/Modal/ModalCreate/ModalCreate"
 ---
-<div>
-	<ModalCreate client:load />
 	<div>
 		<div>
+			<ModalCreate client:load />
 			<NavCreate page={"create"} client:load/>
 		</div>
 		<StartCreate client:load/>
-
 	</div>
-</div>
