@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import PayAPI from "../../../utils/Api/paymantApi";
 import { $page } from "../../../store/helpersStore";
+import { useStore } from "@nanostores/react";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.

@@ -1,5 +1,5 @@
 import {
-  modalConfirm,
+  $modalConfirm,
   setConfirmOpen,
   setConfirmText,
 } from "../../store/helpersStore";
@@ -29,7 +29,7 @@ function useConfirm() {
     setConfirmOpen(false);
   };
 
-  return { confirm, onConfirm, onCancel, modalConfirm };
+  return { confirm, onConfirm, onCancel, $modalConfirm };
 }
 
 export default useConfirm;

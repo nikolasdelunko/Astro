@@ -7,6 +7,9 @@ import Testimonials from "../components/Testimonials/Testimonials"
 import Parallax from "../components/Parallax/Parallax"
 import Header from "../components/Header/Header"
 import BurgerModal from "../components/Modal/BurgerModal"
+import ModalConfirm from "../components/Modal/ModalConfirm"
+import ModalPaySticker from "../components/Modal/ModalPaySticker"
+// import PayPageMob from "../components/StickersPage/Mob/PayPageMob"
 // import ParallaxMob from "../Components/Parallax/ParallaxMob"
 // import UseSeo from "../utils/customHooks/use-seo"
 ---
@@ -19,7 +22,16 @@ import BurgerModal from "../components/Modal/BurgerModal"
 	}
 	keywords={"printed portrait, Convert Photo, Anime Art"}
 /> -->
+
+<!--
+{modal && <ModalCreate />}
+{page === "UploadImage" && modalSticker && !mob && <ModalPaySticker />}
+{page === "UploadImage" && modalSticker && mob && <PayPageMob />} -->
 <BurgerModal client:load />
+<ModalConfirm client:load />
+<ModalPaySticker client:load />
+<!-- <PayPageMob client:load />  -->
+
 <div class="relative">
 	<div class="h-[900px] max-[420px]:bg-mobileBg max-[420px]:h-[915.45px] relative bg-[#2D061B] max-[420px]:bg-cover">
 		<div>
