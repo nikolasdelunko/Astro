@@ -7,7 +7,7 @@ export default function BurgerModal() {
   const page = useStore($page);
   const burger = useStore($burger);
 
-  // console.log("burger modal", page, burger)
+		console.log("burger modal", page, burger)
   return (
     <>
       {burger && (
