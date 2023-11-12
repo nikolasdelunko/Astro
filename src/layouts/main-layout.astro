@@ -6,6 +6,7 @@ const { title } = Astro.props
 // import { HelmetProvider } from "react-helmet-async"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
+import BurgerModal from "../components/Modal/BurgerModal"
 ---
 
 <html lang="en">
@@ -23,6 +24,7 @@ import Footer from "../components/Footer/Footer"
 <main class="m-0 relative">
 	<header>
 		<Header client:load/>
+		<BurgerModal client:load />
 	</header>
 						<slot />
   <footer>
