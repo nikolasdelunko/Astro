@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { setPage } from "../../store/helpersStore";
 import { addPay } from "../../store/storyStore";
-import { NavLink } from "react-router-dom";
 import Success from "../Theme/icons/Success";
 
 export default function SuccessfullyPage() {
@@ -32,7 +31,7 @@ export default function SuccessfullyPage() {
           </p>
         </div>
         <div className="flex items-center gap-[24px] max-[420px]:flex-col">
-          <NavLink to={"/"}>
+          <a href="/">
             <button
               className="btn-second flex items-center justify-center"
               onClick={() => {
@@ -42,8 +41,8 @@ export default function SuccessfullyPage() {
             >
               Home
             </button>
-          </NavLink>
-          <NavLink to={"/"}>
+          </a>
+          <a href="/">
             <button
               className="btn flex items-center justify-center "
               onClick={() => {
@@ -53,7 +52,7 @@ export default function SuccessfullyPage() {
             >
               Order Tracking
             </button>
-          </NavLink>
+          </a>
         </div>
       </div>
     </div>

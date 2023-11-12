@@ -1,10 +1,10 @@
 import React from "react";
 import Hamburger from "hamburger-react";
-// import { NavLink } from "react-router-dom";
-import { openBurger, burger } from "../../../store/helpersStore";
+import { useStore } from "@nanostores/react";
+import { openBurger, $burger } from "../../../store/helpersStore";
 
-export default function NavCreate({page}) {
-
+export default function NavCreate({ page }) {
+  const burger = useStore($burger);
 
   return (
     <div className="flex w-[100%] items-center justify-between bg-main-color px-[64px] pb-[33px] pt-[27px] max-[420px]:px-[5%]">
@@ -68,9 +68,9 @@ export default function NavCreate({page}) {
       )}
       <div className="flex items-center lg:hidden">
         <Hamburger
-          toggled={burger.value}
+          toggled={burger}
           toggle={() => {
-						openBurger(!burger.value)
+            openBurger(!burger);
           }}
           direction="right"
           color="#ffffff"

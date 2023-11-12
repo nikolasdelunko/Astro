@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { addRelatedId } from "../../../store/blogStore";
 import { link } from "../../../utils/Api/url";
 

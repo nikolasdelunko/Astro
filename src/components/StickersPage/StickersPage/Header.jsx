@@ -3,7 +3,6 @@ import ArrowRight from "../../Theme/icons/ArrowRight";
 import Ellipse1 from "./Theme/Ellipse1";
 import Ellipse3 from "./Theme/Ellipse3";
 import Ellipse2 from "./Theme/Ellipse2";
-// import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -20,7 +19,6 @@ export default function Header() {
               moments and expressions to life in the most personal way.
             </p>
           </div>
-          {/* <NavLink to={"/stickers-page-upload"}> */}
           <div
             className="flex cursor-pointer z-50 absolute mt-[48px]"
             onClick={() => {
@@ -32,7 +30,6 @@ export default function Header() {
             </h2>
             <ArrowRight />
           </div>
-          {/* </NavLink> */}
           <div className="absolute bottom-0 left-0 z-0">
             <Ellipse2 />
           </div>

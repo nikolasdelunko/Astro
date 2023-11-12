@@ -6,6 +6,7 @@ import ShowCase from "../components/Showcase/ShowCase"
 import Testimonials from "../components/Testimonials/Testimonials"
 import Parallax from "../components/Parallax/Parallax"
 import Header from "../components/Header/Header"
+import BurgerModal from "../components/Modal/BurgerModal"
 // import ParallaxMob from "../Components/Parallax/ParallaxMob"
 // import UseSeo from "../utils/customHooks/use-seo"
 ---
@@ -18,12 +19,14 @@ import Header from "../components/Header/Header"
 	}
 	keywords={"printed portrait, Convert Photo, Anime Art"}
 /> -->
+<BurgerModal client:load />
 <div class="relative">
 	<div class="h-[900px] max-[420px]:bg-mobileBg max-[420px]:h-[915.45px] relative bg-[#2D061B] max-[420px]:bg-cover">
 		<div>
 			<Parallax client:load/>
 			<Header client:load/>
 		</div>
+
 		<!-- <div>
 			<ParallaxMob />
 		</div> -->

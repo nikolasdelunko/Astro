@@ -12,7 +12,7 @@ export const modalConfirm = atom<ModalConfirmState>({
 });
 export const modalSticker = atom<boolean>(true);
 export const modalStickerMobile = atom<boolean>(false);
-export const burger = atom<boolean>(false);
+export const $burger = atom<boolean>(false);
 export const mobile = atom<boolean>(false);
 export const $page = atom<string | null>(null);
 export const $step = atom<number>(0);
@@ -37,8 +37,8 @@ export function setConfirmText(ModalConfirm: string) {
 }
 
 export function openBurger(Burger: boolean) {
-  burger.set(Burger);
-	console.log("aa", Burger)
+  $burger.set(Burger);
+	console.log("aa", Burger, $burger.get())
 }
 
 export function setModalSticker(ModalSticker: boolean) {

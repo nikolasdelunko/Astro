@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import Cross from "../../Theme/icons/Cross";
 import { openBurger, $page } from "../../../store/helpersStore";
 import { useStore } from "@nanostores/react";
@@ -50,15 +49,11 @@ export default function Menu() {
         </li>
         {page == "blog" ? (
           <li className="flex h-[50px] w-[100%]   cursor-pointer items-center justify-center rounded-[199px] border-2 border-regular">
-            <NavLink to={"/blog"}>
-              <p className="font-main text-lg text-text-color">Blog</p>
-            </NavLink>
+              <a href="/blog" className="font-main text-lg text-text-color">Blog</a>
           </li>
         ) : (
           <li className="flex h-[50px]  w-[100%] cursor-pointer items-center justify-center rounded-[199px] bg-regular">
-            <NavLink to={"/blog"}>
-              <p className="font-main text-lg text-text-color">Blog</p>
-            </NavLink>
+              <a href="/blog" className="font-main text-lg text-text-color">Blog</a>
           </li>
         )}
         <li className="flex h-[50px] w-[100%] cursor-pointer items-center justify-center rounded-[199px] bg-regular">

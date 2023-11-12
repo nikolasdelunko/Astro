@@ -1,9 +1,10 @@
 import React from "react";
-import { openBurger, burger } from "../../../store/helpersStore";
+import { openBurger, $burger } from "../../../store/helpersStore";
 import Hamburger from "hamburger-react";
+import { useStore } from "@nanostores/react";
 
 export default function NavMain() {
-
+  const burger = useStore($burger);
   return (
     <div className="absolute flex h-[81px] w-[100%] items-center justify-between px-[64px] pt-[20px] max-[420px]:px-[5%]">
       <div className="flex items-center">
@@ -54,9 +55,9 @@ export default function NavMain() {
       </div>
       <div className="flex items-center lg:hidden">
         <Hamburger
-          toggled={burger.value}
+          toggled={burger}
           toggle={() => {
-           openBurger(!burger.value)
+            openBurger(!burger);
           }}
           direction="right"
           color="#ffffff"

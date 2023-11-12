@@ -1,10 +1,12 @@
 import React from "react";
-import { openBurger,  burger} from "../../../store/helpersStore";
+import { openBurger,  $burger} from "../../../store/helpersStore";
 import Hamburger from "hamburger-react";
 import StickerPal from "../../Theme/icons/StickerPalLogo";
 import Logo from "../../Theme/icons/Logo";
+import { useStore } from "@nanostores/react";
 
 export default function NavSicker() {
+	const burger = useStore($burger)
 
   //bg-black bg-opacity-70 backdrop-blur-2xl h-[82px]
   return (
