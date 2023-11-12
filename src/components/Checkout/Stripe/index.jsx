@@ -3,7 +3,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import PayAPI from "../../../utils/Api/paymantApi";
-import { page } from "../../../store/helpersStore";
+import { $page } from "../../../store/helpersStore";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -13,10 +13,11 @@ const stripePromise = loadStripe("pk_test_YXhgLEwTTJdW2AfHsgJJNfAN");
 
 export default function Payment({ data = { total: 4999 } }) {
   const [clientSecret, setClientSecret] = useState("");
+  const page = useStore($page);
 
   const getSeecret = async () => {
     const response =
-      page.get() === "payCard"
+      page === "payCard"
         ? await PayAPI.makePay(data)
         : await PayAPI.payStickers({ total: 499 });
 

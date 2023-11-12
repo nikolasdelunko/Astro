@@ -6,18 +6,19 @@ import LogOutIco from "../../Theme/icons/LogOut";
 import useAuth from "../../../utils/customHooks/useAuth";
 import useConfirm from "../../../utils/customHooks/useConfirm";
 import { $page } from "../../../store/helpersStore";
-import { useStore } from '@nanostores/react'
-import { data } from "../../../store/userStore";
+import { useStore } from "@nanostores/react";
+import { $data } from "../../../store/userStore";
 
 export default function NavCreate() {
   const { logOut } = useAuth();
   const navigate = useNavigate();
   const { confirm } = useConfirm();
-	const page = useStore($page);
+  const page = useStore($page);
+  const data = useStore($data);
 
   const goBack = () => navigate(-1);
 
-	console.log("This is NavCheckout Component", checkoutStore.step)
+  console.log("This is NavCheckout Component", checkoutStore.step);
 
   const exit = async () => {
     const a = await confirm(`do you really wont log out?`);
@@ -58,7 +59,7 @@ export default function NavCreate() {
         </div>
       </div>
       <div>
-        {page === "admin" && data.get() && (
+        {page === "admin" && data && (
           <div className="cursor-pointer" onClick={exit}>
             <LogOutIco />
           </div>

@@ -4,11 +4,11 @@ import { getUserByToken } from "../utils/Api/userApi";
 
 export const isLogin = atom<boolean>(!!localStorage.getItem("userInfo") || false);
 export const isLoading = atom<boolean>(false);
-export const data = atom<string | null>(localStorage.getItem("userInfo") || null);
+export const $data = atom<string | null>(localStorage.getItem("userInfo") || null);
 export const error = atom<string | null>(null);
 
 
-export const fetchUser = onMount(data, () => {
+export const fetchUser = onMount($data, () => {
   task(async () => {
     try {
 			isLoading.set(true)
@@ -16,7 +16,7 @@ export const fetchUser = onMount(data, () => {
 
       const response = await getUserByToken();
 
-			data.set((delete response.data.password, response.data))
+			$data.set((delete response.data.password, response.data))
 			isLoading.set(false)
 			error.set(null)
 	
@@ -34,12 +34,12 @@ export function setLogin(payload: boolean) {
 }
 
 export function setNewData(payload: string) {
-	data.set(payload)
+	$data.set(payload)
 	localStorage.setItem("userInfo", JSON.stringify(payload));
 }
 
 export function logOut() {
-	data.set(null)
+	$data.set(null)
 	localStorage.removeItem("userInfo");
 }
 

@@ -5,7 +5,7 @@ interface ModalConfirmState {
   open: boolean;
 }
 
-export const modal = atom<boolean | {}>(false);
+export const $modal = atom<boolean | {}>(false);
 export const modalConfirm = atom<ModalConfirmState>({
   text: "",
   open: false,
@@ -21,7 +21,7 @@ export const openCard = atom<boolean | number>(false);
 
 
 export function openModal(Modal: boolean | {}) {
-  modal.set(Modal);
+  $modal.set(Modal);
 }
 
 export function setConfirmOpen(ModalConfirm: boolean) {

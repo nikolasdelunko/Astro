@@ -1,10 +1,12 @@
 import React from "react";
-import { openModal, modal } from "../../../store/helpersStore";
+import { openModal, $modal } from "../../../store/helpersStore";
 import Step1 from "./Steps/Step1";
 import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
+import { useStore } from "@nanostores/react";
 
 export default function Modal() {
+  const modal = useStore($modal);
   return (
     <div
       className="fixed left-0 top-0 block h-[100%] w-[100%] bg-modal"
@@ -17,9 +19,9 @@ export default function Modal() {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col items-center justify-center">
-          {modal.get() === 0 && <Step1 />}
-          {modal.get() === 1 && <Step2 />}
-          {modal.get() === 2 && <Step3 />}
+          {modal === 0 && <Step1 />}
+          {modal === 1 && <Step2 />}
+          {modal === 2 && <Step3 />}
         </div>
       </div>
     </div>

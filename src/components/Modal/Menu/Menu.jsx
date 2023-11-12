@@ -1,23 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Cross from "../../Theme/icons/Cross";
-import { openBurger, page } from "../../../store/helpersStore";
+import { openBurger, $page } from "../../../store/helpersStore";
+import { useStore } from "@nanostores/react";
 
 export default function Menu() {
+  const page = useStore($page);
   return (
     <div>
       <ul className="m-[2%] flex flex-col items-center gap-8 pt-[81px]">
-        {page.get() === "landing" && (
+        {page === "landing" && (
           <div
             className="absolute right-[10px] top-[10px] rounded-[100%] bg-regular"
             onClick={() => {
-              openBurger(false)
+              openBurger(false);
             }}
           >
             <Cross />
           </div>
         )}
-        {page.get() == "create" ? (
+        {page == "create" ? (
           <li className="flex h-[50px] w-[100%]   cursor-pointer items-center justify-center rounded-[199px] border-2 border-regular">
             <a href="/create" className="font-main text-lg text-white  ">
               Storybooks
@@ -46,7 +48,7 @@ export default function Menu() {
             AI Avatars
           </a>
         </li>
-        {page.get() == "blog" ? (
+        {page == "blog" ? (
           <li className="flex h-[50px] w-[100%]   cursor-pointer items-center justify-center rounded-[199px] border-2 border-regular">
             <NavLink to={"/blog"}>
               <p className="font-main text-lg text-text-color">Blog</p>

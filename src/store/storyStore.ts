@@ -34,7 +34,7 @@ export const storyInfo2 = atom<storyInfo2>({
 });
 
 export const designPrompt = atom<string>("");
-export const email = atom<string>("");
+export const $email = atom<string>("");
 export const storyBook = atom<string>("");
 
 export const $helpersStore = map<InitialState>({
@@ -70,7 +70,7 @@ export function addStoryInfoStep3(DesignPrompt: string) {
 }
 
 export function addEmail(Email: string) {
-  email.set(Email);
+  $email.set(Email);
 }
 
 export function clearToggle() {

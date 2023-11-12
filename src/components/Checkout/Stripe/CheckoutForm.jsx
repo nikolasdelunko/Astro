@@ -5,18 +5,21 @@ import {
 } from "@stripe/react-stripe-js";
 import { PatchOrderPay } from "../../../utils/Api/orderApi";
 import { postStickers } from "../../../utils/Api/stickerApi";
-import { addPay, email } from "../../../store/storyStore";
+import { addPay, $email } from "../../../store/storyStore";
+import { $page } from "../../../store/helpersStore";
 import {
   setPaySticker,
   setClient,
   stickersStore,
 } from "../../../store/stickers";
-import { page } from "../../../store/helpersStore";
 import { url } from "../../../utils/Api/url";
+import { useStore } from "@nanostores/react";
 
 const CheckoutForm = ({ sum }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const page = useStore($page);
+  const email = useStore($email);
 
   //! need check
 
@@ -33,10 +36,10 @@ const CheckoutForm = ({ sum }) => {
 
     const fetchPay = async (data) => {
       try {
-        if (page.get() === "payCard") {
-          await PatchOrderPay(email.get());
+        if (page === "payCard") {
+          await PatchOrderPay(email);
           addPay(true);
-        } else if (page.get() === "UploadImage") {
+        } else if (page === "UploadImage") {
           const client = await postStickers(stickersStore.listPhoto);
           setClient(client.data);
           setPaySticker(true);
@@ -48,9 +51,9 @@ const CheckoutForm = ({ sum }) => {
 
     fetchPay();
     const redirect = () => {
-      if (page.get() === "payCard") {
+      if (page === "payCard") {
         return `${url}/payment-successfully`;
-      } else if (page.get() === "UploadImage") {
+      } else if (page === "UploadImage") {
         return `${url}/stickers-payment-successfully`;
       }
     };
@@ -81,7 +84,7 @@ const CheckoutForm = ({ sum }) => {
         className="btn mt-[48px] w-[100%] justify-center"
         disabled={!stripe}
       >
-        Purchase ( £{page.get() === "payCard" ? "49.99" : "4.99"})
+        Purchase ( £{page === "payCard" ? "49.99" : "4.99"})
       </button>
     </form>
   );
