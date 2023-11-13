@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addFill, $email } from "../../../../store/storyStore";
+import { addFill, $email, $genre, $storyInfo2, $designPrompt } from "../../../../store/storyStore";
 import { CheckOtp } from "../../../../utils/Api/orderApi";
 import { useNavigate } from "react-router-dom";
 import { openModal } from "../../../../store/helpersStore";
@@ -11,18 +11,17 @@ import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
 export default function Step2() {
   const [timeLeft, setTimeLeft] = useState(300);
   const [Otp, setOtp] = useState();
-	const storyGenre = useStore($storyGenre);
+  const genre = useStore($genre);
   const storyInfo2 = useStore($storyInfo2);
-  const helpersStore = useStore($helpersStore);
-	const email = useStore($email);
+  const email = useStore($email);
+	const designPrompt = useStore($designPrompt);
 
   const data = {
-    ...storyGenre,
+    genre,
     ...storyInfo2,
-    designPrompt,
+    ...designPrompt,
     email,
     storyBook,
-    ...helpersStore,
   };
 
   console.log("step3", data);

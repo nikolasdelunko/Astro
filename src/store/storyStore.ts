@@ -6,10 +6,9 @@ interface InitialState {
   pay: Boolean;
 }
 
-
-interface storyGenre {
-  0?: string;
-  2?: string;
+interface genre {
+        0?: string;
+        2?: string;  
 }
 
 interface storyInfo2 {
@@ -21,7 +20,7 @@ interface storyInfo2 {
   conflict: string;
   plot: string;
 }
-export const $storyGenre = atom<storyGenre>({});
+export const $genre = atom<genre>({});
 
 export const $storyInfo2 = atom<storyInfo2>({
   favoriteCharacter: "",
@@ -52,7 +51,7 @@ export function addThemeStory(ThemeOfStory: string) {
   $storyBook.set(ThemeOfStory);
 }
 
-export function addStoryInfoStep2(payload: any) {
+export function addStoryInfoStep2(payload: any): void {
   $storyInfo2.set({
     ...$storyInfo2.get(),
     favoriteCharacter: payload.FavoriteCharter,
@@ -108,11 +107,10 @@ export const addPay = action(
   }
 );
 
-export const addGenre = action($storyGenre, "addGenre", (store, payload) => {
+export const addGenre = action($genre, "addGenre", (store, payload) => {
   const selected = $helpersStore.get();
-	$storyGenre.set({...$storyGenre.get(), [selected.toggle] : payload});
-	if (selected.toggle === 1) {
-		$storyGenre.set({});
-	}
+  $genre.set({ ...$genre.get(), [selected.toggle]: payload });
+  if (selected.toggle === 1) {
+    $genre.set({});
+  }
 });
-

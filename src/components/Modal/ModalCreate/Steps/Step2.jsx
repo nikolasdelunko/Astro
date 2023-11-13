@@ -6,7 +6,7 @@ import { SentOtp, CheckOrder } from "../../../../utils/Api/orderApi";
 import {
   addEmail,
   $storyInfo2,
-  $storyGenre,
+  $genre,
   $designPrompt,
   $storyBook,
   $helpersStore,
@@ -15,7 +15,7 @@ import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
 import { useStore } from "@nanostores/react";
 
 export default function Step2() {
-  const storyGenre = useStore($storyGenre);
+  const genre = useStore($genre);
   const storyInfo2 = useStore($storyInfo2);
   const helpersStore = useStore($helpersStore);
   const designPrompt = useStore($designPrompt);
@@ -24,8 +24,7 @@ export default function Step2() {
   console.log(
     "Step2",
     storyInfo2,
-    storyGenre,
-    helpersStore,
+    genre,
     designPrompt,
     storyBook
   );
@@ -40,8 +39,7 @@ export default function Step2() {
         onSubmit={async (values) => {
           const updateData = {
             ...storyInfo2,
-            ...storyGenre,
-            ...helpersStore,
+            genre,
             designPrompt,
             storyBook,
             email: values.email,

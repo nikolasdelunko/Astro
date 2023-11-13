@@ -25,11 +25,11 @@ export default function Step1() {
     <div className="items-start pb-[166px] max-[420px]:w-[90%]">
       <Formik
         initialValues={{
-          ThemeOfStory: "",
+          genre: "",
         }}
         validationSchema={STORY_BOOK_STEP1_SCHEMA}
         onSubmit={(values) => {
-          addThemeStory(values);
+          addThemeStory();
           console.log("Step1", values);
         }}
       >
