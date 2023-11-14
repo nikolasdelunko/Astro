@@ -11,7 +11,7 @@ import {
   $theme,
   $helpersStore,
 } from "../../../../store/storyStore";
-import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
+// import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
 import { useStore } from "@nanostores/react";
 
 export default function Step2() {
@@ -49,7 +49,7 @@ export default function Step2() {
             const exist = await CheckOrder({ email: values.email });
             // snackActions.info(exist.data.message);
             const result = await SentOtp(updateData);
-            snackActions.success(result.data);
+            // snackActions.success(result.data);
             if (result.status === 200) {
               openModal({
                 open: true,
@@ -57,7 +57,7 @@ export default function Step2() {
               });
             } else return;
           } catch (err) {
-            snackActions.error(err);
+            // snackActions.error(err);
           }
         }}
       >

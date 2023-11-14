@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { addFill, $email, $genre, $storyInfo2, $designPrompt } from "../../../../store/storyStore";
+import {
+  addFill,
+  $email,
+  $genre,
+  $storyInfo2,
+  $designPrompt,
+} from "../../../../store/storyStore";
 import { CheckOtp } from "../../../../utils/Api/orderApi";
 import { useNavigate } from "react-router-dom";
 import { openModal } from "../../../../store/helpersStore";
 import { SentOtp } from "../../../../utils/Api/orderApi";
 import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
+import { useStore } from "@nanostores/react";
 
 //!dispatch
 
@@ -14,14 +21,14 @@ export default function Step2() {
   const genre = useStore($genre);
   const storyInfo2 = useStore($storyInfo2);
   const email = useStore($email);
-	const designPrompt = useStore($designPrompt);
+  const designPrompt = useStore($designPrompt);
 
   const data = {
     genre,
     ...storyInfo2,
-    ...designPrompt,
+    designPrompt,
     email,
-    storyBook,
+    // storyBook,
   };
 
   console.log("step3", data);
@@ -30,7 +37,7 @@ export default function Step2() {
   const fetchData = async () => {
     setTimeLeft(300);
     const otp = await SentOtp(data);
-    snackActions.success(otp.data);
+    // snackActions.success(otp.data);
   };
 
   useEffect(() => {
@@ -88,7 +95,7 @@ export default function Step2() {
                   openModal(false);
                 } else return;
               } catch (err) {
-                snackActions.error(err);
+                // snackActions.error(err);
               }
             }}
           >
