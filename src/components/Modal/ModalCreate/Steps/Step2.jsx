@@ -8,7 +8,7 @@ import {
   $storyInfo2,
   $genre,
   $designPrompt,
-  $storyBook,
+  $theme,
   $helpersStore,
 } from "../../../../store/storyStore";
 import { snackActions } from "../../../../utils/customHooks/useSnackBarUtils";
@@ -19,14 +19,14 @@ export default function Step2() {
   const storyInfo2 = useStore($storyInfo2);
   const helpersStore = useStore($helpersStore);
   const designPrompt = useStore($designPrompt);
-  const storyBook = useStore($storyBook);
+  const theme = useStore($theme);
 
   console.log(
     "Step2",
     storyInfo2,
     genre,
     designPrompt,
-    storyBook
+    theme
   );
 
   return (
@@ -41,7 +41,7 @@ export default function Step2() {
             ...storyInfo2,
             genre,
             designPrompt,
-            storyBook,
+            theme,
             email: values.email,
           };
           try {

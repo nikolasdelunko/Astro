@@ -1,19 +1,16 @@
 import React, { useEffect } from "react";
-import { useStore } from '@nanostores/react'
+import { useStore } from "@nanostores/react";
 import { setPage, $step } from "../../store/helpersStore";
 import Step1 from "./Steps/Step1";
 import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 
 export default function StartCreate() {
-	const step = useStore($step)
+  const step = useStore($step);
 
   useEffect(() => {
     setPage("create");
   }, [step]);
-
- 
-  console.log("StartCreate", step);
 
   return (
     <div style={{ minHeight: "calc(100vh - 89px)", paddingBottom: "176px" }}>

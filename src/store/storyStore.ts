@@ -7,8 +7,8 @@ interface InitialState {
 }
 
 interface genre {
-        0?: string;
-        2?: string;  
+  0?: string;
+  2?: string;
 }
 
 interface storyInfo2 {
@@ -34,7 +34,7 @@ export const $storyInfo2 = atom<storyInfo2>({
 
 export const $designPrompt = atom<string>("");
 export const $email = atom<string>("");
-export const $storyBook = atom<string>("");
+export const $theme = atom<string>("");
 
 export const $helpersStore = map<InitialState>({
   toggle: 2,
@@ -47,8 +47,8 @@ export const $helpersStore = map<InitialState>({
 
 // export const useHelpers = helpersStore.subscribe;
 
-export function addThemeStory(ThemeOfStory: string) {
-  $storyBook.set(ThemeOfStory);
+export function addThemeStory(Theme: string) {
+  $theme.set(Theme);
 }
 
 export function addStoryInfoStep2(payload: any): void {
@@ -60,7 +60,7 @@ export function addStoryInfoStep2(payload: any): void {
     amountCharacter: payload.AmountCharacter,
     pointOfView: payload.PointOfView,
     conflict: payload.Conflict,
-    plot: payload.Plot,
+    plot: payload.AutoPlot,
   });
 }
 
