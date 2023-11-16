@@ -8,13 +8,14 @@ interface User {
 }
 
 export const post = atom<{}>({});
-export const admin = atom<boolean>(false);
-export const user = atom<User | {}>({});
+export const $admin = atom<boolean>(false);
+export const $user = atom<User | {}>({});
 export const users = atom<{}>({});
 export const orders = atom<{}>({});
+export const $edit = atom<boolean>(false)
 
 export function setEditAdmin(EditAdmin: boolean) {
-  admin.set(EditAdmin);
+  $admin.set(EditAdmin);
 }
 
 export function addPost(payload: {}) {
@@ -28,11 +29,11 @@ export function addUsers(payload: any) {
     email: payload.email,
     date: payload.date,
   };
-  users.set({ ...user.get(), data });
+  users.set({ ...$user.get(), data });
 }
 
 export function addUser(payload: User) {
-  user.set(payload);
+  $user.set(payload);
 }
 
 export function addOrders(payload: {}) {
@@ -41,6 +42,6 @@ export function addOrders(payload: {}) {
 
 export function clearData() {
 	post.set({})
-	user.set({})
+	$user.set({})
 }
 

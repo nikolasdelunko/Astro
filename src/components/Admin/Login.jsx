@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import useAuth from "../../utils/customHooks/useAuth";
-import { setPage } from "../../store/helpers/helpersSlice";
-import { useDispatch } from "react-redux";
-import { snackActions } from "../../utils/customHooks/useSnackBarUtils";
+import { setPage } from "../../store/helpersStore";
+// import { snackActions } from "../../utils/customHooks/useSnackBarUtils";
 
 export default function Login() {
   const { login } = useAuth();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [email, setName] = useState(null);
   const [password, setPassword] = useState(null);
 
   useEffect(() => {
-    dispatch(setPage("admin"));
+    setPage("admin")
   }, []);
 
   const handleChange = (event) => {
@@ -31,7 +30,7 @@ export default function Login() {
     try {
       await login(value);
     } catch (e) {
-      snackActions.error(e.response.data);
+      // snackActions.error(e.response.data);
     }
   };
 

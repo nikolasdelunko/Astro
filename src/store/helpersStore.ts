@@ -16,7 +16,7 @@ export const $burger = atom<boolean>(false);
 export const mobile = atom<boolean>(false);
 export const $page = atom<string | null>(null);
 export const $step = atom<number>(0);
-export const touch = atom<boolean>(false);
+export const $touch = atom<boolean>(false);
 export const openCard = atom<boolean | number>(false);
 
 export function openModal(Modal: boolean | {}) {
