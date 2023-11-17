@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, setEditAdmin } from "../../store/admin/adminSlice";
-import EditIco from "../Theme/Icons/EditIco";
-import DeleteIco from "../Theme/Icons/DeleteIco";
+import EditIco from "../../Theme/Icons/EditIco";
+import DeleteIco from "../../Theme/Icons/DeleteIco";
 import { deleteUserById } from "../../utils/Api/userApi";
 import { setTouch } from "../../store/helpers/helpersSlice";
 import { snackActions } from "../../utils/customHooks/useSnackBarUtils";

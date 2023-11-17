@@ -1,5 +1,5 @@
 import React from "react";
-import DeleteIco from "../../Theme/Icons/DeleteIco";
+import DeleteIco from "../../../Theme/Icons/DeleteIco";
 import { DeleteOrder } from "../../../utils/Api/orderApi";
 import { useSelector, useDispatch } from "react-redux";
 import { setTouch } from "../../../store/helpers/helpersSlice";

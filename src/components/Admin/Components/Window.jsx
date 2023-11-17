@@ -1,35 +1,34 @@
 import React, { useState } from "react";
-import MinusIco from "../Theme/Icons/Minus";
-import PlusIco from "../Theme/Icons/PlusIco";
+import MinusIco from "../../Theme/Icons/Minus";
+import PlusIco from "../../Theme/Icons/PlusIco";
 import Post from "./Post";
-import { useDispatch, useSelector } from "react-redux";
-import { setEditAdmin, clearData } from "../../store/admin/adminSlice";
+import { setEditAdmin, clearData } from "../../../store/adminSlice";
+import { listBlog } from "../../../store/blogStore";
+import { useStore } from "@nanostores/react";
 
 export default function Window({ name, children, edit = false }) {
   const [open, setOpen] = useState(false);
-
-  const dispatch = useDispatch();
-  const blogList = useSelector((state) => state.blog.listBlog);
+  const blogList = useStore(listBlog);
 
   const excerptList = blogList?.map((post) => {
     return post.content.split(" ").slice(0, 20).join(" ") + "...";
   });
 
   const clearStore = () => {
-    dispatch(setEditAdmin(false));
-    dispatch(clearData());
+    setEditAdmin(false);
+    clearData();
   };
 
   if (edit) {
     return (
-      <div className="flex  w-[80%] rounded-[20px]  bg-regular px-[24px] py-[35px] mx-[24px] my-[20px] relative">
-        <div className="flex flex-col mr-[100px] w-[100%]">
+      <div className="relative  mx-[24px] my-[20px]  flex w-[80%] rounded-[20px] bg-regular px-[24px] py-[35px]">
+        <div className="mr-[100px] flex w-[100%] flex-col">
           <h2 className="font-mainText text-[20px] text-main-color">{name}</h2>
           {open && (
             <div className="flex flex-wrap justify-between">
               {blogList?.length &&
                 blogList.map((post, i) => (
-                  <div className="pb-[25px]"  key={Math.random(0, 1)}>
+                  <div className="pb-[25px]" key={Math.random(0, 1)}>
                     <Post
                       post={post}
                       i={i}
@@ -42,7 +41,7 @@ export default function Window({ name, children, edit = false }) {
           )}
         </div>
         <div
-          className="cursor-pointer  absolute right-[34px]"
+          className="absolute  right-[34px] cursor-pointer"
           onClick={() => {
             setOpen(!open);
           }}
@@ -59,13 +58,13 @@ export default function Window({ name, children, edit = false }) {
     );
   } else {
     return (
-      <div className="flex w-[80%] rounded-[20px]  bg-regular px-[24px] py-[35px] mx-[24px] my-[20px] relative">
-        <div className="flex flex-col mr-[100px] w-[100%]">
+      <div className="relative mx-[24px] my-[20px]  flex w-[80%] rounded-[20px] bg-regular px-[24px] py-[35px]">
+        <div className="mr-[100px] flex w-[100%] flex-col">
           <h2 className="font-mainText text-[20px] text-main-color">{name}</h2>
           {open && <div>{children}</div>}
         </div>
         <div
-          className="cursor-pointer  absolute right-[34px]"
+          className="absolute  right-[34px] cursor-pointer"
           onClick={() => {
             setOpen(!open);
           }}

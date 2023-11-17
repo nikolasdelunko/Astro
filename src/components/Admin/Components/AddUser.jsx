@@ -1,19 +1,18 @@
 import React from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { USER_SCHEMA } from "./Settings/Schemes";
-import { registerUser, patchUser } from "../../utils/Api/userApi";
-import { useDispatch, useSelector } from "react-redux";
-import { setTouch } from "../../store/helpers/helpersSlice";
-import { setEditAdmin } from "../../store/admin/adminSlice";
+import { registerUser, patchUser } from "../../../utils/Api/userApi";
+import { setTouch, $touch } from "../../../store/helpersStore";
+import { setEditAdmin, $admin } from "../../../store/adminSlice";
 import { snackActions } from "../../utils/customHooks/useSnackBarUtils";
+import { useStore } from "@nanostores/react";
 
 export default function AddPostBlog({ user }) {
-  const dispatch = useDispatch();
-  const touch = useSelector((state) => state.helpers.touch);
-  const admin = useSelector((state) => state.admin);
+  const touch = useStore($touch);
+  const admin = useStore($admin);
 
   return (
-    <div className="items-start   pt-[25px] pb-[25px]">
+    <div className="items-start   pb-[25px] pt-[25px]">
       <Formik
         initialValues={{
           name: "" || user?.name,
@@ -27,11 +26,8 @@ export default function AddPostBlog({ user }) {
               ? await patchUser(values, admin.user.id)
               : await registerUser(values);
             snackActions.success(resp.data);
-            if (admin.edit)
-              return (
-                dispatch(setTouch(!touch)), dispatch(setEditAdmin(!admin.edit))
-              );
-            else return dispatch(setTouch(!touch));
+            if (admin.edit) return setTouch(!touch), setEditAdmin(!admin.edit);
+            else return setTouch(!touch);
           } catch (e) {
             snackActions.error(e.response.data);
           }
@@ -39,9 +35,9 @@ export default function AddPostBlog({ user }) {
       >
         {({ handleSubmit, isValid, dirty }) => (
           <Form>
-            <div className="w-[100%]  pb-[32px] left-0">
-              <div className="flex flex-col gap-[10px] start pb-[17px]">
-                <h2 className="font-textSec text-text-color text-[20px]">
+            <div className="left-0  w-[100%] pb-[32px]">
+              <div className="start flex flex-col gap-[10px] pb-[17px]">
+                <h2 className="font-textSec text-[20px] text-text-color">
                   name
                 </h2>
               </div>
@@ -52,12 +48,12 @@ export default function AddPostBlog({ user }) {
                 label="name"
                 type="text"
                 placeholder="name"
-                className="w-[100%] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                className="h-[41px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage name="name" component="div" />
-              <div className="flex flex-col gap-[10px] start pb-[17px] pt-[48px]">
-                <div className="flex flex-col gap-[10px] start pb-[17px]">
-                  <h2 className="font-textSec text-text-color text-[20px]">
+              <div className="start flex flex-col gap-[10px] pb-[17px] pt-[48px]">
+                <div className="start flex flex-col gap-[10px] pb-[17px]">
+                  <h2 className="font-textSec text-[20px] text-text-color">
                     email
                   </h2>
                 </div>
@@ -69,11 +65,11 @@ export default function AddPostBlog({ user }) {
                 label="email"
                 type="email"
                 placeholder="email"
-                className="w-[100%] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                className="h-[41px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage name="email" component="div" />
-              <div className="flex flex-col gap-[10px] start pb-[17px] pt-[32px]">
-                <h2 className="font-textSec text-text-color text-[20px]">
+              <div className="start flex flex-col gap-[10px] pb-[17px] pt-[32px]">
+                <h2 className="font-textSec text-[20px] text-text-color">
                   password
                 </h2>
               </div>
@@ -84,11 +80,11 @@ export default function AddPostBlog({ user }) {
                 label="password"
                 type="password"
                 placeholder="password"
-                className="w-[100%] h-[41px] pl-[16px] border-[#C5C3C3] border-[1px] rounded-[8px]"
+                className="h-[41px] w-[100%] rounded-[8px] border-[1px] border-[#C5C3C3] pl-[16px]"
               />
               <ErrorMessage name="password" component="div" />
               <button
-                className="btn-modal-send flex items-center bg-main-color text-white mt-[50px]"
+                className="btn-modal-send mt-[50px] flex items-center bg-main-color text-white"
                 disabled={!isValid && !dirty}
                 type="submit"
                 onClick={handleSubmit}

@@ -1,13 +1,11 @@
 import React, { useState, useRef } from "react";
-import { uploadFile } from "../../../utils/Api/uploadApi";
-import { useDispatch } from "react-redux";
-import { addPost } from "../../../store/admin/adminSlice";
-import { snackActions } from "../../../utils/customHooks/useSnackBarUtils";
+import { uploadFile } from "../../../../utils/Api/uploadApi";
+import { addPost } from "../../../../store/adminSlice";
+// import { snackActions } from "../../../utils/customHooks/useSnackBarUtils";
 
 export default function UploadImage() {
   const [selectedFile, setSelectedFile] = useState(null);
   const filePiker = useRef(null);
-  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -19,19 +17,19 @@ export default function UploadImage() {
 
   const handleUpload = async (data) => {
     if (!data) {
-      snackActions.warning("please select a file");
+      // snackActions.warning("please select a file");
       return;
     } else {
       const formData = new FormData();
       formData.append("image", selectedFile);
       try {
         const a = await uploadFile(formData);
-        dispatch(addPost({ thumbnail: a.data }));
+        addPost({ thumbnail: a.data });
         if (a.status == 200) {
-          snackActions.success("you have successfully download image");
+          // snackActions.success("you have successfully download image");
         }
       } catch (e) {
-        snackActions.error(e.name);
+        // snackActions.error(e.name);
       } finally {
         // await deleteFile();
       }
